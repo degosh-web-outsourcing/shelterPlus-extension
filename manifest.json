@@ -1,0 +1,46 @@
+{
+	"manifest_version": 2,
+	"name": "Shelter+",
+	"description": "Shelter",
+	"version": "1.0.0",
+	
+	"options_page": "options/profiles/profiles.html",
+	"icons": {
+		"128": "imgs/logo/logo.png"
+	},
+	"browser_action": {
+		"default_popup": "popup/popup.html",
+		"default_icon": "imgs/logo/logo.png"
+	},
+	"content_scripts": [
+		{
+			"all_frames": true,
+			"matches": [
+				"<all_urls>",
+				"https://*/*",
+				"http://*/*"
+			],
+			"js": [
+				"additional/jquery-3.6.0.min.js",
+				"modules/adidas.js"
+			]
+		}
+	],
+	"permissions": [
+		"proxy",
+		"storage",
+		"cookies",
+		"activeTab",
+		"*://*/*",
+		"tabs",
+		"webRequest",
+		"webRequestBlocking",
+		"webNavigation",
+		"unlimitedStorage",
+		"<all_urls>"
+	],
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
+	"web_accessible_resources": [
+		"*.json"
+	]
+}

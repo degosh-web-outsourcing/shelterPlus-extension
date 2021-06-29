@@ -1,0 +1,44 @@
+label, h1, h2, h3, h4, h5, a, p, select, option {
+	font-family: Roboto;
+    font-size: 35px;
+}
+
+.keyArea {
+	position: absolute;
+	text-align: center;
+	margin: auto;
+	top: 42.5%;
+	left: 0;
+	right: 0;
+}
+
+.keyArea input {
+    display: inline-block;
+    width: 35%;
+    height: 35px;
+    font-size: 35px;
+}
+
+.keyArea button {
+    display: inline-block;
+    height: 50px;
+    font-size: 35px;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+}
+
+button {
+	background-color: white;
+    font-size: 23px;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 20%;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
