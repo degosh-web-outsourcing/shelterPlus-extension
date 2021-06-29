@@ -6,7 +6,10 @@ chrome.storage.sync.get('license', function (key) {
                 return response.text();
             }).then(function (html) {
                 if (html == "OK") {
-                    window.location.replace('/options/profiles/profiles.html');
+                    alert("Good key!")
+                    //window.location.replace('/options/profiles/profiles.html');
+                } else {
+                    alert("Bad key!")
                 }
             }).catch(function (err) {
                 console.warn('Something went wrong', err);
