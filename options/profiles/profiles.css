@@ -72,7 +72,7 @@
     border-left: none;
     scroll-behavior: smooth;
     background: transparent;
-    margin-bottom: 2%;
+    margin-bottom: 1.25%;
 }
 
 #address1 {
@@ -87,15 +87,21 @@
     margin-left: 2.5%;
 }
 
+#cardInput {
+    position: relative;
+    width: 100%;
+    margin-left: 2.5%;
+}
+
 #cardInput1 {
     position: absolute;
-    width: 25%;
+    width: 65%;
     background-color: #070B06;
     border-radius: 5px;
     border-style: solid;
     border-color: white;
     padding: 1%;
-    z-index: 100;
+    z-index: 50;
 }
 
 #cardInput1 table input {
@@ -120,13 +126,13 @@
 #cardInput2 {
     margin-top: 2.5%;
     position: absolute;
-    width: 25%;
+    width: 65%;
     background-color: #070B06;
     border-radius: 5px;
     border-style: solid;
     border-color: white;
     padding: 1%;
-    margin-left: 10%;
+    margin-left: 27.5%;
     z-index: 1;
 }
 
