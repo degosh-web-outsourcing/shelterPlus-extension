@@ -57,7 +57,7 @@
 .constructor table {
     width: 100%;
     margin-top: 2%;
-    margin-bottom: 5%;
+    margin-bottom: 4%;
 }
 
 .constructorRow input {
@@ -72,7 +72,6 @@
     border-left: none;
     scroll-behavior: smooth;
     background: transparent;
-    margin-bottom: 1.25%;
 }
 
 #address1 {
