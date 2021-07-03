@@ -1,0 +1,17 @@
+table {
+    left: 0%;
+    right: 0%;
+    margin: auto;
+    width: 98%;
+    height: 100%;
+}
+
+img {
+    float: left;
+    height: 50px;
+}
+
+.content {
+    background-color: #0E160C;
+    margin: .5%;
+}

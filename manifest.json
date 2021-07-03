@@ -3,13 +3,9 @@
 	"name": "Shelter+",
 	"description": "Shelter",
 	"version": "1.0.0",
-	"options_page": "options/main/index.html",
-	"icons": {
-		"128": "imgs/logo/logo.png"
-	},
+	"options_page": "options/profiles/profiles.html",
 	"browser_action": {
-		"default_popup": "redirect/redirect.html",
-		"default_icon": "imgs/logo/logo.png"
+		"default_popup": "main/index.html"
 	},
 	"content_scripts": [],
 	"permissions": [

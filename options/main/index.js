@@ -1,1 +1,0 @@
-window.open('../auth/auth.html');
