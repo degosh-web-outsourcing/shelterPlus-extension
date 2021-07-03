@@ -16,25 +16,129 @@
     <div class="navigation">
         <table>
             <tr>
-                <th>
-                    <img src="/imgs/logo/shelterLogo.png">
+                <th align="left">
+                    <img id="shelterLogo" src="/imgs/logo/shelterLogo.png">
                 </th>
                 <th>
                     <a class="navText">Профили</a>
                     <a class="navText" id="middleNavText">Модули</a>
                     <a class="navText">Настройки</a>
                 </th>
-                <th style="float: right;">
-                    <img src="/imgs/logo/degoshLogo.svg">
+                <th align="right">
+                    <img id="degoshLogo" src="/imgs/logo/degoshLogo.svg">
                 </th>
             </tr>
         </table>
     </div>
 
     <div class="content">
-        3232323232
-    </div>
+        <div class="profilesList">
+            <div class="whiteBar">
+                <a id="profile">Профиль</a>
+                <a id="country">Страна</a>
+                <a id="card">Карта</a>
+            </div>
+        </div>
+        <div class="constructor">
+            <div class="whiteBar">
+                <div class="leftSideConstructorControl">
+                    <a id="import">Импорт</a>
+                    <a id="export">Экспорт</a>
+                </div>
+                <div class="rightSideConstructorControl">
+                    <a id="test">Тест</a>
+                    <a id="clear">Очистить</a>
+                </div>
+            </div>
+            <table class="constructorRow">
+                <tr>
+                    <th>
+                        <input class="leftInput" type="text" placeholder="Имя">
+                        <input class="rightInput" type="text" placeholder="Телефон">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input class="leftInput" type="text" placeholder="Фамилия">
+                        <input class="rightInput" type="text" placeholder="Email">
+                    </th>
+                </tr>
+            </table>
+            <table class="constructorRow">
+                <tr>
+                    <th>
+                        <input class="leftInput" type="text" placeholder="Страна">
+                        <input class="rightInput" type="text" placeholder="Область">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input class="leftInput" type="text" placeholder="Город">
+                        <input class="rightInput" type="text" placeholder="Индекс">
+                    </th>
+                </tr>
+            </table>
+            <table class="constructorRow">
+                <tr>
+                    <th colspan="2">
+                        <input id="address1" type="text" placeholder="Адресс 1">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input style="width: 69%;" class="leftInput" type="text" placeholder="Адресс 2">
+                        <input style="width: 20%;" class="rightInput" type="text" placeholder="Квартира">
+                    </th>
+                </tr>
+            </table>
+            <div style="margin-left: 10%;" id="cardInput">
+                <div id="cardInput1">
+                    <table>
+                        <tr>
+                            <th>
+                                <input type="text" placeholder="Номер карты">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <input type="text" placeholder="Имя владельца">
+                            </th>
+                        </tr>
+                    </table>
 
+                    <table>
+                        <tr>
+                            <th align="left" style="padding-left: 2.5%;">
+                                <input id="exdate" type="text" placeholder="ММГГ">
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+                <div id="cardInput2">
+                    <table>
+                        <tr>
+                            <th>
+                                <input style="width: 10%;" type="text" placeholder="Номер карты">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <input style="width: 10%;" type="text" placeholder="Имя владельца">
+                            </th>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr>
+                            <th align="right" style="padding-right: 2.5%;   ">
+                                <input id="exdate" type="text" placeholder="CVV">
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

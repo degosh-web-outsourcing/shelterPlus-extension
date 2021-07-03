@@ -1,1 +1,1 @@
-window.open('/options/main/index.html');
+window.open('/options/profiles/profiles.html');

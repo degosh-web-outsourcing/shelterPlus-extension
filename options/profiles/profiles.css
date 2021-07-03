@@ -1,17 +1,146 @@
-table {
-    left: 0%;
-    right: 0%;
-    margin: auto;
-    width: 98%;
-    height: 100%;
-}
-
-img {
-    float: left;
-    height: 50px;
-}
-
 .content {
-    background-color: #0E160C;
     margin: .5%;
+}
+
+.profilesList {
+    float: left;
+    height: 100%;
+    width: 49.85%;
+    background-color: #0E160C;
+}
+
+.whiteBar {
+    height: 4%;
+    border-radius: 5px;
+    padding-left: 1%;
+    padding-right: 1%;
+    background-color: white;
+}
+
+.whiteBar a {
+    line-height: 100%;
+    font-size: 30px;
+    font-weight: 100;
+}
+
+.whiteBar #profile {
+    margin-right: 17.5%;
+}
+
+.whiteBar #country {
+    margin-right: 17.5%;
+}
+
+.constructor {
+    float: right;
+    height: 100%;
+    width: 49.85%;
+    background-color: #0E160C;
+}
+
+.leftSideConstructorControl {
+    float: left;
+}
+
+.rightSideConstructorControl {
+    float: right;
+}
+
+#import {
+    margin-right: 10px;
+}
+
+#clear {
+    margin-left: 10px;
+}
+
+.constructor table {
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+.constructorRow input {
+    width: 44.5%;
+    font-family: Roboto;
+    font-size: 23px;
+    font-style: normal;
+    color: white;
+    border-bottom: 2px solid white;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    scroll-behavior: smooth;
+    background: transparent;
+    margin-bottom: 2%;
+}
+
+#address1 {
+    width: 94.85%;
+}
+
+.leftInput {
+    margin-right: 2.5%;
+}
+
+.rightInput {
+    margin-left: 2.5%;
+}
+
+#cardInput1 {
+    position: absolute;
+    width: 25%;
+    background-color: #070B06;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: white;
+    padding: 1%;
+    z-index: 100;
+}
+
+#cardInput1 table input {
+    width: 95%;
+    font-family: Roboto;
+    font-size: 23px;
+    font-style: normal;
+    color: white;
+    border-bottom: 2px solid white;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    scroll-behavior: smooth;
+    background: transparent;
+    margin-bottom: 2%;
+}
+
+#exdate {
+    width: 30% !important;
+}
+
+#cardInput2 {
+    margin-top: 2.5%;
+    position: absolute;
+    width: 25%;
+    background-color: #070B06;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: white;
+    padding: 1%;
+    margin-left: 10%;
+    z-index: 1;
+}
+
+#cardInput2 table input {
+    width: 95%;
+    font-family: Roboto;
+    font-size: 23px;
+    font-style: normal;
+    color: white;
+    border-bottom: 2px solid white;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    scroll-behavior: smooth;
+    background: transparent;
+    margin-bottom: 2%;
 }
