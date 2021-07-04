@@ -72,7 +72,6 @@
     border-left: none;
     scroll-behavior: smooth;
     background: transparent;
-    margin-bottom: 1%;
 }
 
 #address1 {
@@ -116,7 +115,6 @@
     border-left: none;
     scroll-behavior: smooth;
     background: transparent;
-    margin-bottom: 2%;
 }
 
 #exdate {
@@ -151,7 +149,9 @@
     margin-bottom: 2%;
 }
 
-.middle {
-    display: flex;
-    flex-direction: column;
+
+@media screen and (min-height: 800px) {
+    .constructor table input {
+        margin-bottom: 2%;
+    }
 }
