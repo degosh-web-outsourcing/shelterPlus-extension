@@ -1,0 +1,99 @@
+/*basic styles and stuff*/
+label, h1, h2, h3, h4, h5, a, p, select, option { 
+    font-family: Roboto; 
+}
+
+table, tr, th {
+    border: 1px solid white;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+body {
+    background-color: #0A0A0A;
+    position: relative;
+}
+
+/*navigation stuff*/
+.navigation {
+    height: 5%;
+}
+
+#navTable {
+    left: 0%;
+    right: 0%;
+    margin: auto;
+    width: 98%;
+    height: 100%;
+}
+
+.navText {
+    font-family: Roboto;
+    font-weight: bold;
+    color: white;
+    font-size: 30px;
+}
+
+#middleNavText {
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+}
+
+/*#0E160C*/
+/*content div on the left*/
+.content {
+    background-color: #0A0A0A;
+    margin: .5%;
+    height: 92.5%;
+    position: relative;
+}
+
+#moduleBtnsDiv {
+    float: left;
+    width: 18%;
+    height: 100%;
+    margin-left: .5%;
+    background-color: #0E160C;
+}
+
+.moduleDivOff {
+    position: relative;
+    background-color: tomato;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.moduleDivOn {
+    position: relative;
+    background-color: greenyellow;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.moduleDivLogo {
+    position: absolute;
+    border-radius: 10px; 
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 98%;
+    height: 96%;
+    margin: auto;
+    background-color: black;
+}
+
+/*right settings div*/
+#moduleSettingsDiv {
+    float: right;
+    width: 80%;
+    height: 100%;
+    margin-right: .5%;
+    background-color: #0E160C;
+}

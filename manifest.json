@@ -1,0 +1,28 @@
+{
+	"manifest_version": 2,
+	"name": "Shelter+",
+	"description": "Shelter",
+	"version": "1.0.0",
+	"options_page": "/options/modules/modules.html",
+	"browser_action": {
+		"default_popup": "main/index.html"
+	},
+	"content_scripts": [],
+	"permissions": [
+		"proxy",
+		"storage",
+		"cookies",
+		"activeTab",
+		"*://*/*",
+		"tabs",
+		"webRequest",
+		"webRequestBlocking",
+		"webNavigation",
+		"unlimitedStorage",
+		"<all_urls>"
+	],
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
+	"web_accessible_resources": [
+		"*.json"
+	]
+}

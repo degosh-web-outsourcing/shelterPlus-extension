@@ -1,0 +1,1 @@
+window.open('/options/main/index.html');
