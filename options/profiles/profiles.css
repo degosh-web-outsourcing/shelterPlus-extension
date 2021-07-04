@@ -149,3 +149,8 @@
     background: transparent;
     margin-bottom: 2%;
 }
+
+.middle {
+    display: flex;
+    flex-direction: column;
+}
