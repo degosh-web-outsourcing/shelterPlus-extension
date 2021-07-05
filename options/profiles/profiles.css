@@ -109,11 +109,11 @@ input {
 }
 
 #cardInput {
-    flex: 1;
+    flex: 2;
     position: relative;
     width: 100%;
     margin-top: 3.5%;
-    margin-bottom: 5%;
+    margin-bottom: 3.5%;
 }
 
 #cardInput1 {
