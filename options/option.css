@@ -31,9 +31,9 @@ body {
 }
 
 .navigation table {
+    margin: auto;
     left: 0%;
     right: 0%;
-    margin: auto;
     width: 98%;
     height: 100%;
 }
@@ -52,4 +52,30 @@ img #degoshLogo {
 
 .content {
     height: 92.5%;
+}
+
+#attention {
+    display: none;
+    position: absolute;
+    width: 450px;
+    height: 100px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+@media screen and (max-width: 800px) {
+    .navigation {
+        display: none;
+    }
+
+    .content {
+        display: none !important;
+    }
+   
+    #attention {
+        display: inline;
+    }
 }
