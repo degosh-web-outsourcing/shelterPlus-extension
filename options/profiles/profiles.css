@@ -19,6 +19,7 @@ input {
 }
 
 .profilesPlaceholder {
+    align-items: center;
     border-radius: 5px;
     display: flex;
     background-color: white;
@@ -49,6 +50,7 @@ input {
 }
 
 .constructorControl {
+    align-items: center;
     border-radius: 5px;
     display: flex;
     width: 100%;
@@ -59,7 +61,7 @@ input {
 }
 
 #leftSide {
-    margin-left: .5%;
+    margin-left: 2%;
     width: 50%;
 }
 
@@ -72,7 +74,7 @@ input {
 }
 
 #rightSide {
-    margin-right: .5%;
+    margin-right: 2%;
     float: right;
     text-align: right;
     width: 50%;
