@@ -66,21 +66,15 @@ img #degoshLogo {
     margin: auto;
 }
 
-@media screen and (max-width: 800px) and (max-height: 1000px) {
-    .navigation {
+
+@media (max-width: 800px) {
+    #shelterLogo, #degoshLogo, #phCountry, #phCard, #import, #export {
         display: none;
     }
 
-    .content {
-        display: none !important;
-    }
-   
-    #attention {
-        display: inline;
-    }
 }
 
-@media screen and (max-width: 400px) and (max-height: 500px) {
+@media (max-width: 500px), (max-height: 400px) {
     .navigation {
         display: none;
     }
