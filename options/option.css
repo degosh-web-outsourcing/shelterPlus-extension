@@ -5,6 +5,15 @@ html, body {
     overflow: hidden;
 }
 
+input {
+    width: 95%;
+    font-size: 30px;
+    color: white;
+    border: none;
+    border-bottom: 2px solid white;
+    background: transparent;
+}
+
 a {
     text-decoration: none;
 }
