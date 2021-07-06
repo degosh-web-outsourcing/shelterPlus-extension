@@ -1,0 +1,119 @@
+/*basic styles and stuff*/
+label, h1, h2, h3, h4, h5, a, p, select, option { 
+    font-family: Roboto; 
+}
+
+table, tr, th {
+    border: 1px solid white;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+body {
+    background-color: #0A0A0A;
+    position: relative;
+}
+
+/*#0E160C*/
+/*content div on the left*/
+.content {
+    background-color: #0A0A0A;
+    margin: .5%;
+    height: 92.5%;
+    position: relative;
+}
+
+/*left div*/
+#moduleBtnsDiv {
+    float: left;
+    width: 18%;
+    height: 100%;
+    margin-left: .5%;
+    background-color: #0E160C;
+}
+
+#moduleBtnsTable {
+    width: 99%;
+    height: 99%;
+    border: 1px solid white;
+}
+
+.moduleDivOff {
+    position: relative;
+    background-color: tomato;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.moduleDivOn {
+    position: relative;
+    background-color: greenyellow;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.moduleDivLogo {
+    position: absolute;
+    border-radius: 10px; 
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 98%;
+    height: 96%;
+    margin: auto;
+    background-color: black;
+}
+
+.modulePic {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    height: 70%;
+    margin: auto;
+}
+
+/*right settings div*/
+#moduleSettingsDiv {
+    float: right;
+    width: 80%;
+    height: 100%;
+    margin-right: .5%;
+    background-color: #0E160C;
+}
+
+#moduleSettingsTable {
+    width: 100%;
+    height: 99%;
+    border: 1px solid white;
+}
+
+#profileSelectDiv {
+    width: 98%;
+    height: 95%;
+    margin-right: 1%;
+    margin-left: 1%;
+    border-radius: 10px;
+    border: 1px white solid;
+    background-color: #0A0A0A;
+}
+
+#moduleSettings {
+    width: 98%;
+    height: 98%;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    border: 1px white solid;
+    background-color: #0A0A0A;        
+}

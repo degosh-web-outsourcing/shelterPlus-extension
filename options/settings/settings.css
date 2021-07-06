@@ -9,22 +9,6 @@ body {
     position: relative;
 }
 
-.navigation {
-    height: 5%;
-}
-
-.navText {
-    font-family: Roboto;
-    font-weight: bold;
-    color: white;
-    font-size: 30px;
-}
-
-#middleNavText {
-    margin-left: 3.5%;
-    margin-right: 3.5%;
-}
-
 table {
     left: 0%;
     right: 0%;

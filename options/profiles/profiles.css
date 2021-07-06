@@ -11,6 +11,7 @@ input {
     display: flex;
 }
 
+/*left div*/
 .profilesList {
     background-color: #0E160C;
     flex: 1;
@@ -41,6 +42,7 @@ input {
     flex: 1;
 }
 
+/*right div*/
 .constructor {
     background-color: #0E160C;
     height: 100%;
@@ -80,6 +82,7 @@ input {
     width: 50%;
 }
 
+/*правый основной блок с инпутами*/
 .main {
     background-color:#0E160C;
     position: relative;
