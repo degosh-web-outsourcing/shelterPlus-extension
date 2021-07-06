@@ -2,7 +2,7 @@
     display: flex;
 }
 
-/*left div*/
+/*MODULE BTNS LEFT DIV*/
 #moduleBtnsDiv {
     background-color:#0E160C;
     flex: 1;
@@ -59,16 +59,39 @@
     margin-bottom: 8%;
 }
 
+.modulePic {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    height: 65%;
+    margin: auto;
+}
+
 #lowerModuleDiv {
     flex: 5;
 }
 
-/*right div*/
+/*SETTINGS WINDOW RIGHT DIV*/
 #moduleSettingsDiv {
     background-color:#0E160C;
     flex: 5;
     height: 100%;
     margin-left: 0.25%;
     margin-right: .5%;
+
+    display: flex;
+    flex-direction: column;
 }
 
+#useProfileSelect {
+    flex: 1;
+    border: 1px white solid;
+}
+
+#chooseModule {
+    flex: 3;
+    border: 1px white solid;
+}
