@@ -83,11 +83,11 @@ input {
 }
 
 .main {
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 85vh;
-    width: 49.15%;
+    width: 100%;
 }
 
 .row {
@@ -180,7 +180,7 @@ input {
 }
 
 #go {
-    flex: 1;
+    flex: 2;
     font-size: 25px;
     font-weight: 300;
     border-radius: 5px;
