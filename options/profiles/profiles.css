@@ -57,7 +57,7 @@ input {
     border-radius: 5px;
     display: flex;
     background-color: white;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 100;
     height: 5%;
 }
@@ -67,8 +67,12 @@ input {
     width: 50%;
 }
 
-#space {
-    flex: 1;
+#import {
+    margin-right: 2%;
+}
+
+#clear {
+    margin-left: 2%;
 }
 
 #rightSide {
@@ -179,6 +183,7 @@ input {
     height: 4%;
     width: 49.25%;
     margin-bottom: .25%;
+    
 }
 
 @media screen and (max-width: 2000) {
