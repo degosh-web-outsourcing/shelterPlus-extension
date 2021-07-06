@@ -58,7 +58,7 @@ input {
     display: flex;
     background-color: white;
     font-size: 25px;
-    font-weight: 100;
+    font-weight: 400;
     height: 5%;
 }
 
@@ -68,11 +68,11 @@ input {
 }
 
 #import {
-    margin-right: 2%;
+    margin-right: 5%;
 }
 
 #clear {
-    margin-left: 2%;
+    margin-left: 5%;
 }
 
 #rightSide {
@@ -115,10 +115,9 @@ input {
 }
 
 #cardInput {
-    flex: 2;
+    flex: 1;
     position: relative;
     width: 100%;
-    margin-top: 3.5%;
     margin-bottom: 3.5%;
 }
 
@@ -165,7 +164,10 @@ input {
 }
 
 #exdate {
+    position: absolute;
     width: 30%;
+    bottom: 0;
+    margin-bottom: 5%;
 }
 
 #cvv {
@@ -178,6 +180,12 @@ input {
 }
 
 #go {
+    font-size: 25px;
+    font-weight: 300;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    border-color: white;
     position: absolute;
     bottom: 0;
     height: 4%;
