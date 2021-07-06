@@ -74,10 +74,10 @@ input {
 }
 
 #rightSide {
-    margin-right: 2%;
+    position: absolute;
     float: right;
     text-align: right;
-    width: 50%;
+    width: 48%;
 }
 
 .main {
