@@ -35,19 +35,19 @@
         <div id="moduleBtnsDiv">
             <div class="moduleBtnOff" id="adiModuleBtn">
                 <div id="adiPic" class="moduleDivLogo">
-                    <img class="modulePic" src="/imgs/adidasLogo.png">
+                    <img class="modulePic" id="adiModulePic" src="/imgs/adidasLogo.png">
                 </div>
             </div>
 
             <div class="moduleBtnOff" id="kithModuleBtn">
                 <div id="kithPic" class="moduleDivLogo">
-                    <img class="modulePic" src="/imgs/kithLogo.png">
+                    <img class="modulePic" id="kithModulePic" src="/imgs/kithLogo.png">
                 </div>
             </div>
 
             <div class="moduleBtnOff" id="shopifyModuleBtn">
                 <div id="shopifyPic" class="moduleDivLogo">
-                    <img class="modulePic" src="/imgs/shopifyLogo.png">
+                    <img class="modulePic" id="shopifyModulePic" src="/imgs/shopifyLogo.png">
                 </div>
             </div>
 
@@ -59,39 +59,25 @@
         <div id="moduleSettingsDiv">
             <div id="moduleSettingsDiv">
                 <div class="mySelect" id="useProfileSelect">
+                    <div id="chooseProfileTextDiv">
+                        <p id="chooseProfilePtag">Выберите модуль: </p>
+                    </div>
+                    <div id="profileSelectDiv">
+                        <select required id="profileSelect" tabindex="5">
+                            <option hidden value=" " class="roboto">Тестовый профиль</option>
+                        </select>
+                    </div>
+                    <div id="dummySelectDiv">
 
+                    </div>
                 </div>
 
                 <div class="moduleTabMainSpace" id="chooseModule">
-
+                    <div id="chooseModulePtag">
+                        <p>Выберите модуль для настройки</p>
+                    </div>
                 </div>
             </div>
-            <!--
-            <table id="moduleSettingsTable">
-                <tr>
-                    <th style="height: 2%">
-                    </th>
-                </tr>
-                <tr>
-                    <th style="height: 8%;">
-                        <div id="profileSelectDiv">
-                            <select>Select a profile</select>
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <th style="height: 2%;">
-                    </th>
-                </tr>
-                <tr>
-                    <th style="height: 88%;">
-                        <div id="moduleSettings">
-                           <p>выбери модуль бля</p> 
-                        </div>
-                    </th>
-                </tr>
-            </table>
-            -->
         </div>
     </div>
 
