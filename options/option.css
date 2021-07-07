@@ -5,6 +5,10 @@ html, body {
     overflow: hidden;
 }
 
+::selection {
+    background: transparent;
+}
+
 input {
     width: 95%;
     font-size: 30px;
@@ -76,23 +80,19 @@ img #degoshLogo {
     margin: auto;
 }
 
-
 @media (max-width: 800px) {
-    #shelterLogo, #degoshLogo, #phCountry, #phCard, #import, #export {
+    #shelterLogo, #degoshLogo, #phCountry, #phCard, #leftSide {
         display: none;
     }
-
 }
 
 @media (max-width: 500px), (max-height: 400px) {
     .navigation {
         display: none;
     }
-
     .content {
         display: none !important;
     }
-   
     #attention {
         display: inline;
     }

@@ -2,6 +2,23 @@
     display: flex;
 }
 
+#import {
+    margin-right: 50px;
+}
+
+#clear {
+    margin-left: 50px;
+}
+
+#rightSide {
+    flex: 1;
+    text-align: right;
+}
+
+#leftSide {
+    flex: 1;
+}
+
 /*left div*/
 .profilesList {
     background-color: #0E160C;
@@ -11,6 +28,7 @@
 }
 
 .profilesPlaceholder {
+    cursor: default;
     align-items: center;
     border-radius: 5px;
     display: flex;
@@ -43,34 +61,28 @@
 }
 
 .constructorControl {
-    align-items: center;
-    border-radius: 5px;
     display: flex;
+    flex-direction: row;
+    position: relative;
+    border-radius: 5px;
     width: 100%;
     background-color: white;
+    height: 5%;
     font-size: 25px;
     font-weight: 400;
-    height: 5%;
 }
 
-#leftSide {
-    margin-left: 2%;
-    width: 50%;
+#import, #export, #test, #clear {
+    cursor: pointer;
+    flex: 1;
 }
 
 #import {
-    margin-right: 5%;
+    margin-left: 1%;
 }
 
 #clear {
-    margin-left: 5%;
-}
-
-#rightSide {
-    position: absolute;
-    float: right;
-    text-align: right;
-    width: 48%;
+    margin-right: 1%;
 }
 
 /*правый основной блок с инпутами*/

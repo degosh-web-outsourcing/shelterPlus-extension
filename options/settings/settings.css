@@ -59,7 +59,7 @@ table {
 }
 
 .container input:checked~.checkmark {
-	background-color: #DBC9FF;
+	background-color: white;
 }
 
 .checkmark:after {
@@ -102,5 +102,5 @@ table {
 }
 
 .extra {
-	margin-bottom: 5%;
+	margin-bottom: 10% !important;
 }
