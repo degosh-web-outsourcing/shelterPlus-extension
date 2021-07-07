@@ -228,6 +228,9 @@ select:invalid {
 #adiSizesTable {
     border: 1px white solid;
     flex: 5;
+
+    display: flex;
+    flex-direction: column;
 }
 
 #adiSizesTableLowerBtns {
@@ -242,4 +245,58 @@ select:invalid {
     height: 100%;
 
     display: flex;
+}
+
+/*SIZES TABLE STUFF*/
+#sizes35-65 {
+    /*relative to adiSizesTable*/
+    flex: 1;
+    display: flex;
+    border: 1px white solid;
+    flex-direction: row;
+}
+
+.sizeDivOff {
+    /*relative to it's sizes div*/
+    flex: 1;
+    position: relative;
+    background-color: #5A5858;
+    border-radius: 5px;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.sizeBackground {
+    background-color: #0A0A0A;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 2%;
+}
+
+#sizes7-10 {
+    /*relative to adiSizesTable*/
+    flex: 1;
+    display: flex;
+    border: 1px white solid;
+    flex-direction: row;
+}
+
+#sizes105-135 {
+    /*relative to adiSizesTable*/
+    flex: 1;
+    display: flex;
+    border: 1px white solid;
+    flex-direction: row;
+}
+
+#sizes14-19 {
+    /*relative to adiSizesTable*/
+    flex: 1;
+    display: flex;
+    border: 1px white solid;
+    flex-direction: row;
 }
