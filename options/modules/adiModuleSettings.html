@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shelter+ Extension</title>
+    <meta charset="utf-8">
+    <link rel='stylesheet' type='text/css' href="/additional/fonts/roboto.css">
+    <link rel="stylesheet" href="/options/option.css">
+    <link rel="stylesheet" href="./modules.css">
+    <script src="/additional/jquery-3.6.0.min.js"></script>
+    <script src="modules.js"></script>
+</head>
+
+<body>
+
+    <div class="navigation">
+        <table id="navTable">
+            <tr>
+                <th align="left">
+                    <img src="/imgs/logo/shelterLogo.png">
+                </th>
+                <th>
+                    <a href="/options/profiles/profiles.html" class="navText">Профили</a>
+                    <a href="#" class="navText" id="middleNavText">Модули</a>
+                    <a href="/options/settings/settings.html" class="navText">Настройки</a>
+                </th>
+                <th align="right">
+                    <img src="/imgs/logo/degoshLogo.svg">
+                </th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="content">
+        <div id="moduleBtnsDiv">
+            <div class="moduleBtnOff" id="adiModuleBtn">
+                <div id="adiPic" class="moduleDivLogo">
+                    <img class="modulePic" id="adiModulePic" src="/imgs/adidasLogo.png">
+                </div>
+            </div>
+
+            <div class="moduleBtnOff" id="kithModuleBtn">
+                <div id="kithPic" class="moduleDivLogo">
+                    <img class="modulePic" id="kithModulePic" src="/imgs/kithLogo.png">
+                </div>
+            </div>
+
+            <div class="moduleBtnOff" id="shopifyModuleBtn">
+                <div id="shopifyPic" class="moduleDivLogo">
+                    <img class="modulePic" id="shopifyModulePic" src="/imgs/shopifyLogo.png">
+                </div>
+            </div>
+
+            <div id="lowerModuleDiv">
+                <!--takes up space-->
+            </div>
+        </div>
+
+        <div id="moduleSettingsDiv">
+            <div id="moduleSettingsDiv">
+                <div class="mySelect" id="useProfileSelect">
+                    <div id="chooseProfileTextDiv">
+                        <p id="chooseProfilePtag">Выберите модуль: </p>
+                    </div>
+                    <div id="profileSelectDiv">
+                        <select required id="profileSelect" tabindex="5">
+                            <option hidden value=" " class="roboto">Тестовый профиль</option>
+                        </select>
+                    </div>
+                    <div id="dummySelectDiv">
+
+                    </div>
+                </div>
+
+                <div class="moduleTabMainSpace" id="chooseModule">
+                    <div id="adiSettingsContainer">
+                        <div id="adiSizesTableDiv">
+                            <div id="adiSizesTableUpperText">
+                                <p>Автоматически добавлять в корзину размеры (UK)</p>
+                            </div>
+                            <div id="adiSizesTable">
+
+                            </div>
+                            <div id="adiSizesTableLowerBtns">
+
+                            </div>
+                        </div>
+                        <div id="adiActionBtns">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

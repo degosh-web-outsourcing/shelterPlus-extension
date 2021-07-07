@@ -193,3 +193,53 @@ select:invalid {
     color: grey;
 }
 
+/*ADIDAS MODULE SETTINGS*/
+#adiSettingsContainer {
+    display: flex;
+    flex-direction: row;
+    border: white 1px solid;
+    margin-top: 10%;
+    margin-bottom: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    height: 60%;
+}
+
+#adiSizesTableDiv {
+    flex: 1;
+    border: white 1px solid;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#adiSizesTableUpperText {
+   flex: 1; 
+}
+
+#adiSizesTableUpperText p {
+    color: white;
+    font-size: 25px;
+}
+
+#adiSizesTable {
+    border: 1px white solid;
+    flex: 5;
+}
+
+#adiSizesTableLowerBtns {
+    border: 1px white solid;
+    flex: 1;
+}
+
+#adiActionBtns {
+    flex: 1;
+    border: white 1px solid;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+}
