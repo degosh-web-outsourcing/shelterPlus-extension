@@ -9,14 +9,14 @@ a {
 	color: white;
 }
 
-<<<<<<< HEAD
 table {
     left: 0%;
     right: 0%;
     margin: auto;
     width: 98%;
     height: 100%;
-=======
+}
+
 .input {
 	position: relative;
 	margin: auto;
@@ -52,7 +52,6 @@ table {
 	height: 25px;
 	width: 25px;
 	background-color: #eee;
->>>>>>> 8a689761956f8fe287c42c7f49e44a776376e039
 }
 
 .container:hover input~.checkmark {
