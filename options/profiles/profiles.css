@@ -27,7 +27,7 @@
     margin-right: .25%;
 }
 
-.profilesPlaceholder, .profile {
+.profilesPlaceholder, .constructorControl, .profile {
     cursor: default;
     align-items: center;
     border-radius: 5px;
