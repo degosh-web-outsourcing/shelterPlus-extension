@@ -32,13 +32,45 @@ $(function () {
     });
 
     $('#import').on('click', function () {
-        $('#upload').trigger('click');
+        $('#upload').click();
+
+        const input = document.getElementById('upload');
+        input.addEventListener('change', function (e) {
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                console.log(reader.result);
+            }
+
+            reader.readAsText(input.files[0]);
+
+            setTimeout(function() {
+                chrome.storage.local.get('profiles', function (list) {
+                    var newProfilesList = (JSON.parse(reader.result));
+    
+                    for (var j = 0; j < list.profiles.length; j++) {
+                        for (var i = 0; i < newProfilesList.profiles.length; i++) {
+                            if (list.profiles[j].profileName == newProfilesList.profiles[i].profileName) {
+                                newProfilesList.profiles[i].profileName += "!";
+                            }
+                        }
+                    }
+    
+                    let update = list.profiles;
+    
+                    for (var i = 0; i < newProfilesList.profiles.length; i++) {
+                        update.push(newProfilesList.profiles[i]);
+                    }
+    
+                    chrome.storage.local.set({ 'profiles': update });
+                    location.reload();
+                });
+            }, 250);
+
+        });
     });
 
-    $('#upload').on('click', function () {
-        var files = document.getElementById('upload').files;
-        console.log(files);
-    });
+
 
     $('#go').on('click', function () {
         if ($('#profileName').val().length) {
