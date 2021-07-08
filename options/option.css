@@ -22,6 +22,12 @@ input {
     background: transparent;
 }
 
+@media screen and (max-height: 800px) {
+    input {
+        font-size: 20px;
+    }
+}
+
 a {
     text-decoration: none;
 }
