@@ -24,6 +24,7 @@
                     <a href="#" class="navText">Профили</a>
                     <a href="/options/modules/modules.html" class="navText" id="middleNavText">Модули</a>
                     <a href="/options/settings/settings.html" class="navText">Настройки</a>
+                    <input style="display: none;" type="file" name="import" id="upload" accept="application/json">
                 </th>
                 <th align="right">
                     <img id="degoshLogo" src="/imgs/logo/degoshLogo.svg">
@@ -34,29 +35,11 @@
 
     <div class="content">
         <!--profiles on the left-->
-        <div class="profilesList">
+        <div id="profilesList">
             <div class="profilesPlaceholder">
                 <a id="phName">Профиль</a>
                 <a id="phCountry">Страна</a>
                 <a id="phCard">Карта</a>
-                <a class="trash">[X]</a>
-            </div>
-            <div class="profile">
-                <a class="name">Основной</a>
-                <a class="country">Россия</a>
-                <a class="card">3869</a>
-                <a class="trash">[X]</a>
-            </div>
-            <div class="profile">
-                <a class="name">Тестовый</a>
-                <a class="country">Россия</a>
-                <a class="card">4242</a>
-                <a class="trash">[X]</a>
-            </div>
-            <div class="profile">
-                <a class="name">Максим</a>
-                <a class="country">Россия</a>
-                <a class="card">5555</a>
                 <a class="trash">[X]</a>
             </div>
         </div>
@@ -109,11 +92,11 @@
                 <div id="cardInput" class="extra">
                     <div id="cardInput1" class="extra">
                         <input id="bname" type="text" placeholder="Имя владельца">
-                        <input id="cardNumber" type="text" placeholder="Номер карты">
-                        <input id="expdate" type="text" placeholder="ММГГ">
+                        <input id="cardNumber" type="text" maxlength='19' placeholder="Номер карты">
+                        <input id="expdate" type="text" maxlength='4' placeholder="ММГГ">
                     </div>
                     <div id="cardInput2">
-                        <input id="cvv" type="text" placeholder="CVV">
+                        <input id="cvv" type="text" maxlength='3' placeholder="CVV">
                     </div>
                 </div>
 
