@@ -41,6 +41,12 @@ body {
     height: 10%;
 }
 
+.navigation a:hover {
+    border: 0px;
+    border-bottom: 2px;
+    border-style: solid;
+}
+
 .navText {
     font-family: Roboto;
     font-weight: bold;
