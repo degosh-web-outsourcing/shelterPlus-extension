@@ -20,7 +20,7 @@
 }
 
 /*left div*/
-.profilesList {
+#profilesList {
     background-color: #0E160C;
     flex: 1;
     margin-left: .5%;

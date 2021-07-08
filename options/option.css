@@ -85,7 +85,7 @@ img #degoshLogo {
 }
 
 @media (max-width: 800px) {
-    #shelterLogo, #degoshLogo, #phCountry, #phCard, #leftSide {
+    #shelterLogo, #degoshLogo, #phCountry, #phCard, #leftSide, .country, .card {
         display: none;
     }
 }
