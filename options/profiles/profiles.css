@@ -125,6 +125,10 @@
     margin-top: 2%;
 }
 
+.small {
+    margin-top: 1%;
+}
+
 .row input {
     flex-direction: row;
     justify-content: center;
