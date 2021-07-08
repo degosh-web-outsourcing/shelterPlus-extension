@@ -13,13 +13,30 @@ html, body {
     background: transparent;
 }
 
-input {
+select, input {
     width: 95%;
     font-size: 28px;
     color: white;
     border: none;
     border-bottom: 2px solid white;
     background: transparent;
+}
+
+input {
+    padding-left: .5%;
+}
+
+select {
+    -webkit-appearance: menulist-button;
+}
+
+select:invalid {
+    color: grey;
+}
+
+select, option {
+    color: grey;
+    font-weight: 500;
 }
 
 @media screen and (max-height: 800px) {
