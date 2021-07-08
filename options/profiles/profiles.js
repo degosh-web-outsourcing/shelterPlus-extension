@@ -14,13 +14,58 @@ $(function () {
 });
 
 $(function () {
-    $('#go').on('click', function () {
-        Object.keys(profile).forEach(id => {
-            profile[id] = $(`#${id}`).val();
-        });
+    $('#export').on('click', function () {
+        function download(filename, text) {
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
 
-        pushProfile(profile);
-        createProfile(profile);
+        chrome.storage.local.get("profiles", function (obj) {
+            console.log(JSON.stringify(obj))
+            download("shelterPlusExtension.json", JSON.stringify(obj));
+        });
+    });
+
+    $('#import').on('click', function () {
+        $('#upload').trigger('click');
+    });
+
+    $('#upload').on('click', function () {
+        var files = document.getElementById('upload').files;
+        console.log(files);
+    });
+
+    $('#go').on('click', function () {
+        if ($('#profileName').val().length) {
+            Object.keys(profile).forEach(id => {
+                profile[id] = $(`#${id}`).val();
+            });
+
+            let unique = true;
+
+            chrome.storage.local.get('profiles', function (list) {
+                for (let i = 0; i < list.profiles.length; i++) {
+                    if ((list.profiles[i])['profileName'] == profile['profileName']) {
+                        unique = false;
+                    }
+                }
+            });
+
+
+            setTimeout(function () {
+                if (unique) {
+                    pushProfile(profile);
+                    createProfile(profile);
+                } else {
+                    rewriteProfile(profile);
+                }
+            }, 250);
+        }
     });
 
     $('#test').on('click', function () {
@@ -68,6 +113,14 @@ function pushProfile(newProfile) {
     let { profileName, country, cardNumber } = newProfile;
     let cardEnding = cardNumber[15] + cardNumber[16] + cardNumber[17] + cardNumber[18];
     var profilesPlace = document.getElementById("profilesList");
+
+    if (!cardNumber.length) {
+        cardEnding = "Нет"
+    }
+
+    if (!country.length) {
+        country = "Нет"
+    }
 
     profilesPlace.insertAdjacentHTML('beforeend', `
             <div id="${profileName}" class="profile">
@@ -121,5 +174,16 @@ function createProfile(newProfile) {
 function readProfile(profile) {
     Object.keys(profile).forEach(id => {
         $(`#${id}`).val(profile[id]);
+    });
+}
+
+function rewriteProfile(profile) {
+    chrome.storage.local.get('profiles', function (list) {
+        for (let i = 0; i < list.profiles.length; i++) {
+            if ((list.profiles[i])['profileName'] == profile['profileName']) {
+                list.profiles[i] = profile;
+                chrome.storage.local.set({ 'profiles': list.profiles });
+            }
+        }
     });
 }
