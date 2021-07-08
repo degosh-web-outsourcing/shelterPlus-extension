@@ -27,7 +27,7 @@
     margin-right: .25%;
 }
 
-.profilesPlaceholder {
+.profilesPlaceholder, .profile {
     cursor: default;
     align-items: center;
     border-radius: 5px;
@@ -38,17 +38,32 @@
     height: 5%;
 }
 
-#phName {
+.profilesPlaceholder {
+    margin-bottom: 1.5%;
+}
+
+.profile {
+    margin-top: .5%;
+    color: white;
+    background-color: #0A0A0A;
+}
+
+#phName, .name {
     margin-left: .5%;
     flex: 1;
 }
 
-#phCountry {
+#phCountry, .country {
     flex: 1;
 }
 
-#phCard {
+#phCard, .card {
     flex: 1;
+}
+
+.trash {
+    margin-right: 1%;
+    color: white;
 }
 
 /*right div*/
