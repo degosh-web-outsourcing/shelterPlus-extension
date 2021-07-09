@@ -1,178 +1,270 @@
-.content {
-    display: flex;
-}
-
-/*MODULE BTNS LEFT DIV*/
-#moduleBtnsDiv {
-    background-color:#0E160C;
+/*LEFT BTNS BAR */
+.moduleBtnsDiv {
+    /*relative to .content*/
     flex: 1;
-    height: 96.5%;
-    margin-left: .5%;
-    margin-right: .25%;    
+    background-color: #0E160C;
+    border: 1px white solid;
+    height: 92.5%;
+
     display: flex;
     flex-direction: column;
+    gap: 2%;
 }
 
 .moduleBtnOff {
+    /*relative to the .moduleBtnsDiv*/
+    flex: 1;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
     background-color: #5A5858;
-    position: relative;
     border-radius: 5px;
+    border: 1px white solid;
+
+    position: relative;
 }
 
 .moduleBtnOn {
-    background-color: #139420;
+    /*relative to the .moduleBtnsDiv*/
+    flex: 1;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #3BEB4C;
+    border-radius: 5px;
+    border: 1px white solid;
+
     position: relative;
-    border-radius: 5px;
 }
 
-.moduleDivLogo {
-    background-color: black;
+.moduleLogoBackgroundDiv {
+    /*relative to the .moduleBtnOff*/
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: 1%;
+    background-color: #0A0A0A;
+    top: 5%;
+    bottom: 5%;
+    left: 2%;
+    right: 2%;
     border-radius: 5px;
-}
-
-#adiModuleBtn {
-    flex: 1;
-    margin-left: 8%;
-    margin-right: 8%;
-    margin-top: 8%;
-    margin-bottom: 8%;
-}
-
-#kithModuleBtn {
-    flex: 1;
-    /*no top margin !*/
-    margin-left: 8%;
-    margin-right: 8%;
-    margin-bottom: 8%;
-}
-
-#shopifyModuleBtn {
-    flex: 1;
-    margin-left: 8%;
-    margin-right: 8%;
-    margin-bottom: 8%;
-}
-
-.modulePic {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
     margin: auto;
 }
 
-#adiModulePic {
-    width: 60%;
-    height: 65%;
-}
-
-#kithModulePic {
-    width: 50%;
-    height: 60%;
-}
-
-#shopifyModulePic {
-    width: 50%;
-    height: 60%;
-}
-
 #lowerModuleDiv {
+    /*relative to the .moduleBtnsDiv*/
     flex: 5;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border: 1px white solid;
 }
 
-/*SETTINGS WINDOW RIGHT DIV*/
-#moduleSettingsDiv {
-    background-color:#0E160C;
+#adiModuleLogoImg {
+    /*relative to the .moduleBtnsDiv*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#shopifyModuleLogoImg {
+    /*relative to the .moduleBtnsDiv*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto; 
+    width: 70%; /* you can use % */
+    height: auto;
+} 
+
+#shopifyModuleLogoImg {
+    /*relative to the .moduleBtnsDiv*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#kithModuleLogoImg {
+    /*relative to the .moduleBtnsDiv*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/*RIGHT MODULE SETTINGS TAB*/
+.moduleSettingsDiv {
+    /*relative to .content*/
     flex: 5;
-    height: 96.5%;
-    margin-left: 0.25%;
-    margin-right: .5%;
+    background-color: #0E160C;
+    border: 1px white solid;
+    height: 92.5%;
+    position: relative;
 
     display: flex;
     flex-direction: column;
+    gap: 2%;
 }
 
-#useProfileSelect {
+#MSupperDiv {
+    /*relative to .moduleSettingsDiv*/
     flex: 1;
-    margin: 1.5%;
-    background-color: black;
+    width: 96%;
+    margin-left: 1%;
+    margin-right: 1%;
+    border-radius: 5px;
+    background-color: #0E160C;
+    border: 1px white solid;
 
     display: flex;
     flex-direction: row;
 }
 
-#chooseProfileTextDiv {
-    flex: 1;
+#MSupperLeftTextDiv {
+    /*relative to .MSupperDiv */
+    flex: 2;
+    border: white 1px solid;
 
     position: relative;
 }
 
-#chooseProfilePtag { 
+#MSupperLeftTextDiv p {
+    font-size: 20px;
     color: white;
-    font-size: 25px;
+
     position: absolute;
-    left: 0;
-    right: 0;
+    margin: auto;
     top: 0;
     bottom: 0;
-    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
 }
 
-#profileSelectDiv {
+#MSupperSelectDiv {
+    /*relative to .MSupperDiv */
+    flex: 2;
+    border: white 1px solid;
+}
+
+#MSupperDummyDiv {
+    /*relative to .MSupperDiv */
     flex: 3;
-
-    position: relative;
+    border: white 1px solid;
 }
 
-#profileSelect {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-}
-
-#dummySelectDiv {
-    flex: auto;
-}
-
-#chooseModule {
+/*TABLE WITH SIZES AND ACTION BTNS*/
+#MSlowerDiv {
+    /*relative to .moduleSettingsDiv*/
     flex: 16;
-    margin-left: 1.5%;
-    margin-right: 1.5%;
-    margin-bottom: 1.5%;
-    background-color: black;
+    width: 96%;
+    margin-left: 1%;
+    margin-right: 1%;
+    border-radius: 5px;
+    background-color: #0E160C;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border: 1px white solid;
 
+    display: flex;
+    flex-direction: row;
+}
+
+#MSlowerLeftDiv {
+    /*relative to #MSlowerDiv*/
+    flex: 1;
+    border: 1px white solid;
+    height: 90%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#MSLLtextDiv {
+    /*relative to #MSlowerLeftDiv */
+    flex: 1;
+    width: 100%;
+    border: 1px white solid;
+}
+
+#MSLLtableDiv {
+    /*relative to #MSlowerLeftDiv */
+    flex: 7;
+    width: 92%;
+    height: 92%;
+    margin: 4%;
+    border: 1px white solid;
+
+    display: flex;
+    gap: 4%;
+    flex-direction: column;
+}
+
+.adiTableRow {
+    /*relative to #MSLLtableDiv*/
+    flex: 1;
+    width: 100%;
+    border: 1px white solid;
+
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+}
+
+.sizeDivOff {
+    /*relative to .adiTableRow*/
+    flex: 1;
     position: relative;
+    background-color: #5A5858;
+    border-radius: 5px;
 }
 
-#chooseModulePtag {
+.sizeDivOn {
+    /*relative to .adiTableRow*/
+    flex: 1;
+    position: relative;
+    border-radius: 5px;
+    background-color: #3BEB4C;
+}
+
+.sizeBackground {
     position: absolute;
-
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    top: 1%;
+    bottom: 1%;
+    left: 1%;
+    right: 1%;
     margin: auto;
+    background-color: #0A0A0A;
+    border-radius: 5px;
 }
 
-#chooseModulePtag p {
-    color: white;
-    font-size: 25px;
+#MSLLtableBtnsDiv {
+    /*relative to #MSlowerLeftDiv */
+    flex: 1;
+    width: 100%;
+    border: 1px white solid;
 }
 
-/*SELECT CSS*/
+
+#MSlowerRightDiv {    
+    /*relative to #MSlowerDiv*/
+    flex: 1;
+    border: 1px white solid;
+    height: 90%;
+}
+
+/*OTHER*/
 select, input {
     font-family: Roboto;
-    font-size: 25px;
+    font-size: 20px;
     font-style: normal;
     color: white;
     border-bottom: 2px solid white;
@@ -190,172 +282,5 @@ select {
 }
 
 select:invalid {
-    color: grey;
-}
-
-/*ADIDAS MODULE SETTINGS*/
-#adiSettingsContainer {
-    display: flex;
-    flex-direction: row;
-    border: white 1px solid;
-    margin-top: 10%;
-    margin-bottom: 30%;
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
-    height: 60%;
-}
-
-#adiSizesTableDiv {
-    flex: 1;
-    border: white 1px solid;
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-}
-
-#adiSizesTableUpperText {
-   flex: 1; 
-}
-
-#adiSizesTableUpperText p {
-    color: white;
-    font-size: 25px;
-}
-
-#adiSizesTable {
-    border: 1px white solid;
-    flex: 5;
-
-    display: flex;
-    flex-direction: column;
-}
-
-/*here*/
-#adiSizesTableLowerBtns {
-    border: 1px white solid;
-    flex: 1;
-
-    display: flex;
-    flex-direction: row;
-}
-
-#lowerLeftBtnDiv {
-    flex: 1;
-    width: 95%;
-    height: 95%;
-    margin-left: 1%;
-    margin-right: .5%;
-    border: white solid 1px;
-
-    position: relative;
-}
-
-#lowerRightBtnDiv {
-    flex: 1;
-    width: 95%;
-    height: 95%;
-    margin-left: 1%;
-    margin-right: .5%;
-    border: white solid 1px;
-
-    position: relative;
-}
-
-.lowerBtnOff {
-    background-color: #5A5858;
-    border-radius: 5px;
-}
-
-.lowerBtnNumberBackground {
-    /*relative to lowerLeft/RightBtnDiv*/
-    position: absolute;
-    width: 97%;
-    height: 80%;
-    border-radius: 5px;
-
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-
-    background-color: #0A0A0A;
-}
-
-.lowerBtnNumberBackground p {
-    color: white;
-    font-size: 10px;
-}
-
-
-
-/*SIZES TABLE STUFF*/
-#sizes35-65 {
-    /*relative to adiSizesTable*/
-    flex: 1;
-    display: flex;
-    border: 1px white solid;
-    flex-direction: row;
-}
-
-.sizeDivOff {
-    /*relative to it's sizes div*/
-    flex: 1;
-    position: relative;
-    background-color: #5A5858;
-    border-radius: 5px;
-    margin-left: 1%;
-    margin-right: 1%;
-}
-
-.sizeBackground {
-    background-color: #0A0A0A;
-    border-radius: 5px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: 2%;
-}
-
-.sizeBackground p {
-    font-size: 10px;
-    color: white;
-}
-
-#sizes7-10 {
-    /*relative to adiSizesTable*/
-    flex: 1;
-    display: flex;
-    border: 1px white solid;
-    flex-direction: row;
-}
-
-#sizes105-135 {
-    /*relative to adiSizesTable*/
-    flex: 1;
-    display: flex;
-    border: 1px white solid;
-    flex-direction: row;
-}
-
-#sizes14-19 {
-    /*relative to adiSizesTable*/
-    flex: 1;
-    display: flex;
-    border: 1px white solid;
-    flex-direction: row;
-}
-
-#adiActionBtns {
-    flex: 1;
-    border: white 1px solid;
-    width: 100%;
-    height: 100%;
-
-    display: flex;
+    color: #5A5858;
 }
