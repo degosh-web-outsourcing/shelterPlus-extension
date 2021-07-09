@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <!--подчеркивать активную вкладку-->
+
     <div class="navigation">
         <table id="navTable">
             <tr>
@@ -21,9 +21,9 @@
                         <img src="/imgs/logo/shelterLogo.png">
                     </a>
                 </th>
-                <th>
+                <th class="navUnderlineA">
                     <a href="/options/profiles/profiles.html" class="navText">Профили</a>
-                    <a href="#" class="navText" id="middleNavText">Модули</a>
+                    <a href="/options/modules/modules.html" class="navText" id="middleNavText">Модули</a>
                     <a href="/options/settings/settings.html" class="navText">Настройки</a>
                 </th>
                 <th align="right">
@@ -36,8 +36,224 @@
     </div>
 
     <div class="content">
-        <p style="color: white; font-size: 20px;">adi Module Settings</p>
+        <div class="moduleBtnsDiv">
+            <div class="moduleBtnOff" id="adiModuleBtnDiv">
+                <div  class="moduleLogoBackgroundDiv">
+                    <a href="/options/modules/adiModuleSettings.html">
+                        <img class="moduleLogoImg" id="adiModuleLogoImg" src="/imgs/adiLogo.png">
+                    </a>
+                </div>
+            </div>
+
+            <div class="moduleBtnOff" id="kithModuleBtnDiv">
+                <div class="moduleLogoBackgroundDiv">
+                    <a href="/options/modules/kithModuleSettings.html">
+                        <img class="moduleLogoImg" id="kithModuleLogoImg" src="/imgs/kithLogo.jpeg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="moduleBtnOff" id="shopifyModuleBtnDiv">
+                <div class="moduleLogoBackgroundDiv">
+                    <a href="/options/modules/shopifyModuleSettings.html">
+                        <img class="moduleLogoImg" id="shopifyModuleLogoImg" src="/imgs/shopifyLogo.png">
+                    </a>
+                </div>
+            </div>
+
+            <div id="lowerModuleDiv">
+                <!--takes up space-->
+            </div>
+
+        </div>
+        <div class="moduleSettingsDiv">
+            <div id="MSupperDiv">
+                <div id="MSupperLeftTextDiv">
+                    <p>Использовать профиль: </p>
+                </div>
+
+                <div id="MSupperSelectDiv">
+                    <select required id="MSprofileSelect">
+                        <option hidden value=" "><p>Тестовый профиль</p></option>
+                        <option value="1"><p>test1</p></option>
+                        <option value="2"><p>test2</p></option>
+                    </select>
+                </div>
+
+                <div id="MSupperDummyDiv">
+                </div>
+            </div>
+
+            <div id="MSlowerDiv">
+                <div id="MSlowerLeftDiv">
+                    <div id="MSLLtextDiv">
+                        <p>таблица</p>
+                    </div>
+                    <div id="MSLLtableDiv">
+                        <div id="sizes35-65" class="adiTableRow">
+                            <div id="adi35" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>3.5</p>
+                                </div>
+                            </div>
+                            <div id="adi4" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>4</p>
+                                </div>
+                            </div>
+                            <div id="adi45" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>4.5</p>
+                                </div>
+                            </div>
+                            <div id="adi5" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>5</p>
+                                </div>
+                            </div>
+                            <div id="adi55" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>5.5</p>
+                                </div>
+                            </div>
+                            <div id="adi6" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>6</p>
+                                </div>
+                            </div>
+                            <div id="adi6.5" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>6.5</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="sizes7-10" class="adiTableRow">
+                            <div id="adi7" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>7</p>
+                                </div>
+                            </div>
+                            <div id="adi75" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>7.5</p>
+                                </div>
+                            </div>
+                            <div id="adi8" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>8</p>
+                                </div>
+                            </div>
+                            <div id="adi85" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>8.5</p>
+                                </div>
+                            </div>
+                            <div id="adi9" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>9</p>
+                                </div>
+                            </div>
+                            <div id="adi95" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>9.5</p>
+                                </div>
+                            </div>
+                            <div id="adi10" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>10</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="105-135" class="adiTableRow">
+                            <div id="adi105" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>10.5</p>
+                                </div>
+                            </div>
+                            <div id="adi11" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>11</p>
+                                </div>
+                            </div>
+                            <div id="adi11.5" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>11.5</p>
+                                </div>
+                            </div>
+                            <div id="adi12" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>12</p>
+                                </div>
+                            </div>
+                            <div id="adi125" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>12.5</p>
+                                </div>
+                            </div>
+                            <div id="adi13" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>13</p>
+                                </div>
+                            </div>
+                            <div id="adi13.5" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>13.5</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="14-19" class="adiTableRow">
+                            <div id="adi14" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>14</p>
+                                </div>
+                            </div>
+                            <div id="adi14.5" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>14.5</p>
+                                </div>
+                            </div>
+                            <div id="adi15" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>15</p>
+                                </div>
+                            </div>
+                            <div id="adi16" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>16</p>
+                                </div>
+                            </div>
+                            <div id="adi17" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>17</p>
+                                </div>
+                            </div>
+                            <div id="adi18" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>18</p>
+                                </div>
+                            </div>
+                            <div id="adi19" class="sizeDivOff">
+                                <div class="sizeBackground">
+                                    <p>19</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div id="MSLLtableBtnsDiv">
+                        
+                    </div>
+                </div>
+                <div id="MSlowerRightDiv">
+
+                </div>
+            </div>
+        </div>
     </div>
+
 
 </body>
 </html>

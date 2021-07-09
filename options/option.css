@@ -1,3 +1,4 @@
+/*BASIC CSS FONTS AND STUFF*/
 label, h1, h2, h3, h4, h5, a, p, button {
     font-family: Roboto;
 }
@@ -9,40 +10,26 @@ html, body {
     overflow: hidden;
 }
 
+.content {
+    height: 92.5%;
+    position: relative;
+
+    display: flex;
+    gap: 1%;
+    flex-direction: row;
+}
+
 ::selection {
     background: transparent;
 }
 
-select, input {
+input {
     width: 95%;
-    font-size: 28px;
+    font-size: 30px;
     color: white;
     border: none;
     border-bottom: 2px solid white;
     background: transparent;
-}
-
-input {
-    padding-left: .5%;
-}
-
-select {
-    -webkit-appearance: menulist-button;
-}
-
-select:invalid {
-    color: grey;
-}
-
-select, option {
-    color: grey;
-    font-weight: 500;
-}
-
-@media screen and (max-height: 800px) {
-    input {
-        font-size: 20px;
-    }
 }
 
 a {
@@ -54,21 +41,22 @@ body {
     background-color: #0A0A0A;
 }
 
+/*NAVIGATION STUFF*/
 .navigation {
     height: 10%;
-}
-
-.navigation a:hover {
-    border: 0px;
-    border-bottom: 2px;
-    border-style: solid;
 }
 
 .navText {
     font-family: Roboto;
     font-weight: bold;
     color: white;
-    font-size: 30px;
+    font-size: 25px;
+}
+
+.navUnderlineA a:hover {
+    border: 0px;
+    border-bottom: 2px;
+    border-style: solid;
 }
 
 #middleNavText {
@@ -84,6 +72,7 @@ body {
     height: 100%;
 }
 
+/*IMAGES AND LOGOS STUFF*/
 img {
     height: 50px;
 }
@@ -94,11 +83,6 @@ img #shelterLogo {
 
 img #degoshLogo {
     float: right;
-}
-
-.content {
-    display: flex;
-    height: 92.5%;
 }
 
 #attention {
@@ -113,6 +97,7 @@ img #degoshLogo {
     margin: auto;
 }
 
+/*MEDIA ADAPTIVE STUFF*/
 @media (max-width: 800px) {
     #shelterLogo, #degoshLogo, #phCountry, #phCard, #leftSide, .country, .card {
         display: none;
