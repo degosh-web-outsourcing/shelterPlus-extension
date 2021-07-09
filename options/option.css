@@ -39,10 +39,14 @@ select {
 select:invalid {
     color: grey;
 }
-  
+
 ::placeholder, select, option {
     color: grey;
     font-weight: 350;
+}
+
+select:defined {
+    color: grey;
 }
 
 input {
