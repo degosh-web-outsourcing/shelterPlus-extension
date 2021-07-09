@@ -1,5 +1,6 @@
+const countries = chrome.runtime.getURL('../../additional/countries.json');
+const testProfile = { 'fname': "Игорь", 'sname': "Павлов", 'email': "test@example.com", 'phone': "9155553322", 'country': "Russia", 'state': "Moscow", 'city': "Москва", 'zip': "125310", 'address1': "Ул. Полянка, 25", 'address2': "подъезд 2", 'apt': "75", 'cardNumber': "4242 4242 4242 4242", 'expdate': "0230", 'cvv': "123", 'bname': "Игорь Павлов", 'profileName': "Test" };
 var profile = { 'fname': null, 'sname': null, 'email': null, 'phone': null, 'country': null, 'state': null, 'city': null, 'zip': null, 'address1': null, 'address2': null, 'apt': null, 'cardNumber': null, 'expdate': null, 'cvv': null, 'bname': null, 'profileName': null, 'selected': null };
-var testProfile = { 'fname': "Игорь", 'sname': "Павлов", 'email': "test@example.com", 'phone': "9155553322", 'country': "Russia", 'state': "Moscow", 'city': "Москва", 'zip': "125310", 'address1': "Ул. Полянка, 25", 'address2': "подъезд 2", 'apt': "75", 'cardNumber': "4242 4242 4242 4242", 'expdate': "0230", 'cvv': "123", 'bname': "Игорь Павлов", 'profileName': "Test" };
 
 $(function () {
     chrome.storage.local.get('profiles', function (list) {
@@ -10,6 +11,39 @@ $(function () {
                 pushProfile(list.profiles[i]);
             }
         }
+    });
+
+    fetch(countries)
+        .then((response) => response.json())
+        .then(json => {
+            let countriesList = document.getElementById('country');
+            var contries = Object.keys(json);
+            for (var i = 0; i < contries.length; i++) {
+                countriesList.insertAdjacentHTML('beforeend',
+                    `<option value=${contries[i]}>${contries[i]}</option>`
+                );
+            }
+        });
+
+    $('#country').click(function () {
+        fetch(countries)
+            .then((response) => response.json())
+            .then(json => {
+                var sc = document.getElementById('country').value;
+                $('.states').remove();
+                for (var i = 0; i < Object.keys(json).length; i++) {
+                    if (Object.keys(json)[i] == sc) {
+                        var states = Object.values(json)[i];
+                        var statesLength = Object.values(json)[i].length;
+                        for (var i = 0; i < statesLength; i++) {
+                            let statesList = document.getElementById('state');
+                            statesList.insertAdjacentHTML('beforeend',
+                                `<option class="states" value=${states[i]}>${states[i]}</option>`
+                            );
+                        }
+                    }
+                }
+            });
     });
 });
 
@@ -44,10 +78,10 @@ $(function () {
 
             reader.readAsText(input.files[0]);
 
-            setTimeout(function() {
+            setTimeout(function () {
                 chrome.storage.local.get('profiles', function (list) {
                     var newProfilesList = (JSON.parse(reader.result));
-    
+
                     for (var j = 0; j < list.profiles.length; j++) {
                         for (var i = 0; i < newProfilesList.profiles.length; i++) {
                             if (list.profiles[j].profileName == newProfilesList.profiles[i].profileName) {
@@ -55,13 +89,13 @@ $(function () {
                             }
                         }
                     }
-    
+
                     let update = list.profiles;
-    
+
                     for (var i = 0; i < newProfilesList.profiles.length; i++) {
                         update.push(newProfilesList.profiles[i]);
                     }
-    
+
                     chrome.storage.local.set({ 'profiles': update });
                     location.reload();
                 });
@@ -102,7 +136,14 @@ $(function () {
 
     $('#test').on('click', function () {
         Object.keys(testProfile).forEach(id => {
-            $(`#${id}`).val(testProfile[id]);
+            if (id == "state") {
+                $('#country').click();
+                setTimeout(function () {
+                    $(`#${id}`).val(testProfile[id]);
+                }, 100);
+            } else {
+                $(`#${id}`).val(testProfile[id]);
+            }
         });
     });
 
@@ -205,7 +246,14 @@ function createProfile(newProfile) {
 
 function readProfile(profile) {
     Object.keys(profile).forEach(id => {
-        $(`#${id}`).val(profile[id]);
+        if (id == "state") {
+            $('#country').click();
+            setTimeout(function () {
+                $(`#${id}`).val(profile[id]);
+            }, 100);
+        } else {
+            $(`#${id}`).val(profile[id]);
+        }
     });
 }
 

@@ -22,12 +22,13 @@
 /*left div*/
 #profilesList {
     background-color: #0E160C;
+    height: 96%;
     flex: 1;
     margin-left: .5%;
     margin-right: .25%;
 }
 
-.profilesPlaceholder, .profile {
+.profilesPlaceholder, .constructorControl, .profile {
     cursor: default;
     align-items: center;
     border-radius: 5px;
@@ -46,6 +47,11 @@
     margin-top: .5%;
     color: white;
     background-color: #0A0A0A;
+}
+
+#phName, #phCountry, #phCard {
+    font-family: Roboto sans-serif;
+    font-weight: 100;
 }
 
 #phName, .name {
@@ -69,7 +75,7 @@
 /*right div*/
 .constructor {
     background-color: #0E160C;
-    height: 100%;
+    height: 96%;
     flex: 1;
     margin-left: .25%;
     margin-right: .5%;
@@ -90,14 +96,16 @@
 #import, #export, #test, #clear {
     cursor: pointer;
     flex: 1;
+    font-weight: bold;
+	font-style: italic;
 }
 
 #import {
-    margin-left: 1%;
+    margin-left: 2%;
 }
 
 #clear {
-    margin-right: 1%;
+    margin-right: 2%;
 }
 
 /*правый основной блок с инпутами*/
@@ -125,7 +133,11 @@
     margin-top: 2%;
 }
 
-.row input {
+.small {
+    margin-top: 1%;
+}
+
+.row input, select {
     flex-direction: row;
     justify-content: center;
     margin-left: 1%;
@@ -199,13 +211,15 @@
 }
 
 #go {
-    font-size: 22px;
+    flex: 2;
+    font-size: 25px;
     font-weight: 300;
     border-radius: 5px;
     border-color: white;
+    font-weight: bold;
+	font-style: italic;
     position: relative;
     bottom: 0;
     height: 5%;
     width: 100%;
-    margin-bottom: .25%;
 }

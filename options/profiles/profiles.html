@@ -61,7 +61,7 @@
             <!--конструктор справа-->
             <div class="main">
                 <div id="inputs">
-                    <div class="row">
+                    <div class="row small">
                         <input id="profileName" type="text" placeholder="Название профиля">
                     </div>
                     <div class="row extra">
@@ -73,8 +73,12 @@
                         <input id="email" type="text" placeholder="Email">
                     </div>
                     <div class="row extra">
-                        <input id="country" type="text" placeholder="Страна">
-                        <input id="state" type="text" placeholder="Область">
+                        <select id="country"> 
+                            <option hidden value="">Страна</option>
+                        </select>
+                        <select id="state">
+                            <option hidden value="">Область</option>
+                        </select>
                     </div>
                     <div class="row">
                         <input id="city" type="text" placeholder="Город">
@@ -101,7 +105,7 @@
                 </div>
 
             </div>
-            <button id="go">Сохранить профиль</button>
+            <button id="go" class="extra">Сохранить профиль</button>
         </div>
     </div>
 </body>
