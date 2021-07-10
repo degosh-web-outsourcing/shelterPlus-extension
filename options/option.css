@@ -23,13 +23,34 @@ html, body {
     background: transparent;
 }
 
-input {
+select, input {
     width: 95%;
     font-size: 30px;
     color: white;
     border: none;
     border-bottom: 2px solid white;
     background: transparent;
+}
+
+select {
+    -webkit-appearance: menulist-button;
+}
+
+select:invalid {
+    color: grey;
+}
+
+::placeholder, select, option {
+    color: grey;
+    font-weight: 350;
+}
+
+select:defined {
+    color: grey;
+}
+
+input {
+    padding-left: .5%;
 }
 
 a {

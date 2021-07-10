@@ -100,11 +100,20 @@ $(function () {
                     location.reload();
                 });
             }, 250);
-
         });
     });
 
+    $('#country').on('click', function () {
+        if ($('#country').val() == "") {
+            $('#country').attr("style", "color: white;");
+        }
+    });
 
+    $('#state').on('click', function () {
+        if ($('#state').val() == "") {
+            $('#state').attr("style", "color: white;");
+        }
+    });
 
     $('#go').on('click', function () {
         if ($('#profileName').val().length) {
