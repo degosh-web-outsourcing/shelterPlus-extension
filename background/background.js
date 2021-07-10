@@ -1,8 +1,7 @@
-/*
 chrome.storage.local.get('proxyHttps', function (settings) {
     if (settings.proxyHttps) {
         if (settings.proxyHttps.use) {
-            var config = {
+            let config = {
                 mode: "fixed_servers",
                 rules: {
                     singleProxy: {
@@ -28,7 +27,14 @@ chrome.storage.local.get('proxyHttps', function (settings) {
                 { urls: ["<all_urls>"] },
                 ['asyncBlocking']
             );
+        } else {
+            let config = {
+                mode: "direct"
+            };
+
+            chrome.proxy.settings.set(
+                { value: config, scope: 'regular' },
+                function () { });
         }
     }
 });
-*/

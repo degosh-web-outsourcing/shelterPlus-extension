@@ -4,12 +4,40 @@ $(function () {
     });
 });
 
-var s = {
-    use: true,
-    ip: "194.226.120.195",
-    port: 51764,
-    username: "yEkEANrp",
-    password: "8NeCArZ5"
-}
+chrome.storage.local.set({
+    'proxyHttps': {
+        use: true,
+        ip: "194.226.120.195",
+        port: 51764,
+        username: "yEkEANrp",
+        password: "8NeCArZ5"
+    }
+});
 
-chrome.storage.local.set({ 'proxyHttps': s });
+$(function () {
+    chrome.storage.local.get('proxy', function (sw) {
+        if (sw.proxy) {
+            $('useProxy').removeAttr('class');
+            $('useProxy').attr('class', 'proxyOn');
+        } else {
+            chrome.storage.local.set({ 'proxy': { status: false, proxy: null} });
+        }
+
+        $('#useProxy').on('click', function () {
+            if (sw.proxy.status) {
+                $('useProxy').removeAttr('class');
+                $('useProxy').attr('class', 'proxyOff');
+                chrome.storage.local.set({ 'proxy': { status: false, proxy: null} });
+            } else {
+                $('useProxy').removeAttr('class');
+                $('useProxy').attr('class', 'proxyOn');
+                chrome.storage.local.set({ 'proxy': { status: true, proxy: null} });
+            }
+
+        });
+
+        $("#proxySwitcher").on('click', function () {
+            chrome.runtime.reload();
+        });
+    });
+});

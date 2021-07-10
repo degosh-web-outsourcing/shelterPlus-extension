@@ -7,20 +7,7 @@
 	"browser_action": {
 		"default_popup": "redirect/redirect.html"
 	},
-	"content_scripts": [
-		{
-			"all_frames": true,
-			"matches": [
-				"<all_urls>",
-				"https://*/*",
-				"http://*/*"
-			],
-			"js": [
-				"additional/jquery-3.6.0.min.js",
-				"content/proxy.js"
-			]
-		}
-	],
+	"content_scripts": [],
 	"background": {
 		"scripts": [
 			"background/background.js"
