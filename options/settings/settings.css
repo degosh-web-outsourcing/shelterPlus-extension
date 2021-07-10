@@ -4,7 +4,7 @@
     margin-bottom: 100%;
 }
 
-a {
+a, label {
 	font-size: 30px;
 	color: white;
 }
@@ -21,73 +21,6 @@ table {
     margin: auto;
     width: 98%;
     height: 100%;
-}
-
-.input {
-	position: relative;
-	margin: auto;
-	margin-left: 1%;
-}
-
-.container {
-	display: inline;
-	position: relative;
-	padding-left: 35px;
-	margin-bottom: 12px;
-	margin-left: 20px;
-	cursor: pointer;
-	font-size: 22px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-.container input {
-	position: absolute;
-	opacity: 0;
-	cursor: pointer;
-	height: 0;
-	width: 0;
-}
-
-.checkmark {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 25px;
-	width: 25px;
-	background-color: #eee;
-}
-
-.container:hover input~.checkmark {
-	background-color: #ccc;
-}
-
-.container input:checked~.checkmark {
-	background-color: white;
-}
-
-.checkmark:after {
-	content: "";
-	position: absolute;
-	display: none;
-}
-
-.container input:checked~.checkmark:after {
-	display: block;
-}
-
-.container .checkmark:after {
-	left: 9px;
-	top: 5px;
-	width: 5px;
-	height: 10px;
-	border: solid black;
-	border-width: 0 3px 3px 0;
-	-webkit-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	transform: rotate(45deg);
 }
 
 .contoller {
@@ -109,4 +42,48 @@ table {
 
 .extra {
 	margin-bottom: 10% !important;
+}
+
+.proxy {
+	position: absolute;
+	margin: auto;
+	margin-left: 1%;
+	top: 45%;
+	bottom: 0;
+	width: 40%;
+}
+
+#proxyInput {
+	width: 100%;
+}
+
+#askProxy {
+	width: 50px;
+	height: 40px;
+	margin-left: 1%;
+}
+
+#ask {
+	margin-top: 2.5%;
+}
+
+#useProxy {
+	font-size: 30px;
+	width: 100%;
+	padding: 10px;
+	padding-left: 50px;
+	padding-right: 50px;
+	border: 1px;
+	border-style: solid;
+	background-color: #0A0A0A;
+	color: white;
+	margin-top: 2.5%;
+}
+
+.proxyOff {
+	border-color: red!important;
+}
+
+.proxyOn {
+	border-color: green!important;
 }
