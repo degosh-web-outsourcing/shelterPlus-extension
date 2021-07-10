@@ -204,7 +204,7 @@
     border: 1px white solid;
 
     display: flex;
-    gap: 4%;
+    gap: 2%;
     flex-direction: column;
 }
 
@@ -216,25 +216,44 @@
 
     display: flex;
     flex-direction: row;
-    gap: 2%;
+    gap: 1%;
 }
 
 .sizeDivOff {
     /*relative to .adiTableRow*/
     flex: 1;
     position: relative;
-    background-color: #5A5858;
+    border: 2px #5A5858 solid;
     border-radius: 5px;
+    background-color: #0a0a0a;
+}
+
+.sizeDivOff p {
+    color: white;
+    font-size: 20px;
+    margin-top: 34%;
+    margin-bottom: 32%;
+    text-align: center;
 }
 
 .sizeDivOn {
     /*relative to .adiTableRow*/
     flex: 1;
     position: relative;
+    border: 2px #3BEB4C solid;
     border-radius: 5px;
-    background-color: #3BEB4C;
+    background-color: #0a0a0a; 
 }
 
+.sizeDivOn p {
+    color: white;
+    font-size: 20px;
+    margin-top: 34%;
+    margin-bottom: 32%;
+    text-align: center;
+}
+
+/*
 .sizeBackground {
     position: absolute;
     top: 1%;
@@ -245,6 +264,7 @@
     background-color: #0A0A0A;
     border-radius: 5px;
 }
+*/
 
 #MSLLtableBtnsDiv {
     /*relative to #MSlowerLeftDiv */
