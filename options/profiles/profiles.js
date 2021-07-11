@@ -103,6 +103,7 @@ $(function () {
         });
     });
 
+    /*
     $('#country').on('click', function () {
         if ($('#country').val() == "") {
             $('#country').attr("style", "color: white;");
@@ -114,6 +115,7 @@ $(function () {
             $('#state').attr("style", "color: white;");
         }
     });
+    */
 
     $('#go').on('click', function () {
         if ($('#profileName').val().length) {
@@ -154,10 +156,13 @@ $(function () {
                 $(`#${id}`).val(testProfile[id]);
             }
         });
+
+        $('#country').attr('class', 'normal');
+        $('#state').attr('class', 'normal');
     });
 
     $('#clear').on('click', function () {
-        $('input').val("");
+        location.reload()
     });
 
     $('input[id="fname"]').on('input', function () {
@@ -194,7 +199,7 @@ $(function () {
 function pushProfile(newProfile) {
     let { profileName, country, cardNumber } = newProfile;
     let cardEnding = cardNumber[15] + cardNumber[16] + cardNumber[17] + cardNumber[18];
-    var profilesPlace = document.getElementById("profilesList");
+    var profilesPlace = document.getElementById("profilesListPlace");
 
     if (!cardNumber.length) {
         cardEnding = "Нет"
@@ -204,12 +209,24 @@ function pushProfile(newProfile) {
         country = "Нет"
     }
 
+    let shortcutProfileName = profileName;
+
+    if (profileName.length >= 12) {
+        shortcutProfileName = 0;
+        for (let i = 0; i < 12; i++) {
+            if (profileName[i]) {
+                shortcutProfileName += profileName[i];
+            }
+        }
+        shortcutProfileName += "..."
+    }
+
     profilesPlace.insertAdjacentHTML('beforeend', `
             <div id="${profileName}" class="profile">
-                <a class="name">${profileName}</a>
+                <a class="name">${shortcutProfileName}</a>
                 <a class="country">${country}</a>
                 <a class="card">${cardEnding}</a>
-                <a id="${profileName}" class="trash">[X]</a>
+                <img id="${profileName}" style="height: 20px" class="trash" src="/imgs/cross.svg">
             </div>
         `);
 
@@ -264,6 +281,9 @@ function readProfile(profile) {
             $(`#${id}`).val(profile[id]);
         }
     });
+
+    $('#country').attr('class', 'normal');
+    $('#state').attr('class', 'normal');
 }
 
 function rewriteProfile(profile) {

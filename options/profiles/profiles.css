@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+    width: 0px;
+}
+
 .content {
     display: flex;
 }
@@ -20,12 +24,17 @@
 }
 
 /*left div*/
-#profilesList {
+#profilesList, #profilesListPlace {
     background-color: #0E160C;
     height: 96%;
     flex: 1;
     margin-left: .5%;
     margin-right: .25%;
+}
+
+#profilesListPlace {
+    height: 93%;
+    overflow-y: auto;
 }
 
 .profilesPlaceholder, .constructorControl, .profile {
