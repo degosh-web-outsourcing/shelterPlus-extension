@@ -2,18 +2,36 @@
 <html>
 
 <head>
-	<title>Shelter+ Extension</title>
-	<link rel='stylesheet' type='text/css' href="/additional/fonts/roboto.css">
-	<link rel="stylesheet" type='text/css' href="./auth.css">
-	<script src="/additional/jquery-3.6.0.min.js"></script>
-	<script src="auth.js"></script>
+    <title>Shelter+ Extension</title>
+    <meta charset="utf-8">
+    <link rel='stylesheet' type='text/css' href="/additional/fonts/roboto.css">
+    <link rel="stylesheet" href="/options/option.css">
+    <link rel="stylesheet" href="auth.css">
+    <script src="/additional/jquery-3.6.0.min.js"></script>
+    <script src="auth.js"></script>
 </head>
 
 <body>
-	<div class="keyArea">
-        <a>License key:</a>
-        <input id="key" type="text">
-        <button id="go" style="width: 75px;">GO</button>
+    <img id="attention" src="/imgs/logo/shelterLogo.png">
+
+    <div class="navigation">
+        <table>
+            <tr>
+                <th align="left">
+                    <img id="shelterLogo" src="/imgs/logo/shelterLogo.png">
+                </th>
+                <th class="navUnderlineA">
+                </th>
+                <th align="right">
+                    <img id="degoshLogo" src="/imgs/logo/degoshLogo.svg">
+                </th>
+            </tr>
+        </table>
+    </div>
+	
+	<div class="content">
+		<input id="key" type="text" placeholder="Ключ:"/>
+		<img id="img" src="../../imgs/lock.png">
 	</div>
 </body>
 

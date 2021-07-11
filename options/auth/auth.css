@@ -1,44 +1,37 @@
-label, h1, h2, h3, h4, h5, a, p, select, option {
-	font-family: Roboto;
-    font-size: 35px;
-}
-
-.keyArea {
-	position: absolute;
-	text-align: center;
-	margin: auto;
-	top: 42.5%;
-	left: 0;
-	right: 0;
-}
-
-.keyArea input {
-    display: inline-block;
-    width: 35%;
-    height: 35px;
-    font-size: 35px;
-}
-
-.keyArea button {
-    display: inline-block;
-    height: 50px;
-    font-size: 35px;
-}
-
 body {
-    margin: 0;
-    width: 100%;
+    background-image: url("../../imgs/background.png");
 }
 
-button {
-	background-color: white;
-    font-size: 23px;
-    font-weight: bold;
-    border-radius: 10px;
-    width: 20%;
+.content {
+    display: flex !important;
+    flex-direction: row;
+    position: absolute !important;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 10%;
+    height: 5%;
+    width: 80%;
 }
 
-button:hover {
-    background-color: black;
+
+#img {
+    position: absolute;
+    height: 60%;
+    margin-top: .5%;
+    margin-left: 97%;
+}
+
+#key {
+    flex: 1;
+    width: 80%;
+    border-radius: 5px;
+    border: 2px;
+    border-style: solid;
+    background-color: #191919;
+}
+
+::placeholder {
     color: white;
 }

@@ -1,1 +1,0 @@
-window.open('/options/profiles/profiles.html');
