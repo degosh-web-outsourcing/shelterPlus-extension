@@ -123,7 +123,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 87%;
+    height: 95%;
     width: 100%;
 }
 
@@ -220,7 +220,6 @@
 }
 
 #go {
-    flex: 2;
     font-size: 25px;
     font-weight: 300;
     border-radius: 5px;
@@ -228,7 +227,7 @@
     font-weight: bold;
 	font-style: italic;
     position: relative;
-    bottom: 0;
+    top: 0;
     height: 5%;
     width: 100%;
 }
