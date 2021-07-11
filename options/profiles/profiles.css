@@ -220,6 +220,7 @@
 }
 
 #go {
+    flex: 0;
     font-size: 25px;
     font-weight: 300;
     border-radius: 5px;
@@ -228,6 +229,5 @@
 	font-style: italic;
     position: relative;
     top: 0;
-    height: 5%;
     width: 100%;
 }
