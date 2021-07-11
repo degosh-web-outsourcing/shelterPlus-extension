@@ -1,25 +1,29 @@
-chrome.tabs.create({ url: "../options/profiles/profiles.html" });
+chrome.storage.local.get('proxyHttps', function (sw) {
+    chrome.tabs.create({ url: "../options/settings/settings.html" });
 
-setTimeout(function () {
-    chrome.tabs.query({}, function(tabs){
-        tabs.forEach(tb => {
-            if (tb.url == "https://degosh.com/") {
-                chrome.tabs.sendMessage(tb.id, chrome.tabs.remove(tb.id));
-            }
+    setTimeout(function () {
+        chrome.tabs.query({}, function (tabs) {
+            tabs.forEach(tb => {
+                if (tb.url == "https://degosh.com/") {
+                    chrome.tabs.sendMessage(tb.id, chrome.tabs.remove(tb.id));
+                }
+            });
         });
-    });
-}, 100);
+    }, 100);
+});
 
-chrome.storage.local.get('proxyHttps', function (settings) {
-    if (settings.proxyHttps) {
-        if (settings.proxyHttps.use) {
+chrome.storage.local.get('proxyHttps', function (sw) {
+    var proxy = sw.proxyHttps.proxyD.split(':');
+    var port = parseInt(proxy[1]);
+    if (sw.proxyHttps) {
+        if (sw.proxyHttps.status) {
             let config = {
                 mode: "fixed_servers",
                 rules: {
                     singleProxy: {
                         scheme: "http",
-                        host: "194.226.120.195",
-                        port: 51764
+                        host: proxy[0],
+                        port: port
                     },
                     bypassList: ["foobar.com"]
                 }
@@ -33,7 +37,7 @@ chrome.storage.local.get('proxyHttps', function (settings) {
                 function (details, callbackFn) {
                     console.log("onAuthRequired!", details, callbackFn);
                     callbackFn({
-                        authCredentials: { username: "yEkEANrp", password: "8NeCArZ5" }
+                        authCredentials: { username: proxy[2], password: proxy[3] }
                     });
                 },
                 { urls: ["<all_urls>"] },

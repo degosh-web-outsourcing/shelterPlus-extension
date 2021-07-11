@@ -4,35 +4,39 @@ $(function () {
     });
 });
 
-chrome.storage.local.set({
-    'proxyHttps': {
-        use: true,
-        ip: "194.226.120.195",
-        port: 51764,
-        username: "yEkEANrp",
-        password: "8NeCArZ5"
-    }
-});
-
 $(function () {
-    chrome.storage.local.get('proxy', function (sw) {
-        if (sw.proxy) {
-            if (sw.proxy.status) {
+    chrome.storage.local.get('proxyHttps', function (sw) {
+        if (sw.proxyHttps) {
+            $('#proxyInput').val(sw.proxyHttps.proxyD);
+
+            if (sw.proxyHttps.status) {
                 $('#useProxy').attr('class', 'proxyOn');
+            } else {
+                chrome.storage.local.set({ 'proxyHttps': { status: false, proxyD: sw.proxyHttps.proxyD } });
             }
-        } else {
-            chrome.storage.local.set({ 'proxy': { status: false, proxy: null } });
         }
 
+        $('#proxyInput').change(function () {
+            chrome.storage.local.get('proxyHttps', function (sw) {
+                var proxyData = $('#proxyInput').val();
+                chrome.storage.local.set({ 'proxyHttps': { status: sw.proxyHttps.status, proxyD: proxyData } });
+            });
+        });
+
         $('#useProxy').on('click', function () {
-            if ($('#useProxy').attr('class') == 'proxyOff') {
-                $('#useProxy').attr('class', 'proxyOn');
-                chrome.tabs.create({ url: "https://degosh.com/" });
-                chrome.storage.local.set({ 'proxy': { status: true, proxy: null } });
-                chrome.runtime.reload();
-            } else {
-                $('#useProxy').attr('class', 'proxyOff');
-                chrome.storage.local.set({ 'proxy': { status: false, proxy: null } });
+            var proxyData = $('#proxyInput').val();
+            if (document.getElementById('proxyInput').value.length) {
+                if ($('#useProxy').attr('class') == 'proxyOff') {
+                    $('#useProxy').attr('class', 'proxyOn');
+                    chrome.storage.local.set({ 'proxyHttps': { status: true, proxyD: proxyData } });
+                    chrome.tabs.create({ url: "https://degosh.com/" });
+                    chrome.runtime.reload();
+                } else {
+                    $('#useProxy').attr('class', 'proxyOff');
+                    chrome.storage.local.set({ 'proxyHttps': { status: false, proxyD: proxyData } });
+                    chrome.tabs.create({ url: "https://degosh.com/" });
+                    chrome.runtime.reload();
+                }
             }
         });
     });
