@@ -124,6 +124,10 @@ img #degoshLogo {
 /*MEDIA ADAPTIVE STUFF*/
 
 @media screen and (max-height: 800px) {
+    ::placeholder, select, input {
+        font-size: 20px;
+    }
+
     #go {
         font-size: 20px !important;
         margin-top: 10px;
