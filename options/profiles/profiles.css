@@ -221,6 +221,7 @@
 }
 
 #go {
+    flex: 0;
     font-size: 25px;
     font-weight: 300;
     border-radius: 5px;
