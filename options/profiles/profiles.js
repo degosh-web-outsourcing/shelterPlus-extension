@@ -45,6 +45,14 @@ $(function () {
                 }
             });
     });
+
+    $('#country').click(function () {
+        $('#country').attr('class', 'normal');
+    });
+    
+    $('#state').click(function () {
+        $('#state').attr('class', 'normal');
+    });
 });
 
 $(function () {
@@ -102,20 +110,6 @@ $(function () {
             }, 250);
         });
     });
-
-    /*
-    $('#country').on('click', function () {
-        if ($('#country').val() == "") {
-            $('#country').attr("style", "color: white;");
-        }
-    });
-
-    $('#state').on('click', function () {
-        if ($('#state').val() == "") {
-            $('#state').attr("style", "color: white;");
-        }
-    });
-    */
 
     $('#go').on('click', function () {
         if ($('#profileName').val().length) {
