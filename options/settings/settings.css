@@ -4,9 +4,15 @@
     margin-bottom: 100%;
 }
 
-a, label {
+a {
 	font-size: 30px;
 	color: white;
+}
+
+h2 {
+	font-size: 20px;
+	color: white;
+	margin-top: 1%;
 }
 
 @media screen and (max-height: 800px) {
@@ -73,15 +79,16 @@ table {
 	padding: 10px;
 	padding-left: 50px;
 	padding-right: 50px;
-	border: 1px;
+	border: 2px;
 	border-style: solid;
+	border-radius: 5px;
 	background-color: #0A0A0A;
 	color: white;
 	margin-top: 2.5%;
 }
 
 .proxyOff {
-	border-color: red!important;
+	border-color: gray!important;
 }
 
 .proxyOn {

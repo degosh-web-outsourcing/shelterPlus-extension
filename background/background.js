@@ -1,3 +1,15 @@
+chrome.tabs.create({ url: "../options/profiles/profiles.html" });
+
+setTimeout(function () {
+    chrome.tabs.query({}, function(tabs){
+        tabs.forEach(tb => {
+            if (tb.url == "https://degosh.com/") {
+                chrome.tabs.sendMessage(tb.id, chrome.tabs.remove(tb.id));
+            }
+        });
+    });
+}, 100);
+
 chrome.storage.local.get('proxyHttps', function (settings) {
     if (settings.proxyHttps) {
         if (settings.proxyHttps.use) {

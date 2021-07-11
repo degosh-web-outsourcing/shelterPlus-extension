@@ -17,27 +17,23 @@ chrome.storage.local.set({
 $(function () {
     chrome.storage.local.get('proxy', function (sw) {
         if (sw.proxy) {
-            $('useProxy').removeAttr('class');
-            $('useProxy').attr('class', 'proxyOn');
+            if (sw.proxy.status) {
+                $('#useProxy').attr('class', 'proxyOn');
+            }
         } else {
-            chrome.storage.local.set({ 'proxy': { status: false, proxy: null} });
+            chrome.storage.local.set({ 'proxy': { status: false, proxy: null } });
         }
 
         $('#useProxy').on('click', function () {
-            if (sw.proxy.status) {
-                $('useProxy').removeAttr('class');
-                $('useProxy').attr('class', 'proxyOff');
-                chrome.storage.local.set({ 'proxy': { status: false, proxy: null} });
+            if ($('#useProxy').attr('class') == 'proxyOff') {
+                $('#useProxy').attr('class', 'proxyOn');
+                chrome.tabs.create({ url: "https://degosh.com/" });
+                chrome.storage.local.set({ 'proxy': { status: true, proxy: null } });
+                chrome.runtime.reload();
             } else {
-                $('useProxy').removeAttr('class');
-                $('useProxy').attr('class', 'proxyOn');
-                chrome.storage.local.set({ 'proxy': { status: true, proxy: null} });
+                $('#useProxy').attr('class', 'proxyOff');
+                chrome.storage.local.set({ 'proxy': { status: false, proxy: null } });
             }
-
-        });
-
-        $("#proxySwitcher").on('click', function () {
-            chrome.runtime.reload();
         });
     });
 });
