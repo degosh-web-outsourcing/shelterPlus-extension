@@ -221,6 +221,7 @@
 }
 
 #go {
+    margin-top: 2%;
     flex: 0;
     font-size: 25px;
     font-weight: 300;
