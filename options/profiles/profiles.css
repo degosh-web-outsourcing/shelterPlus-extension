@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+    width: 0px;
+}
+
 .content {
     display: flex;
 }
@@ -20,12 +24,17 @@
 }
 
 /*left div*/
-#profilesList {
+#profilesList, #profilesListPlace {
     background-color: #0E160C;
-    height: 96%;
+    height: 95%;
     flex: 1;
     margin-left: .5%;
     margin-right: .25%;
+}
+
+#profilesListPlace {
+    height: 93%;
+    overflow-y: auto;
 }
 
 .profilesPlaceholder, .constructorControl, .profile {
@@ -74,8 +83,10 @@
 
 /*right div*/
 .constructor {
+    display: flex;
+    flex-direction: column;
     background-color: #0E160C;
-    height: 96%;
+    height: 95%;
     flex: 1;
     margin-left: .25%;
     margin-right: .5%;
@@ -114,14 +125,14 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 87%;
+    height: 100%;
     width: 100%;
 }
 
 #inputs {
     display: flex;
     flex-direction: column;
-    flex: 3;
+    flex: 2;
 }
 
 .row {
@@ -146,10 +157,9 @@
 }
 
 #cardInput {
-    flex: 2;
+    flex: 1;
     position: relative;
     width: 100%;
-    margin-bottom: 2%;
 }
 
 #cardInput1 {
@@ -211,7 +221,8 @@
 }
 
 #go {
-    flex: 2;
+    margin-top: 2%;
+    flex: 0;
     font-size: 25px;
     font-weight: 300;
     border-radius: 5px;
@@ -219,7 +230,6 @@
     font-weight: bold;
 	font-style: italic;
     position: relative;
-    bottom: 0;
     height: 5%;
     width: 100%;
 }
