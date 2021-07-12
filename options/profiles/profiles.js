@@ -13,7 +13,7 @@ chrome.storage.local.get('license', function (key) {
                     window.location.href = "../auth/auth.html";
                 }
             }).catch(function (err) {
-                console.log('Something went wrong', err);
+                window.location.href = "../auth/auth.html";
             });
         }, 500);
     });
