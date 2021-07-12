@@ -8,9 +8,9 @@ chrome.storage.local.get('license', function (key) {
                 return response.text();
             }).then(function (html) {
                 if (html == "OK") {
-                    alert("Good key!");
+                    window.location.href = "../profiles/profiles.html";
                 } else {
-                    alert("Bad key!");
+                    $('#status').text("Ошибка");
                 }
             }).catch(function (err) {
                 console.log('Something went wrong', err);
@@ -20,18 +20,12 @@ chrome.storage.local.get('license', function (key) {
 });
 
 $(document).ready(function () {
-    /*
     $('#img').on('click', function () {
         chrome.storage.local.get('license', function (key) {
             let lkey = $("#key").val();
             chrome.storage.local.set({ 'license': lkey });
         });
+        $('#status').text("Ключ привязан к другому IP"); 
         location.reload();
-    });
-    */
-
-    $('#img').on('click', function() {
-        $('#status').text("Ключ привязан к другому IP");
-        $('#status').text("Ошибка");
     });
 });
