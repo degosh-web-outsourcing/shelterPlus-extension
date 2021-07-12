@@ -1,4 +1,4 @@
-chrome.storage.sync.get('license', function (key) {
+chrome.storage.local.get('license', function (key) {
     $("#key").val(key.license);
 
     $.getJSON('https://ipapi.co/json/', function (data) {
@@ -8,10 +8,9 @@ chrome.storage.sync.get('license', function (key) {
                 return response.text();
             }).then(function (html) {
                 if (html == "OK") {
-                    alert("Good key!");
-                    //window.location.replace('/options/profiles/profiles.html');
+                    window.location.href = "../profiles/profiles.html";
                 } else {
-                    alert("Bad key!");
+                    $('#status').text("Ошибка");
                 }
             }).catch(function (err) {
                 console.log('Something went wrong', err);
@@ -21,11 +20,12 @@ chrome.storage.sync.get('license', function (key) {
 });
 
 $(document).ready(function () {
-    $('#go').on('click', function () {
-        chrome.storage.sync.get('license', function (key) {
+    $('#img').on('click', function () {
+        chrome.storage.local.get('license', function (key) {
             let lkey = $("#key").val();
-            chrome.storage.sync.set({ 'license': lkey });
+            chrome.storage.local.set({ 'license': lkey });
         });
+        $('#status').text("Ключ привязан к другому IP"); 
         location.reload();
     });
 });
