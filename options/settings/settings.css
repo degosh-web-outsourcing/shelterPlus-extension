@@ -1,34 +1,55 @@
-.content {
-    background-color: #0E160C;
-    margin: .5%;
-    margin-bottom: 100%;
-}
-
-a {
-	font-size: 30px;
-	color: white;
-}
-
+/*
 @media screen and (max-height: 800px) {
     a {
         font-size: 20px;
     }
 }
+*/
 
-table {
-    left: 0%;
-    right: 0%;
-    margin: auto;
-    width: 98%;
-    height: 100%;
+.dummyDiv {
+	/*relative to content*/
+	flex: 2;
+	border: 1px white solid;
+	height: 92.5%;
+	background-color: #0E160C;
 }
 
-.contoller {
-	margin: auto;
-	margin-right: 1%;
-	display: grid;
+.centerDiv {
+	/*relative to content*/
+	flex: 3;
+	border: 1px white solid;
+	height: 92.5%;
+	background-color: #0E160C;
+
+	display: flex;
+	flex-direction: column;
 }
 
+.proxyDiv {
+	/*relative to .centerDiv*/
+	flex: 1;
+	width: 95%;
+	height: 100%;
+	border: 1px white red;
+}
+
+.proxyOff {
+	border: solid 2px #5A5858!important;
+}
+
+.proxyOn {
+	border-color: solid 2px #3BEB4C!important;
+}
+
+.contollerDiv {
+	/*relative to .centerDiv*/
+	flex: 1;
+	width: 95%;
+	height: 100%;
+	border: 1px red solid;
+}
+
+/*
 .contoller button {
 	border-radius: 5px;
 	border-color: white;
@@ -44,17 +65,12 @@ table {
 	margin-bottom: 10% !important;
 }
 
-.proxy {
-	position: absolute;
-	margin: auto;
-	margin-left: 1%;
-	top: 45%;
-	bottom: 0;
-	width: 40%;
-}
+
 
 #proxyInput {
-	width: 100%;
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
 }
 
 #askProxy {
@@ -68,23 +84,27 @@ table {
 }
 
 #useProxy {
-	font-size: 30px;
-	width: 100%;
+	font-size: 15px;
+	font-weight: bold;
+    font-style: italic;
+
+	width: 70%;
 	padding: 10px;
-	padding-left: 50px;
-	padding-right: 50px;
-	border: 2px;
-	border-style: solid;
+	padding-left: 10%;
+	padding-right: 10%;
+	border: 2px solid;
 	border-radius: 5px;
 	background-color: #0A0A0A;
 	color: white;
 	margin-top: 2.5%;
+	margin-left: 15%;
+	margin-right: 15%;
 }
 
-.proxyOff {
-	border-color: gray!important;
+a {
+	font-size: 30px;
+	color: white;
 }
 
-.proxyOn {
-	border-color: green!important;
-}
+
+*/
