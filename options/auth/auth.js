@@ -6,8 +6,10 @@ chrome.storage.local.get('license', function (key) {
         }).then(function (html) {
             if (html == "OK") {
                 window.location.href = "../profiles/profiles.html";
-            } else {
+            } else if (html == "No key") {
                 $('#status').text("Ошибка");
+            } else if (html == "Bad") {
+                $('#status').text("Ключ привязан к другому IP");
             }
         }).catch(function (err) {
             console.log('Something went wrong', err);
