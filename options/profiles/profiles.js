@@ -3,19 +3,16 @@ const testProfile = { 'fname': "Игорь", 'sname': "Павлов", 'email': "
 var profile = { 'fname': null, 'sname': null, 'email': null, 'phone': null, 'country': null, 'state': null, 'city': null, 'zip': null, 'address1': null, 'address2': null, 'apt': null, 'cardNumber': null, 'expdate': null, 'cvv': null, 'bname': null, 'profileName': null, 'selected': null };
 
 chrome.storage.local.get('license', function (key) {
-    $.getJSON('https://ipapi.co/json/', function (data) {
-        var ipAddress = data.ip;
-        setTimeout(function () {
-            fetch(`https://degosh.com/shelterPlus-extension/${key.license}/${ipAddress}`).then(function (response) {
-                return response.text();
-            }).then(function (html) {
-                if (html != "OK") {
-                    window.location.href = "../auth/auth.html";
-                }
-            }).catch(function (err) {
-                window.location.href = "../auth/auth.html";
-            });
-        }, 500);
+    fetch(`https://degosh.com/shelterPlus-extension/${key.license}/`).then(function (response) {
+        return response.text();
+    }).then(function (html) {
+        if (html !== "OK") {
+            window.location.href = "../auth/auth.html";
+        } else {
+            $('#status').text("Ошибка");
+        }
+    }).catch(function (err) {
+        console.log('Something went wrong', err);
     });
 });
 
@@ -66,7 +63,7 @@ $(function () {
     $('#country').click(function () {
         $('#country').attr('class', 'normal');
     });
-    
+
     $('#state').click(function () {
         $('#state').attr('class', 'normal');
     });

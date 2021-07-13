@@ -1,17 +1,14 @@
 chrome.storage.local.get('license', function (key) {
-    $.getJSON('https://ipapi.co/json/', function (data) {
-        var ipAddress = data.ip;
-        setTimeout(function () {
-            fetch(`https://degosh.com/shelterPlus-extension/${key.license}/${ipAddress}`).then(function (response) {
-                return response.text();
-            }).then(function (html) {
-                if (html != "OK") {
-                    window.location.href = "../auth/auth.html";
-                }
-            }).catch(function (err) {
-                window.location.href = "../auth/auth.html";
-            });
-        }, 500);
+    fetch(`https://degosh.com/shelterPlus-extension/${key.license}/`).then(function (response) {
+        return response.text();
+    }).then(function (html) {
+        if (html !== "OK") {
+            window.location.href = "../auth/auth.html";
+        } else {
+            $('#status').text("Ошибка");
+        }
+    }).catch(function (err) {
+        console.log('Something went wrong', err);
     });
 });
 
