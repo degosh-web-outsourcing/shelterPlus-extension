@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shelter+ Extension</title>
+    <meta charset="utf-8">
+    <link rel='stylesheet' type='text/css' href="/additional/fonts/roboto.css">
+    <link rel="stylesheet" href="/options/option.css">
+    <link rel="stylesheet" href="./modules.css">
+    <script src="/additional/jquery-3.6.0.min.js"></script>
+    <script src="modules.js"></script>
+</head>
+
+<body>
+
+    <div class="navigation">
+        <table id="navTable">
+            <tr>
+                <th align="left">
+                    <a href="/options/profiles/profiles.html">
+                        <img src="/imgs/logo/shelterLogo.png">
+                    </a>
+                </th>
+                <th class="navUnderlineA">
+                    <a href="/options/profiles/profiles.html" class="navText">Профили</a>
+                    <a href="/options/modules/modules.html" class="navText" id="middleNavText">Модули</a>
+                    <a href="/options/settings/settings.html" class="navText">Настройки</a>
+                </th>
+                <th align="right">
+                    <a href="/options/profiles/profiles.html">
+                        <img src="/imgs/logo/degoshLogo.svg">
+                    </a>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="content">
+        <div class="moduleBtnsDiv">
+            <div class="moduleBtnOff" id="adiModuleBtnDiv">
+                <a href="/options/modules/adiModuleSettings.html">
+                    <img class="moduleLogoImg" id="adiModuleLogoImg" src="/imgs/adiLogo.png">
+                </a>
+            </div>
+
+            <div class="moduleBtnOff" id="kithModuleBtnDiv">
+                <a href="/options/modules/kithModuleSettings.html">
+                    <img class="moduleLogoImg" id="kithModuleLogoImg" src="/imgs/kithLogo.jpeg">
+                </a>
+            </div>
+
+            <div class="moduleBtnOff" id="shopifyModuleBtnDiv">
+                <a href="/options/modules/shopifyModuleSettings.html">
+                    <img class="moduleLogoImg" id="shopifyModuleLogoImg" src="/imgs/shopifyLogo.png">
+                </a>
+            </div>
+
+            <div id="lowerModuleDiv">
+                <!--takes up space-->
+            </div>
+
+        </div>
+        <div class="moduleSettingsDiv">
+            <div id="MSupperDiv">
+                <div id="MSupperLeftTextDiv">
+                    <p>Использовать профиль: </p>
+                </div>
+
+                <div id="MSupperSelectDiv">
+                    <select required id="MSprofileSelect">
+                        <option hidden value=" "><p>Тестовый профиль</p></option>
+                        <option value="1"><p>test1</p></option>
+                        <option value="2"><p>test2</p></option>
+                    </select>
+                </div>
+
+                <div id="MSupperDummyDiv">
+                </div>
+            </div>
+
+            <div id="MSlowerDiv">
+                <div id="MSlowerLeftDiv">
+                    <div id="MSLLtextDiv">
+                        <p>Автоматически добавлять в таблицу размеры (UK)</p>
+                    </div>
+                    <div id="MSLLtableDiv">
+                        <div id="sizes35-65" class="adiTableRow">
+                            <div id="adidas35" class="sizeDivOff">
+                                <p>3.5</p>
+                            </div>
+                            <div id="adidas4" class="sizeDivOff">
+                                <p>4</p>
+                            </div>
+                            <div id="adidas45" class="sizeDivOff">
+                                <p>4.5</p>
+                            </div>
+                            <div id="adidas5" class="sizeDivOff">
+                                <p>5</p>
+                            </div>
+                            <div id="adidas55" class="sizeDivOff">
+                                <p>5.5</p>
+                            </div>
+                            <div id="adidas6" class="sizeDivOff">
+                                <p>6</p>
+                            </div>
+                            <div id="adidas65" class="sizeDivOff">
+                                <p>6.5</p>
+                            </div>
+                        </div>
+
+                        <div id="sizes7-10" class="adiTableRow">
+                            <div id="adidas7" class="sizeDivOff">
+                                <p>7</p>
+                            </div>
+                            <div id="adidas75" class="sizeDivOff">
+                                <p>7.5</p>
+                            </div>
+                            <div id="adidas8" class="sizeDivOff">
+                                <p>8</p>
+                            </div>
+                            <div id="adidas85" class="sizeDivOff">
+                                <p>8.5</p>
+                            </div>
+                            <div id="adidas9" class="sizeDivOff">
+                                <p>9</p>
+                            </div>
+                            <div id="adidas95" class="sizeDivOff">
+                                <p>9.5</p>
+                            </div>
+                            <div id="adidas10" class="sizeDivOff">
+                                <p>10</p>
+                            </div>
+                        </div>
+
+                        <div id="105-135" class="adiTableRow">
+                            <div id="adidas105" class="sizeDivOff">
+                                <p>10.5</p>
+                            </div>
+                            <div id="adidas11" class="sizeDivOff">
+                                <p>11</p>
+                            </div>
+                            <div id="adidas115" class="sizeDivOff">
+                                <p>11.5</p>
+                            </div>
+                            <div id="adidas12" class="sizeDivOff">
+                                <p>12</p>
+                            </div>
+                            <div id="adidas125" class="sizeDivOff">
+                                <p>12.5</p>
+                            </div>
+                            <div id="adidas13" class="sizeDivOff">
+                                <p>13</p>
+                            </div>
+                            <div id="adidas135" class="sizeDivOff">
+                                <p>13.5</p>
+                            </div>
+                        </div>
+
+                        <div id="14-19" class="adiTableRow">
+                            <div id="adidas14" class="sizeDivOff">
+                                <p>14</p>
+                            </div>
+                            <div id="adidas145" class="sizeDivOff">
+                                <p>14.5</p>
+                            </div>
+                            <div id="adidas15" class="sizeDivOff">
+                                <p>15</p>
+                            </div>
+                            <div id="adidas16" class="sizeDivOff">
+                                <p>16</p>
+                            </div>
+                            <div id="adidas17" class="sizeDivOff">
+                                <p>17</p>
+                            </div>
+                            <div id="adidas18" class="sizeDivOff">
+                                <p>18</p>
+                            </div>
+                            <div id="adidas19" class="sizeDivOff">
+                                <p>19</p>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div id="MSLLBtnsDiv">
+                        <div id="MSLLAllSizesBtnDiv">
+                            <p>Все размеры</p>
+                        </div>
+                        
+                        <div id="MSLLClearBtnDiv">
+                            <p>Очистить</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="MSlowerRightDiv">
+                    <div class="MSLRdummyDiv">
+                    </div> 
+                    <div id="MSLRbtnsDiv">
+                        <div id="MSLRbtnsTextDiv">
+                            <p>Основные функции</p>
+                        </div>
+                        <div class="MSLRbntsClickableDivContainer">
+                            <div id="MSLRbtnsFillForms" class="MSLRbtnsClickableDivOff">
+                                <p>Автофил</p>
+                            </div>
+                        </div>
+                        <div class="MSLRbntsClickableDivContainer">
+                            <div id="MSLRbtnsPayOrder" class="MSLRbtnsClickableDivOff">
+                                <p>Авто чекаут</p>
+                            </div>
+                        </div>
+                        <div class="MSLRbntsClickableDivContainer" >
+                            <div id="MSLRbtnsWaitAvailability" class="MSLRbtnsClickableDivOff">
+                                <p>Ожидать наличие</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="MSLRdummyDiv">
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
