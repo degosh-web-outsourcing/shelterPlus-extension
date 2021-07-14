@@ -74,12 +74,10 @@
                         <input tabindex=5 id="email" type="text" placeholder="Email">
                     </div>
                     <div class="row extra">
-                        <select id="country"> 
-                            <option hidden value="">Страна</option>
-                        </select>
-                        <select id="state">
-                            <option hidden value="">Область</option>
-                        </select>
+                        <input list="countryList" type="text" id="country" placeholder="Страна">
+                        <datalist id="countryList">
+                        </datalist>
+                        <input id="state" type="text" placeholder="Область / Штат">
                     </div>
                     <div class="row">
                         <input id="city" type="text" placeholder="Город">

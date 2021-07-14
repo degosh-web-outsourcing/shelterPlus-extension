@@ -30,43 +30,15 @@ $(function () {
     fetch(countries)
         .then((response) => response.json())
         .then(json => {
-            let countriesList = document.getElementById('country');
-            var contries = Object.keys(json);
-            for (var i = 0; i < contries.length; i++) {
+            let countriesList = document.getElementById('countryList');
+            console.log(json[0]);
+            for (var i = 0; i < json.length; i++) {
                 countriesList.insertAdjacentHTML('beforeend',
-                    `<option value=${contries[i]}>${contries[i]}</option>`
+                    `<option value=${json[i].country}>${json[i].country}</option>`
                 );
             }
         });
 
-    $('#country').click(function () {
-        fetch(countries)
-            .then((response) => response.json())
-            .then(json => {
-                var sc = document.getElementById('country').value;
-                $('.states').remove();
-                for (var i = 0; i < Object.keys(json).length; i++) {
-                    if (Object.keys(json)[i] == sc) {
-                        var states = Object.values(json)[i];
-                        var statesLength = Object.values(json)[i].length;
-                        for (var i = 0; i < statesLength; i++) {
-                            let statesList = document.getElementById('state');
-                            statesList.insertAdjacentHTML('beforeend',
-                                `<option class="states" value=${states[i]}>${states[i]}</option>`
-                            );
-                        }
-                    }
-                }
-            });
-    });
-
-    $('#country').click(function () {
-        $('#country').attr('class', 'normal');
-    });
-
-    $('#state').click(function () {
-        $('#state').attr('class', 'normal');
-    });
 });
 
 $(function () {
@@ -155,18 +127,12 @@ $(function () {
 
     $('#test').on('click', function () {
         Object.keys(testProfile).forEach(id => {
-            if (id == "state") {
-                $('#country').click();
-                setTimeout(function () {
-                    $(`#${id}`).val(testProfile[id]);
-                }, 100);
-            } else {
-                $(`#${id}`).val(testProfile[id]);
-            }
+            $(`#${id}`).val(testProfile[id]).trigger('change', { bubble: true });
         });
 
         $('#country').attr('class', 'normal');
         $('#state').attr('class', 'normal');
+        $('#state').val(testProfile.state).trigger('change', { bubble: true });;
     });
 
     $('#clear').on('click', function () {
