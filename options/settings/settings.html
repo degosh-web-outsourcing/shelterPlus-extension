@@ -16,19 +16,21 @@
 
     <div class="navigation">
         <table>
-            <tr>
-                <th align="left">
-                    <img id="shelterLogo" src="/imgs/logo/shelterLogo.png">
-                </th>
-                <th class="navUnderlineA">
-                    <a href="/options/profiles/profiles.html" class="navText">Профили</a>
-                    <a href="/options/modules/modules.html" class="navText" id="middleNavText">Модули</a>
-                    <a href="#" class="navText">Настройки</a>
-                </th>
-                <th align="right">
-                    <img id="degoshLogo" src="/imgs/logo/degoshLogo.svg">
-                </th>
-            </tr>
+            <th align="left">
+                <a href="/options/profiles/profiles.html">
+                    <img src="/imgs/logo/shelterLogo.png">
+                </a>
+            </th>
+            <th class="navUnderlineA">
+                <a href="/options/profiles/profiles.html" class="navText">Профили</a>
+                <a href="/options/modules/modules.html" class="navText" id="middleNavText">Модули</a>
+                <a href="/options/settings/settings.html" class="navText">Настройки</a>
+            </th>
+            <th align="right">
+                <a href="/options/profiles/profiles.html">
+                    <img src="/imgs/logo/degoshLogo.svg">
+                </a>
+            </th>
         </table>
     </div>
 
@@ -43,19 +45,25 @@
             </div>
 
             <div id="controllerDiv">
-                <!--
-                <button id="resetProfilesBtn" class="controllerBtnOff">Спбросить профили</button>
-                <button id="resetAllBtn" class="controllerBtnOff">Cбросить все</button>
-                <button id="impEverythingBtn" class="controllerBtnOff">Импортировать все</button>
-                <button id="expEverytingBtn" class="controllerBtnOff">Экспортировать все</button>
-                <button id="exitAppBtn" class="controllerBtnOff">Выйти из приложения</button>
-                <div id="dummyLowerDiv">
-                -->
-                <button id="resetProfilesBtn" class="BtnOff">Сбросить профили</button>
-                <button id="resetAllBtn" class="BtnOff">Сбросить все</button>
-                <button id="impEverythingBtn" class="BtnOff">Импортировать все</button>
-                <button id="expEverytingBtn" class="BtnOff">Экспортировать все</button>
+                <div id="resetBtnsDiv">
+                    <button id="resetProfilesBtn" class="BtnOff">Сбросить профили</button>
+                    <button id="resetAllBtn" class="BtnOff">Сбросить все</button>
+                </div>
+
+                <div id="dummyBtnsDiv">
+                </div>
+
+                <div id="impExpBtnsDiv"> 
+                    <button id="impEverythingBtn" class="BtnOff">Импортировать все</button>
+                    <button id="expEverytingBtn" class="BtnOff">Экспортировать все</button>
+                </div>
+
+                <div id="dummyBtnsDiv">
+                </div>
+
                 <button id="exitAppBtn">Выйти из приложения</button>
+                <div id="dummyBtnsDiv">
+                </div>
             </div>
         </div>
 

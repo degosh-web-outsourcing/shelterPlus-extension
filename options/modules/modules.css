@@ -75,6 +75,20 @@
     bottom: 0;
     left: 0;
     right: 0;
+    width: 60%;
+    height: auto;
+    margin: auto;
+}
+
+#kithModuleLogoImg {
+    /*relative to the .moduleBtnsDiv*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: auto;
     margin: auto;
 }
 
@@ -90,15 +104,7 @@
     height: auto;
 } 
 
-#kithModuleLogoImg {
-    /*relative to the .moduleBtnsDiv*/
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
+
 
 /*RIGHT MODULE SETTINGS TAB*/
 .moduleSettingsDiv {
