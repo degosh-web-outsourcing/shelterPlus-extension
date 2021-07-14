@@ -293,6 +293,12 @@
 #MSLLunselectAllBtn:hover {
     border: 2px white solid;
 }
+.btnOn {
+    border: 2px #3BEB4C solid;
+}
+.btnOff {
+    border: 2px #5A5858 solid;
+}
 
 /*ACTION BTNS RIGHT DIV*/
 #MSlowerRightDiv {    
@@ -328,20 +334,6 @@
     margin: 0;
     text-align: center;
 }
-/*
-#MSLRbntsAutofillBtnDiv {
-    flex: 1;
-    border: 1px white dotted;
-}
-#MSLRbntsAutocheckoutBtnDiv {
-    flex: 1;
-    border: 1px white dotted;
-}
-#MSLRbtnsWaitAvailabilityBtnDiv {
-    flex: 1;
-    border: 1px white dotted;
-}
-*/
 .actionBtnOff {
     font-size: 15px;
 	font-weight: bold;
