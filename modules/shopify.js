@@ -34,7 +34,7 @@ fillField('#checkout_billing_address_country', "United States", true);
 fillField('#checkout_shipping_address_province', "CA", true);
 fillField('#checkout_billing_address_province', "CA", true);
 
-function fillField(id, value, select = false, smt = false) {
+function fillField(id, value, select = false) {
     $(`${id}`).val("");
     let element = document.querySelector(id);
 
