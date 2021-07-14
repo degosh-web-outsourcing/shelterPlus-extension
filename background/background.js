@@ -1,5 +1,5 @@
 chrome.storage.local.get('proxyHttps', function (sw) {
-    chrome.tabs.create({ url: "../options/settings/settings.html" });
+    chrome.tabs.create({ url: "../options/profiles/profiles.html" });
 
     setTimeout(function () {
         chrome.tabs.query({}, function (tabs) {
