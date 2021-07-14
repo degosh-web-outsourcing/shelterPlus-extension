@@ -5,6 +5,9 @@
     background-color: #0E160C;
     border-radius: 5px;
     height: 92.5%;
+    padding-top: 1%;
+    margin-left: 1%;
+    border: 1px white solid;
 
     display: flex;
     flex-direction: column;
@@ -14,7 +17,6 @@
     /*relative to the .moduleBtnsDiv*/
     flex: 1;
     width: 90%;
-    margin-top: 5%;
     margin-left: 5%;
     margin-right: 5%;
     background-color: #0A0A0A;
@@ -30,7 +32,6 @@
     /*relative to the .moduleBtnsDiv*/
     flex: 1;
     width: 90%;
-    margin-top: 5%;
     margin-left: 5%;
     margin-right: 5%;
     background-color: #0A0A0A;
@@ -90,8 +91,7 @@
     /*relative to .content*/
     flex: 5;
     background-color: #0A0A0A;
-    height: 92.5%;
-    position: relative;
+    height: 94.5%;
 
     display: flex;
     flex-direction: column;
@@ -102,7 +102,7 @@
 #MSupperDiv {
     /*relative to .moduleSettingsDiv*/
     flex: 2;
-    width: 96%;
+    width: 98%;
     margin-left: 1%;
     margin-right: 1%;
     border-radius: 5px;
@@ -117,29 +117,23 @@
     /*relative to .MSupperDiv */
     flex: 2;
     position: relative;
-
-    border: white 1px solid;
+    text-align: center;
 }
 #MSupperLeftTextDiv p {
     font-size: 20px;
     color: white;
-
-    position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    border: white 1px solid;
+    align-items: center;
+    justify-content: center;
+    
 }
 #MSupperSelectDiv {
     /*relative to .MSupperDiv */
-    flex: 2;
+    flex: 3;
+    margin: auto;
 }
 #MSupperDummyDiv {
     /*relative to .MSupperDiv */
-    flex: 3;
+    flex: 2;
 }
 
 
@@ -148,7 +142,7 @@
 #MSlowerDiv {
     /*relative to .moduleSettingsDiv*/
     flex: 16;
-    width: 91%;
+    width: 93%;
     margin-left: 1%;
     margin-right: 1%;
     border-radius: 5px;
@@ -307,27 +301,30 @@
 
     display: flex;
     flex-direction: column;
+    border: 1px white solid;
 }
 .MSLRdummyDiv {
     /*relative to #MSlowerRightDiv */
-    flex: 2;
+    flex: 3;
+    border: 1px white solid;
 }
 #MSLRbtnsDiv {
     /*relative to #MSlowerRightDiv */
     flex: 5;
-
-    display: flex;
-    flex-direction: column;
 }
 #MSLRbtnsTextDiv {
-    /*relative to #MSLRbtnsDiv */
-    flex: 1;
+    border: 1px white solid;
+    margin: 0%;
 }
 #MSLRbtnsTextDiv p {
-    font-size: 20px;
     color: white;
-    margin: 0;
     text-align: center;
+    font-size: 20px;
+	width: 70%;
+	margin-right: 15%;
+    margin-left: 15%;
+    margin-top: 0;
+    margin-bottom: 5%;
 }
 .actionBtnOff {
     font-size: 15px;
@@ -344,7 +341,7 @@
 	color: white;
 	margin-left: 15%;
 	margin-right: 15%;
-	margin-bottom: 2%;;
+	margin-bottom: 2%;
 }
 .actionBtnOff:hover {
     border: 2px white solid;
