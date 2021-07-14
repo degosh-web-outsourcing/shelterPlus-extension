@@ -321,7 +321,7 @@
     border: 2px #5A5858 solid;
     background-color: #0A0A0A;
 
-    position: relative;
+  /*  position: relative;*/
 }
 
 #MSLLAllSizesBtnDiv:hover {
@@ -329,6 +329,7 @@
 }
 
 #MSLLAllSizesBtnDiv p {
+    /*
     text-align: center;
     color: white;
     font-size: 15px;
@@ -336,6 +337,13 @@
     font-weight: bold;
     margin-top: 3%;
     margin-bottom: 3%;
+    */
+    text-align: center; 
+    color: white;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 0;
 }
 
 #MSLLClearBtnDiv {
@@ -370,7 +378,7 @@
     flex-direction: column;
 }
 
-#MSLRdummyDiv {
+.MSLRdummyDiv {
     /*relative to #MSlowerRightDiv */
     flex: 2;
     border: 1px white solid;

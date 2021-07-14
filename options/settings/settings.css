@@ -1,13 +1,4 @@
-/*
-@media screen and (max-height: 800px) {
-    a {
-        font-size: 20px;
-    }
-}
-*/
-
-.dummyDiv {
-	/*relative to content*/
+.dummySideDiv {
 	flex: 2;
 	border: 1px white solid;
 	height: 92.5%;
@@ -15,7 +6,6 @@
 }
 
 .centerDiv {
-	/*relative to content*/
 	flex: 3;
 	border: 1px white solid;
 	height: 92.5%;
@@ -25,65 +15,18 @@
 	flex-direction: column;
 }
 
-.proxyDiv {
-	/*relative to .centerDiv*/
+#proxyDiv {
 	flex: 1;
-	width: 95%;
-	height: 100%;
-	border: 1px white red;
+	width: 100%;
+	border: 1px  white solid;
 }
-
-.proxyOff {
-	border: solid 2px #5A5858!important;
-}
-
-.proxyOn {
-	border-color: solid 2px #3BEB4C!important;
-}
-
-.contollerDiv {
-	/*relative to .centerDiv*/
-	flex: 1;
-	width: 95%;
-	height: 100%;
-	border: 1px red solid;
-}
-
-/*
-.contoller button {
-	border-radius: 5px;
-	border-color: white;
-	font-size: 25px;
-	font-weight: bold;
-	font-style: italic;
-	margin-bottom: 2%;
-	height: 40px;
-	width: 500px;
-}
-
-.extra {
-	margin-bottom: 10% !important;
-}
-
-
-
 #proxyInput {
 	width: 70%;
 	margin-left: 15%;
 	margin-right: 15%;
+	margin-top: 5%;
 }
-
-#askProxy {
-	width: 50px;
-	height: 40px;
-	margin-left: 1%;
-}
-
-#ask {
-	margin-top: 2.5%;
-}
-
-#useProxy {
+#useProxyBtn {
 	font-size: 15px;
 	font-weight: bold;
     font-style: italic;
@@ -92,19 +35,140 @@
 	padding: 10px;
 	padding-left: 10%;
 	padding-right: 10%;
-	border: 2px solid;
+	border: 2px solid #5A5858;
 	border-radius: 5px;
 	background-color: #0A0A0A;
 	color: white;
 	margin-top: 2.5%;
 	margin-left: 15%;
 	margin-right: 15%;
+
 }
 
-a {
-	font-size: 30px;
+#controllerDiv {
+	flex: 3;
+	border: 1px white solid;
+
+	display: flex;
+	flex-direction: column;
+}
+#resetProfilesBtn {
+	font-size: 15px;
+	font-weight: bold;
+    font-style: italic;
+
+	width: 70%;
+	padding: 10px;
+	padding-left: 10%;
+	padding-right: 10%;
+	border: 2px solid #5A5858;
+	border-radius: 5px;
+	background-color: #0A0A0A;
 	color: white;
+	margin-top: 5%;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+#resetAllBtn {
+	font-size: 15px;
+	font-weight: bold;
+    font-style: italic;
+
+	width: 70%;
+	padding: 10px;
+	padding-left: 10%;
+	padding-right: 10%;
+	border: 2px solid #5A5858;
+	border-radius: 5px;
+	background-color: #0A0A0A;
+	color: white;
+	margin-top: 2.5%;
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-bottom: 10%;
+}
+#impEverythingBtn {
+	font-size: 15px;
+	font-weight: bold;
+    font-style: italic;
+
+	width: 70%;
+	padding: 10px;
+	padding-left: 10%;
+	padding-right: 10%;
+	border: 2px solid #5A5858;
+	border-radius: 5px;
+	background-color: #0A0A0A;
+	color: white;
+	margin-top: 2.5%;
+	margin-left: 15%;
+	margin-right: 15%;	
+}
+#expEverytingBtn {
+	font-size: 15px;
+	font-weight: bold;
+    font-style: italic;
+
+	width: 70%;
+	padding: 10px;
+	padding-left: 10%;
+	padding-right: 10%;
+	border: 2px solid #5A5858;
+	border-radius: 5px;
+	background-color: #0A0A0A;
+	color: white;
+	margin-top: 2.5%;
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-bottom: 10%;
+}
+#exitAppBtn {
+	font-size: 15px;
+	font-weight: bold;
+    font-style: italic;
+
+	width: 70%;
+	padding: 10px;
+	padding-left: 10%;
+	padding-right: 10%;
+	border: 2px solid rgb(92, 34, 34);
+	border-radius: 5px;
+	background-color: #0A0A0A;
+	color: white;
+	margin-top: 2.5%;
+	margin-left: 15%;
+	margin-right: 15%;	
+}
+#exitAppBtn:hover{
+	border: solid 2px rgb(212, 25, 25)!important;
+}
+
+
+.BtnOff {
+	border: solid 2px #5A5858!important;
+}
+
+.BtnOff:hover {
+	border: solid 2px white!important;
+}
+
+.BtnOn {
+	border-color: solid 2px #3BEB4C!important;
+}
+
+.BtnOn:hover {
+	border: solid 2px white!important;
+}
+
+/*
+
+.controllerBtnOff {
+	flex: 1;
+	width: 90%;
 }
 
 
 */
+
+
+
