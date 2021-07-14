@@ -246,14 +246,7 @@ function createProfile(newProfile) {
 
 function readProfile(profile) {
     Object.keys(profile).forEach(id => {
-        if (id == "state") {
-            $('#country').click();
-            setTimeout(function () {
-                $(`#${id}`).val(profile[id]);
-            }, 100);
-        } else {
-            $(`#${id}`).val(profile[id]);
-        }
+        $(`#${id}`).val(profile[id]);
     });
 
     $('#country').attr('class', 'normal');
