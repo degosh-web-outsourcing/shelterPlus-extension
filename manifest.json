@@ -5,8 +5,22 @@
 	"version": "1.0.0",
 	"options_page": "options/auth/auth.html",
 	"browser_action": {
+		"default_popup": "redirect/redirect.html"
 	},
-	"content_scripts": [],
+	"content_scripts": [
+		{
+			"all_frames": true,
+			"matches": [
+				"<all_urls>",
+				"https://*/*",
+				"http://*/*"
+			],
+			"js": [
+				"additional/jquery-3.6.0.min.js",
+				"modules/shopify.js"
+			]
+		}
+	],
 	"background": {
 		"scripts": [
 			"background/background.js"

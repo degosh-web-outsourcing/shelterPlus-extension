@@ -25,7 +25,7 @@ chrome.storage.local.get('proxyHttps', function (sw) {
                         host: proxy[0],
                         port: port
                     },
-                    bypassList: ["foobar.com"]
+                    bypassList: ["degosh.com"]
                 }
             };
 
