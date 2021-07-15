@@ -10,7 +10,6 @@
 	height: 92.5%;
 	background-color: #0E160C;
 	border-radius: 5px;
-
 	display: flex;
 	flex-direction: column;
 }
@@ -19,17 +18,22 @@
 	flex: 1;
 	width: 100%;
 }
+
 #proxyInput {
 	width: 70%;
 	margin-left: 15%;
 	margin-right: 15%;
 	margin-top: 5%;
 }
+
+.proxyOn {
+	border-color: green !important;
+}
+
 #useProxyBtn {
 	font-size: 15px;
 	font-weight: bold;
-    font-style: italic;
-
+	font-style: italic;
 	width: 70%;
 	padding: 10px;
 	padding-left: 10%;
@@ -45,18 +49,18 @@
 
 #controllerDiv {
 	flex: 3;
-
 	display: flex;
 	flex-direction: column;
 }
+
 #resetBtnsDiv {
 	flex: 1;
 }
+
 #resetProfilesBtn {
 	font-size: 15px;
 	font-weight: bold;
-    font-style: italic;
-
+	font-style: italic;
 	width: 70%;
 	padding: 10px;
 	padding-left: 10%;
@@ -69,11 +73,11 @@
 	margin-right: 15%;
 	margin-bottom: 2%;
 }
+
 #resetAllBtn {
 	font-size: 15px;
 	font-weight: bold;
-    font-style: italic;
-
+	font-style: italic;
 	width: 70%;
 	padding: 10px;
 	padding-left: 10%;
@@ -85,14 +89,15 @@
 	margin-left: 15%;
 	margin-right: 15%;
 }
+
 #impExpBtnsDiv {
 	flex: 1;
 }
+
 #impEverythingBtn {
 	font-size: 15px;
 	font-weight: bold;
-    font-style: italic;
-
+	font-style: italic;
 	width: 70%;
 	padding: 10px;
 	padding-left: 10%;
@@ -102,14 +107,14 @@
 	background-color: #0A0A0A;
 	color: white;
 	margin-left: 15%;
-	margin-right: 15%;	
+	margin-right: 15%;
 	margin-bottom: 2%;
 }
+
 #expEverytingBtn {
 	font-size: 15px;
 	font-weight: bold;
-    font-style: italic;
-
+	font-style: italic;
 	width: 70%;
 	padding: 10px;
 	padding-left: 10%;
@@ -121,11 +126,11 @@
 	margin-left: 15%;
 	margin-right: 15%;
 }
+
 #exitAppBtn {
 	font-size: 15px;
 	font-weight: bold;
-    font-style: italic;
-
+	font-style: italic;
 	width: 70%;
 	padding: 10px;
 	padding-left: 10%;
@@ -135,42 +140,14 @@
 	background-color: #0A0A0A;
 	color: white;
 	margin-left: 15%;
-	margin-right: 15%;	
+	margin-right: 15%;
 	margin-bottom: 5%;
 }
-#exitAppBtn:hover{
+
+#exitAppBtn:hover {
 	border: solid 2px rgb(212, 25, 25)!important;
 }
+
 #dummyBtnsDiv {
 	flex: 1;
 }
-
-
-.BtnOff {
-	border: solid 2px #5A5858!important;
-}
-
-.BtnOff:hover {
-	border: solid 2px white!important;
-}
-
-.BtnOn {
-	border-color: solid 2px #3BEB4C!important;
-}
-
-.BtnOn:hover {
-	border: solid 2px white!important;
-}
-
-/*
-
-.controllerBtnOff {
-	flex: 1;
-	width: 90%;
-}
-
-
-*/
-
-
-
