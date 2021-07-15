@@ -19,10 +19,19 @@ chrome.storage.local.get('license', function (key) {
 
 $(document).ready(function () {
     $('#img').on('click', function () {
+        syncLicense();
+    });
+    $('body').on('keypress', function (e) {
+        if (e.which === 13) {
+            syncLicense();
+        }
+    });
+
+    function syncLicense() {
         chrome.storage.local.get('license', function (key) {
             let lkey = $("#key").val();
             chrome.storage.local.set({ 'license': lkey });
         });
         location.reload();
-    });
+    }
 });
