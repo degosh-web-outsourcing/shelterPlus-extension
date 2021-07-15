@@ -70,6 +70,24 @@ $(document).ready(function () {
 
 		kithRange();
 	});	
+
+	//ПЕРЕКЛЮЧАТЕЛИ Shopify
+	//Включено или нет автозаполнение для shopify
+	$('div[id^="shopifyModuleBtnDiv"]').on('click', function () {
+		let elementId = $(this).attr('id');
+
+		if ($(`#${elementId}`).attr('class') == 'moduleBtnOff') {
+			$(`#${elementId}`).attr('class', 'moduleBtnOn');
+			/*$("#pInsideShopify").attr('class', 'shopifyIsOn');*/
+			$("#pInsideShopify").html("Включено")
+		} else {
+			$(`#${elementId}`).attr('class', 'moduleBtnOff');
+			//$("#pInsideShopify").attr('class', 'shopifyIsOff');
+			$("#pInsideShopify").html("Выключено");
+		}
+
+		kithRange();
+	});	
 });
 
 
