@@ -12,6 +12,49 @@ chrome.storage.local.get('license', function (key) {
     });
 });
 
+//как только документ готов
+$(document).ready(function () {
+    //переключить цвет кнопки proxy по тыку
+	$('button[id="useProxyBtn"]').on('click', function () {
+		let elementId = $(this).attr('id');
+
+		if ($(`#${elementId}`).attr('class') == 'BtnOff') {
+			$(`#${elementId}`).attr('class', 'BtnOn');
+		} else {
+			$(`#${elementId}`).attr('class', 'BtnOff');
+		}
+
+        //записываем статус кнопки в chrome storage
+		SettingsSizeRange();
+	});
+});
+
+//перезаписывает статусы кнопок в переменную в chrome storage
+function SettingsSizeRange() {
+	chrome.storage.sync.get('Settings', function (Set) {
+		var btnsStatus = {
+			'proxyBtnClass': $('button[id="useProxyBtn"]').attr('class')
+		}
+
+		chrome.storage.sync.set({ 'Settings': btnsStatus});
+	});
+}
+
+//делает кнопки такими же, как записано в соответствующей переменной в chrome storage
+function syncBtns() {
+	chrome.storage.sync.get('Settings', function (Set) {
+		//если в сторадже записано что proxy включен
+		if (Set.Settings['proxyBtnClass'] == 'BtnOn') {
+			//сделать эту кнопку on и в открытой странице
+			$(`#proxyBtnClass`).attr('class', 'BtnOn');
+		}
+    });
+
+    //снова записываем статус этой кнопки
+	SettingsSizeRange();
+}
+    
+
 $(function () {
     $("#resetP").on('click', function () {
         chrome.storage.local.set({ 'profiles': new Array() });

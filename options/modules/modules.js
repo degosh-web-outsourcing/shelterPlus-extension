@@ -81,8 +81,7 @@ function checkModuleAdi() {
 	});
 }
 
-//функция, которая перезаписывает статусы каждых кнопок (нажата, не нажата)
-//2
+//перезаписывает статусы кнопок в chrome storage
 function adiGetSizeRange() {
 	chrome.storage.sync.get('adiSettings', function (aS) {
 		var sizeStatus = {
@@ -124,6 +123,7 @@ function adiGetSizeRange() {
 	});
 }
 
+//делает кнопки такими же, как записано в chrome storage
 function syncBtns() {
 	chrome.storage.sync.get('adiSettings', function (aS) {
 		//если в сторадже записано что автофил включен
