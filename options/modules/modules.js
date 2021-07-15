@@ -33,6 +33,21 @@ chrome.storage.local.get('shopifySettings', function (sS) {
 });
 
 $(function () {
+	$('#MSprofileSelect').on('change', function () {
+		chrome.storage.local.get('profiles', function (list) {
+			if (list.profiles) {
+				for (var i = 0; i < list.profiles.length; i++) {
+					if (list.profiles[i].profileName == document.getElementById('MSprofileSelect').value) {
+						list.profiles[i].selected = true;
+					} else {
+						list.profiles[i].selected = false;
+					}
+				}
+				chrome.storage.local.set({ 'profiles': list.profiles });
+			}
+		});
+	});
+
 	$('#adiModuleBtnDiv').on('click', function () {
 		if (window.location.pathname != "/options/modules/adiModuleSettings.html") {
 			window.location.href = "/options/modules/adiModuleSettings.html";
@@ -76,6 +91,9 @@ $(function () {
 			profilesList.insertAdjacentHTML('beforeend',
 				`<option value=${profile.profileName}>${profile.profileName}</option>`
 			);
+			if (profile.selected) {
+				$('#MSprofileSelect').val(profile.profileName);
+			}
 		});
 	});
 });
