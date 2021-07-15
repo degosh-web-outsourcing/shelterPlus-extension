@@ -1,7 +1,14 @@
-// ???
+chrome.storage.local.get('shopifySettings', function (sS) {
+    $(`#shopifyModuleBtnDiv`).attr('class', sS.shopifySettings['shopifyModuleBtnStatus']);
+    if (sS.shopifySettings['shopifyModuleBtnStatus'] == "moduleBtnOn") {
+        $("#pInsideShopify").html("Автофил включен");
+    } else {
+        $("#pInsideShopify").html("Автофил выключен");
+    }
+});
+
 $(function () {
     chrome.storage.local.get('shopifySettings', function (sS) {
-
         $(`#shopifyModuleBtnDiv`).attr('class', sS.shopifySettings['shopifyModuleBtnStatus']);
     });
 });

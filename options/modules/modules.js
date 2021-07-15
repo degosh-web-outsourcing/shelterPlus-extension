@@ -28,17 +28,45 @@ chrome.storage.local.get('adiSettings', function (aS) {
 	});
 });
 
+chrome.storage.local.get('shopifySettings', function (sS) {
+	$(`#shopifyModuleBtnDiv`).attr('class', sS.shopifySettings['shopifyModuleBtnStatus']);
+});
+
 $(function () {
 	$('#adiModuleBtnDiv').on('click', function () {
-		window.location.href = "/options/modules/adiModuleSettings.html";
+		if (window.location.pathname != "/options/modules/adiModuleSettings.html") {
+			window.location.href = "/options/modules/adiModuleSettings.html";
+		}
 	});
 
 	$('#kithModuleBtnDiv').on('click', function () {
-		window.location.href = "/options/modules/kithModuleSettings.html";
+		if (window.location.pathname != "/options/modules/kithModuleSettings.html") {
+			window.location.href = "/options/modules/kithModuleSettings.html";
+		}
 	});
 
-	$('#adiModuleBtnDiv').on('click', function () {
-		window.location.href = "/options/modules/adiModuleSettings.html";
+	$('#shopifyModuleBtnDiv').on('click', function () {
+		if (window.location.pathname != "/options/modules/shopifyModuleSettings.html") {
+			window.location.href = "/options/modules/shopifyModuleSettings.html";
+
+			if ($(this).attr('class') == 'moduleBtnOff') {
+				$(this).attr('class', 'moduleBtnOn');
+				$("#pInsideShopify").html("Автофил включен");
+				writeSettingsToStorage();
+			} else {
+				$(this).attr('class', 'moduleBtnOff');
+				$("#pInsideShopify").html("Автофил выключен");
+				writeSettingsToStorage();
+			}
+		}
+
+		function writeSettingsToStorage() {
+			var settings = {
+				'shopifyModuleBtnStatus': $('div[id="shopifyModuleBtnDiv"]').attr('class')
+			}
+
+			chrome.storage.local.set({ 'shopifySettings': settings });
+		}
 	});
 
 	const profilesList = document.getElementById('MSprofileSelect');
