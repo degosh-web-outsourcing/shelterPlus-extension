@@ -18,18 +18,12 @@
 	flex: 1;
 	width: 100%;
 }
-
 #proxyInput {
 	width: 70%;
 	margin-left: 15%;
 	margin-right: 15%;
 	margin-top: 5%;
 }
-
-.proxyOn {
-	border-color: green !important;
-}
-
 #useProxyBtn {
 	font-size: 15px;
 	font-weight: bold;
@@ -46,17 +40,27 @@
 	margin-left: 15%;
 	margin-right: 15%;
 }
+#useProxyBtn:hover {
+	border: 2px white solid !important;
+}
+.proxyOn {
+	border: 2px solid green !important;
+}
+.proxyOff {
+	border: 2px solid #5A5858 !important;
+}
 
 #controllerDiv {
 	flex: 3;
 	display: flex;
 	flex-direction: column;
 }
-
+.settingsBtn:hover {
+	border: 2px white solid !important;
+}
 #resetBtnsDiv {
 	flex: 1;
 }
-
 #resetProfilesBtn {
 	font-size: 15px;
 	font-weight: bold;
@@ -73,7 +77,6 @@
 	margin-right: 15%;
 	margin-bottom: 2%;
 }
-
 #resetAllBtn {
 	font-size: 15px;
 	font-weight: bold;
@@ -90,10 +93,11 @@
 	margin-right: 15%;
 }
 
+
+
 #impExpBtnsDiv {
 	flex: 1;
 }
-
 #impEverythingBtn {
 	font-size: 15px;
 	font-weight: bold;
@@ -110,7 +114,6 @@
 	margin-right: 15%;
 	margin-bottom: 2%;
 }
-
 #expEverytingBtn {
 	font-size: 15px;
 	font-weight: bold;
@@ -126,6 +129,8 @@
 	margin-left: 15%;
 	margin-right: 15%;
 }
+
+
 
 #exitAppBtn {
 	font-size: 15px;
@@ -143,7 +148,6 @@
 	margin-right: 15%;
 	margin-bottom: 5%;
 }
-
 #exitAppBtn:hover {
 	border: solid 2px rgb(212, 25, 25)!important;
 }
