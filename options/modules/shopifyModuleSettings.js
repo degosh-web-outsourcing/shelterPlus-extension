@@ -7,12 +7,6 @@ chrome.storage.local.get('shopifySettings', function (sS) {
     }
 });
 
-$(function () {
-    chrome.storage.local.get('shopifySettings', function (sS) {
-        $(`#shopifyModuleBtnDiv`).attr('class', sS.shopifySettings['shopifyModuleBtnStatus']);
-    });
-});
-
 $(document).ready(function () {
     
     $('[id="shopifyModuleBtnDiv"]').on('click', function () {
@@ -25,9 +19,7 @@ $(document).ready(function () {
             $("#pInsideShopify").html("Автофил выключен");
             writeSettingsToStorage();
         }
-
     }); 
-
 });
 
 function writeSettingsToStorage() {
