@@ -31,7 +31,6 @@ $(function () {
         .then((response) => response.json())
         .then(json => {
             let countriesList = document.getElementById('countryList');
-            console.log(json[0]);
             for (var i = 0; i < json.length; i++) {
                 countriesList.insertAdjacentHTML('beforeend',
                     `<option value=${json[i].country}>${json[i].country}</option>`
