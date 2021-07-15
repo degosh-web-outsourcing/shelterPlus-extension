@@ -358,15 +358,12 @@
 
     display: flex;
     flex-direction: column;
-    border: 1px white solid;
 }
 .shopifyDummyDiv {
     flex: 4;
-    border: 1px red solid;
 }
 #shopifyTextDiv {
     flex: 1;
-    border: 1px white solid;
     text-align: center;
 }
 #pInsideShopify {
