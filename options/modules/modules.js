@@ -14,6 +14,12 @@ chrome.storage.local.get('license', function (key) {
 
 //как только документ готов
 $(document).ready(function () {
+	checkModuleKith();
+	checkModuleAdi();
+	adiSyncBtns();
+	kithSyncBtns();
+
+	//ПЕРЕКЛЮЧАТЕЛИ ADIDAS
     //переключить цвет кнопки размера при нажатии
 	$('button[id^="adidas"]').on('click', function () {
 		let elementId = $(this).attr('id');
@@ -26,9 +32,8 @@ $(document).ready(function () {
 
 		adiGetSizeRange();
 	});
-
     //переключить цвет кнопки настройки при нажатии
-	$('button[id^="MSLRbtns"]').on('click', function () {
+	$('button[id^="MSLRbtnsAdi"]').on('click', function () {
 		let elementId = $(this).attr('id');
 
 		if ($(`#${elementId}`).attr('class') == 'actionBtnOff') {
@@ -39,24 +44,38 @@ $(document).ready(function () {
 
 		adiGetSizeRange();
 	});
-
     //кнопка отключения всех размеры
 	$('#MSLLunselectAllBtn').on('click', function () {
 		$('button[id^="adidas"]').attr('class', 'sizeOff');
 
 		adiGetSizeRange();
 	});
-
 	//кнопка включения всех размеров
 	$('#MSLLselectAllBtn').on('click', function () {
 		$('button[id^="adidas"]').attr('class', 'sizeOn');
 
 		adiGetSizeRange();
 	});
+
+	//ПЕРЕКЛЮЧАТЕЛИ KITH
+	//переключить цвет кнопки настройки при нажатии
+	$('button[id^="MSLRbtnsKith"]').on('click', function () {
+		let elementId = $(this).attr('id');
+
+		if ($(`#${elementId}`).attr('class') == 'actionBtnOff') {
+			$(`#${elementId}`).attr('class', 'actionBtnOn');
+		} else {
+			$(`#${elementId}`).attr('class', 'actionBtnOff');
+		}
+
+		kithRange();
+	});	
 });
 
+
+
+//ДЛЯ ADIDAS
 // функция которая включает и выключает div адидаса
-// 1
 function checkModuleAdi() {
 	chrome.storage.sync.get('adiSettings', function (aS) {
 		let activated = 0;
@@ -80,7 +99,6 @@ function checkModuleAdi() {
 		}, 100);
 	});
 }
-
 //перезаписывает статусы кнопок в chrome storage
 function adiGetSizeRange() {
 	chrome.storage.sync.get('adiSettings', function (aS) {
@@ -113,33 +131,32 @@ function adiGetSizeRange() {
 			'17': $('button[id="adidas17"]').attr('class'),
 			'18': $('button[id="adidas18"]').attr('class'),
 			'19': $('button[id="adidas19"]').attr('class'),
-			'autofill': $('button[id="MSLRbtnsAutofillBtn"]').attr('class'),
-			'autocheckout': $('button[id="MSLRbtnsAutocheckoutBtn"]').attr('class'),
-			'waitForAvailability': $('button[id="MSLRbtnsWaitAvailabilityBtn"]').attr('class') 
+			'adiAutofill': $('button[id="MSLRbtnsAdiAutofillBtn"]').attr('class'),
+			'adiAutocheckout': $('button[id="MSLRbtnsAdiAutocheckoutBtn"]').attr('class'),
+			'adiWaitForAvailability': $('button[id="MSLRbtnsAdiWaitAvailabilityBtn"]').attr('class') 
 		}
 
 		chrome.storage.sync.set({ 'adiSettings': sizeStatus });
 		checkModuleAdi();
 	});
 }
-
 //делает кнопки такими же, как записано в chrome storage
-function syncBtns() {
+function adiSyncBtns() {
 	chrome.storage.sync.get('adiSettings', function (aS) {
 		//если в сторадже записано что автофил включен
-		if (aS.adiSettings['autofill'] == 'actionBtnOn') {
+		if (aS.adiSettings['adiAutofill'] == 'actionBtnOn') {
 			//сделать on и в открытой странице
-			$(`#MSLRbtnsAutofillBtn`).attr('class', 'actionBtnOn');
+			$(`#MSLRbtnsAdiAutofillBtn`).attr('class', 'actionBtnOn');
 		}
 
 		//то же самое для ожидания наличия
-		if (aS.adiSettings['waitForAvailability'] == 'actionBtnOn') {
-			$(`#MSLRbtnsAutocheckoutBtn`).attr('class', 'actionBtnOn');
+		if (aS.adiSettings['adiWaitForAvailability'] == 'actionBtnOn') {
+			$(`#MSLRbtnsAdiWaitAvailabilityBtn `).attr('class', 'actionBtnOn');
 		}
 
 		//то же самое для авточекаута
-		if (aS.adiSettings['autocheckout'] == 'actionBtnOn') {
-			$(`#MSLRbtnsWaitAvailabilityBtn`).attr('class', 'actionBtnOn');
+		if (aS.adiSettings['adiAutocheckout'] == 'actionBtnOn') {
+			$(`##MSLRbtnsAdiAutocheckoutBtn`).attr('class', 'actionBtnOn');
 		}
 
 		//то же самое для размера
@@ -151,4 +168,63 @@ function syncBtns() {
 	});
 
 	adiGetSizeRange();
+}
+
+
+
+//ДЛЯ KITH
+// функция которая включает и выключает div kith
+function checkModuleKith() {
+	chrome.storage.sync.get('kithSettings', function (kS) {
+		let activated = 0;
+		//проверяем нажато ли автозаполнение/авточекаут
+		Object.keys(kS.kithSettings).forEach(id => {
+			if (kS.kithSettings[id] == "actionBtnOn") {
+				//Если да, то мы нашли нажатую кнопку. Обновляем счетчик нажатых кнопок
+				activated += 1;
+			}
+		});
+
+		//тут таймаут тк это должно выполняться строго после первой функции
+		//еси была найдена хоть одна нажатая кнопка, то включаем див адидаса
+		setTimeout(function () {
+			if (activated == 0) {
+				$("#kithModuleBtnDiv").attr("class", "moduleBtnOff");
+			} else {
+				$("#kithModuleBtnDiv").attr("class", "moduleBtnOn");
+			}
+		}, 100);
+	});
+}
+
+//перезаписывает статусы кнопок в chrome storage
+function kithRange() {
+	chrome.storage.sync.get('kithSettings', function (kS) {
+		var btnsStatus = {
+			'kithAutofill': $('button[id="MSLRbtnsKithAutofillBtn"]').attr('class'),
+			'kithAutocheckout': $('button[id="MSLRbtnsKithAutocheckoutBtn"]').attr('class'),
+		}
+
+		chrome.storage.sync.set({ 'kithSettings': btnsStatus });
+		checkModuleKith();
+	});
+}
+
+//делает кнопки kith такими же, как записано в chrome storage
+function kithSyncBtns() {
+	chrome.storage.sync.get('kithSettings', function (kS) {
+
+		//если в сторадже записано что автофил включен
+		if (kS.kithSettings['kithAutofill'] == 'actionBtnOn') {
+			//сделать on и в открытой странице
+			$(`#MSLRbtnsKithAutofillBtn`).attr('class', 'actionBtnOn');
+		}
+
+		//то же самое для авточекаута
+		if (aS.adiSettings['adiAutocheckout'] == 'actionBtnOn') {
+			$(`#MSLRbtnsKithAutocheckoutBtn`).attr('class', 'actionBtnOn');
+		}
+	});
+
+	kithRange();
 }
