@@ -2,10 +2,6 @@
     width: 0px;
 }
 
-.content {
-    display: flex;
-}
-
 #import {
     margin-right: 50px;
 }
@@ -26,9 +22,10 @@
 /*left div*/
 #profilesList, #profilesListPlace {
     background-color: #0E160C;
-    height: 95%;
+    height: 94.5%;
+    border-radius: 5px;
     flex: 1;
-    margin-left: .5%;
+    margin-left: 1%;
     margin-right: .25%;
 }
 
@@ -86,10 +83,10 @@
     display: flex;
     flex-direction: column;
     background-color: #0E160C;
-    height: 95%;
+    height: 94.5%;
     flex: 1;
     margin-left: .25%;
-    margin-right: .5%;
+    margin-right: 1%;
 }
 
 .constructorControl {
