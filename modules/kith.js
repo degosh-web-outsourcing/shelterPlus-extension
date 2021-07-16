@@ -8,14 +8,13 @@ chrome.storage.local.get('kithSettings', function (kS) {
         }
     }, 100);
 
-    if (kS.kithSettings['autocheckout'] == 'actionBtnOn') {
-        let checkout1 = setInterval(function () {
-            if ($('[aria-label="Checkout"]').length) {
-                clearInterval(checkout1);
-                $('[aria-label="Checkout"]').click();
-            }
-        }, 100);
-    }
+    let checkout1 = setInterval(function () {
+        if ($('[aria-label="Checkout"]').length) {
+            clearInterval(checkout1);
+            $('[aria-label="Checkout"]').click();
+        }
+    }, 100);
+
 
     chrome.storage.local.get('profiles', function (list) {
         for (var i = 0; i < list.profiles.length; i++) {

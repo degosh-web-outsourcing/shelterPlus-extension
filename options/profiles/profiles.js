@@ -33,7 +33,7 @@ $(function () {
             let countriesList = document.getElementById('countryList');
             for (var i = 0; i < json.length; i++) {
                 countriesList.insertAdjacentHTML('beforeend',
-                    `<option value=${json[i].country}>${json[i].country}</option>`
+                    `<option value="${json[i].country}">`
                 );
             }
         });
