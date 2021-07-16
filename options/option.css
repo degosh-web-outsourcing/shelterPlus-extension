@@ -14,7 +14,7 @@ html, body {
     height: 92.5%;
     position: relative;
     display: flex;
-    gap: .2%;
+    /*gap: .2%;*/
     flex-direction: row;
 }
 
