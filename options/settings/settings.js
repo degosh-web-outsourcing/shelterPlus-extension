@@ -17,6 +17,16 @@ $(function () {
         chrome.storage.local.set({ 'profiles': new Array() });
     });
 
+    $("#resetAllBtn").on('click', function () {
+        chrome.storage.local.set({ 'profiles': new Array() });
+        chrome.storage.local.set({ 'adiSettings': null });
+        chrome.storage.local.set({ 'kithSettings': null });
+        chrome.storage.local.set({ 'kithSettings': null });
+        chrome.storage.local.set({ 'shopifySettings': null });
+        chrome.storage.local.set({ 'proxyHttps': null });
+        location.reload();
+    });
+
     $('#exitAppBtn').on('click', function () {
         chrome.storage.local.set({ 'license': null });
         window.location.href = "../auth/auth.html";
