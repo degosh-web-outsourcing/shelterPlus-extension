@@ -1,61 +1,58 @@
-var profile = {
-    fname: "Дмитрий",
-    sname: "Толмачев",
-    city: "Москва",
-    zip: "125310",
-    address1: "Муравская 32",
-    flat: "32",
-    email: "dima.tolmachev@gmail.ru",
-    phone: "9154771318"
-}
+chrome.storage.local.get('profiles', function (list) {
+    chrome.storage.local.get('adiSettings', function (aS) {
+        for (var i = 0; i < list.profiles.length; i++) {
+            if (list.profiles[i].selected == true) {
+                var profile = list.profiles[i];
+                let checkExist = setInterval(function () {
+                    if ($('input[name="firstName"]').length) {
+                        const changeValue = (element, value) => {
+                            var event = new Event('change', { bubbles: true });
+                            var evnt = new Event('focus');
+                            var evt = new Event('blur');
+                            element.value = value;
+                            element.dispatchEvent(event);
+                            element.focus();
+                            element.dispatchEvent(evnt);
+                            element.blur();
+                            element.dispatchEvent(evt);
+                        }
 
-let checkExist = setInterval(function () {
-    if ($('input[name="firstName"]').length) {
-        const changeValue = (element, value) => {
-            var event = new Event('change', { bubbles: true });
-            var evnt = new Event('focus');
-            var evt = new Event('blur');
-            element.value = value;
-            element.dispatchEvent(event);
-            element.focus();
-            element.dispatchEvent(evnt);
-            element.blur();
-            element.dispatchEvent(evt);
+                        if (aS.adiSettings['adiAutofill'] == "actionBtnOn") {
+                            changeValue(document.getElementsByName("firstName")[0], profile.fname);
+                            changeValue(document.getElementsByName("lastName")[0], profile.sname);
+                            changeValue(document.getElementsByName("city")[0], profile.city);
+                            changeValue(document.getElementsByName("zipcode")[0], profile.zip);
+                            changeValue(document.getElementsByName("address1")[0], profile.address1);
+                            changeValue(document.getElementsByName("houseNumber")[0], parseInt(profile.address1.match(/\d+/)));
+                            changeValue(document.getElementsByName("apartmentNumber")[0], parseInt(profile.apt));
+                            changeValue(document.getElementsByName("emailAddress")[0], profile.email);
+
+                            if (profile.phone[1] == "7" || profile.phone[2] == "7") {
+                                profile.phone = profile.phone[0] + profile.phone[1] + "7" + profile.phone[2] + profile.phone[3] + profile.phone[4] + profile.phone[5] + profile.phone[6] + profile.phone[7] + profile.phone[8] + profile.phone[9];
+                            }
+
+                            changeValue(document.getElementsByName("phoneNumber")[0], profile.phone);
+
+                            if ($('[data-auto-id="explicit-consent-checkbox"]:checked').length == 0) {
+                                $('[type="checkbox"]')[1].click();
+                            }
+                        }
+
+                        if (aS.adiSettings['adiAutocheckout'] == "actionBtnOn") {
+                            setTimeout(function () {
+                                $('[data-auto-id="review-and-pay-button"]').click();
+                            }, 600);
+                        }
+                    }
+                }, 1000);
+            }
         }
-
-        //if (aS.adiSettings['autofill'] == "settingOn") {
-        changeValue(document.getElementsByName("firstName")[0], profile.fname);
-        changeValue(document.getElementsByName("lastName")[0], profile.sname);
-        changeValue(document.getElementsByName("city")[0], profile.city);
-        changeValue(document.getElementsByName("zipcode")[0], profile.zip);
-        changeValue(document.getElementsByName("address1")[0], profile.address1);
-        changeValue(document.getElementsByName("houseNumber")[0], parseInt(profile.address1.match(/\d+/)));
-        changeValue(document.getElementsByName("apartmentNumber")[0], parseInt(profile.flat));
-        changeValue(document.getElementsByName("emailAddress")[0], profile.email);
-
-        if (profile.phone[1] == "7" || profile.phone[2] == "7") {
-            profile.phone = profile.phone[0] + profile.phone[1] + "7" + profile.phone[2] + profile.phone[3] + profile.phone[4] + profile.phone[5] + profile.phone[6] + profile.phone[7] + profile.phone[8] + profile.phone[9];
-        }
-        changeValue(document.getElementsByName("phoneNumber")[0], profile.phone);
-
-        if ($('[data-auto-id="explicit-consent-checkbox"]:checked').length == 0) {
-            $('[type="checkbox"]')[1].click();
-        }
-        //}
-
-        setTimeout(function () {
-            $('[data-auto-id="review-and-pay-button"]').click();
-        }, 600);
-    }
-}, 1000);
-
-
+    });
+});
 
 if (window.location.pathname.includes("yeezy")) {
-
     var positiveSizes = new Array();
-
-    chrome.storage.sync.get('adiSettings', function (aS) {
+    chrome.storage.local.get('adiSettings', function (aS) {
         if (aS.adiSettings) {
             for (var i = 0; i < Object.keys((aS.adiSettings)).length; i++) {
                 if (Object.entries(aS.adiSettings)[i][1] == "sizeOn") {
@@ -102,20 +99,27 @@ if (window.location.pathname.includes("yeezy")) {
     }, 100);
 }
 
+chrome.storage.local.get('adiSettings', function (aS) {
+    if (aS.adiSettings['adiAutocheckout'] == "actionBtnOn") {
+        let checkExistAddToCart = setInterval(function () {
+            if (aS.adiSettings['adiWaitForAvailability'] != "actionBtnOn") {
+                clearInterval(checkExistAddToCart);
+            }
 
-let checkExistAddToCart = setInterval(function () {
-        if ($('[data-auto-id="glass-checkout-button-right-side"]').length) {
-            setTimeout(function () {
-                $('[data-auto-id="glass-checkout-button-right-side"]').click();
-            }, 500);
+            if ($('[data-auto-id="glass-checkout-button-right-side"]').length) {
+                setTimeout(function () {
+                    $('[data-auto-id="glass-checkout-button-right-side"]').click();
+                }, 500);
 
-            setTimeout(function () {
-                $('[data-auto-id="glass-checkout-button-right-side"]').click();
-            }, 1000);
-        }
-}, 200);
+                setTimeout(function () {
+                    $('[data-auto-id="glass-checkout-button-right-side"]').click();
+                }, 1000);
+            }
+        }, 200);
+    }
+});
 
-/*
+
 if (window.location.origin.includes("yoomoney")) {
     chrome.storage.sync.get('profiles', function (list) {
         for (var i = 0; i < list.profiles.length; i++) {
@@ -137,9 +141,9 @@ if (window.location.origin.includes("yoomoney")) {
 
                     if (aS.adiSettings['autofill'] == "settingOn") {
                         changeValue(document.getElementsByName("card-number")[0], profile.cardNumber);
-                        changeValue(document.getElementsByName("expiry-month")[0], profile.cardDate[0] + profile.cardDate[1]);
-                        changeValue(document.getElementsByName("expiry-year")[0], profile.cardDate[2] + profile.cardDate[3]);
-                        changeValue(document.getElementsByName("security-code")[0], profile.cardCVV);
+                        changeValue(document.getElementsByName("expiry-month")[0], profile.expdate[0] + profile.expdate[1]);
+                        changeValue(document.getElementsByName("expiry-year")[0], profile.expdate[2] + profile.expdate[3]);
+                        changeValue(document.getElementsByName("security-code")[0], profile.cvv);
                     }
 
                     if (aS.adiSettings['autocheckout'] == "settingOn") {
@@ -166,5 +170,3 @@ function clickSize(array) {
         clickSize(array);
     }
 }
-
-*/
