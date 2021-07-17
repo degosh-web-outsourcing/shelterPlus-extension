@@ -54,7 +54,7 @@
 	border: 2px white solid !important;
 }
 .proxyOn {
-	border: 2px solid green !important;
+	border: 2px solid #3BEB4C !important;
 }
 .proxyOff {
 	border: 2px solid #5A5858 !important;
@@ -158,10 +158,112 @@
 	margin-right: 15%;
 	margin-bottom: 5%;
 }
+
 #exitAppBtn:hover {
 	border: solid 2px rgb(212, 25, 25)!important;
 }
 
 #dummyBtnsDiv {
 	flex: 1;
+}
+
+/*opaque background of the modal*/
+.modal {
+	display: none; 
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	border-radius: 10px;
+}
+
+.modalContent {
+	background-color: #0a0a0a;
+    margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid white;
+	width: 50%; /* Could be more or less, depending on screen size */
+	height: 40%;
+	border-radius: 10px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+#modalTextDiv {
+	flex: 1;
+}
+
+#modalTextDiv p {
+	font-size: 20px;
+	color: white;
+	text-align: center;
+}
+
+#modalActionBtnsDiv {
+	flex: 1;
+	align-items: center;
+	text-align: center;
+
+	display: flex;
+	flex-direction: row;
+}
+
+#modalDummyDiv {
+	flex: 1;
+}
+
+#yesBtnDiv {
+	flex: 1;
+	margin-left: 1%;
+}
+
+#noBtnDiv {
+	flex: 1;
+	margin-right: 1%;
+}
+
+.modalBtn {
+	font-size: 15px;
+	font-weight: bold;
+	font-style: italic;
+	width: 70%;
+	padding: 10px;
+	padding-left: 10%;
+	padding-right: 10%;
+	border: 2px solid #5A5858;
+	border-radius: 5px;
+	background-color: #0A0A0A;
+	color: white;
+	margin-left: 15%;
+	margin-right: 15%
+}
+
+.modalBtn:hover {
+	border: 2px solid white;
+}
+
+#exitAppYesBtn {
+	border: 2px solid rgb(92, 34, 34);
+}
+#exitAppYesBtn:hover {
+	border: solid 2px rgb(212, 25, 25)!important;
+}
+
+.close {
+	color: white;
+	float: left top;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover {
+  color: green;
+  text-decoration: none;
+  cursor: pointer;
 }
