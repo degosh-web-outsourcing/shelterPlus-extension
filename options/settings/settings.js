@@ -12,21 +12,7 @@ chrome.storage.local.get('license', function (key) {
     });
 });
 
-$(function () {
-    $("#resetProfilesBtn").on('click', function () {
-        chrome.storage.local.set({ 'profiles': new Array() });
-    });
-
-    $("#resetAllBtn").on('click', function () {
-        chrome.storage.local.set({ 'profiles': new Array() });
-        chrome.storage.local.set({ 'adiSettings': null });
-        chrome.storage.local.set({ 'kithSettings': null });
-        chrome.storage.local.set({ 'kithSettings': null });
-        chrome.storage.local.set({ 'shopifySettings': null });
-        chrome.storage.local.set({ 'proxyHttps': null });
-        location.reload();
-    });
-
+$(document).ready(function () {
     $('#impEverythingBtn').on('click', function () {
         $('#upload').click();
 
@@ -56,7 +42,7 @@ $(function () {
                 for (var i = 0; i < pr.profiles.length; i++) {
                     prUpdate.push(pr.profiles[i]);
                 }
-                
+
                 chrome.storage.local.set({ 'profiles': prUpdate });
                 chrome.storage.local.set({ 'adiSettings': adi });
                 chrome.storage.local.set({ 'kithSettings': ki });
@@ -84,7 +70,90 @@ $(function () {
         });
     });
 
-    $('#exitAppBtn').on('click', function () {
+    //для выхода из расширения
+    var exitAppModal = document.getElementById("exitAppModal");
+    $("#exitAppBtn").on("click", function () {
+        exitAppModal.style.display = "block";
+    });
+    //убрать по нажатию на крестик 
+    $("#modalExitAppSpan").on("click", function () {
+        exitAppModal.style.display = "none";
+    });
+    //убратьФпо нажатию на нет
+    $("#exitAppNoBtn").on("click", function () {
+        exitAppModal.style.display = "none";
+    });
+    //убрать по нажатию вне него
+    window.onclick = function (event) {
+        if (event.target == exitAppModal) {
+            exitAppModal.style.display = "none";
+        }
+    }
+
+    //модал удаления всего
+    var resetAllModal = document.getElementById("resetAllModal");
+    $("#resetAllBtn").on("click", function () {
+        resetAllModal.style.display = "block";
+    });
+    //убрать по нажатию на крестик 
+    $("#modalResetAllSpan").on("click", function () {
+        resetAllModal.style.display = "none";
+    });
+    //убрать по нажатию на нет
+    $("#resetAllNoBtn").on("click", function () {
+        resetAllModal.style.display = "none";
+    });
+
+    $("#resetAllYesBtn").on("click", function () {
+        resetAllModal.style.display = "none";
+    });
+    //убрать по нажатию вне него
+    window.onclick = function (event) {
+        if (event.target == resetAllModal) {
+            resetAllModal.style.display = "none";
+        }
+    }
+
+    //модал удаления профилей
+    var resetPfofilesModal = document.getElementById("resetProfilesModal");
+    $("#resetProfilesBtn").on("click", function () {
+        resetPfofilesModal.style.display = "block";
+    });
+    //убрать по нажатию на крестик 
+    $("#modalResetProfilesSpan").on("click", function () {
+        resetPfofilesModal.style.display = "none";
+    });
+    //убрать по нажатию на нет
+    $("#resetProfilesNoBtn").on("click", function () {
+        resetPfofilesModal.style.display = "none";
+    });
+    $("#resetProfilesYesBtn").on("click", function () {
+        resetPfofilesModal.style.display = "none";
+    });
+    //убрать по нажатию вне него
+    window.onclick = function (event) {
+        if (event.target == resetPfofilesModal) {
+            resetPfofilesModal.style.display = "none";
+        }
+    }
+});
+
+$(function () {
+    $("#resetProfilesYesBtn").on('click', function () {
+        chrome.storage.local.set({ 'profiles': new Array() });
+    });
+
+    $("#resetAllYesBtn").on('click', function () {
+        chrome.storage.local.set({ 'profiles': new Array() });
+        chrome.storage.local.set({ 'adiSettings': null });
+        chrome.storage.local.set({ 'kithSettings': null });
+        chrome.storage.local.set({ 'kithSettings': null });
+        chrome.storage.local.set({ 'shopifySettings': null });
+        chrome.storage.local.set({ 'proxyHttps': null });
+        location.reload();
+    });
+
+    $('#exitAppYesBtn').on('click', function () {
         chrome.storage.local.set({ 'license': null });
         window.location.href = "../auth/auth.html";
     });
@@ -128,13 +197,12 @@ $(function () {
     });
 });
 
-
-function download(filename, text) {
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-    element.setAttribute('download', filename);
-    element.style.display = 'none';
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+function download(filename, text) { 
+    var element = document.createElement('a'); 
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text)); 
+    element.setAttribute('download', filename); 
+    element.style.display = 'none'; 
+    document.body.appendChild(element); 
+    element.click(); 
+    document.body.removeChild(element); 
 }
