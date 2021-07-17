@@ -11,7 +11,7 @@ chrome.storage.local.get('license', function (key) {
         console.log('Something went wrong', err);
     });
 });
-  
+
 $(function () {
     $("#resetProfilesBtn").on('click', function () {
         chrome.storage.local.set({ 'profiles': new Array() });
@@ -25,6 +25,63 @@ $(function () {
         chrome.storage.local.set({ 'shopifySettings': null });
         chrome.storage.local.set({ 'proxyHttps': null });
         location.reload();
+    });
+
+    $('#impEverythingBtn').on('click', function () {
+        $('#upload').click();
+
+        const input = document.getElementById('upload');
+        input.addEventListener('change', function (e) {
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                let allData = reader.result.substring(1);
+                allData = allData.substring(0, allData.length - 1);
+
+                let pr = JSON.parse((allData.split(',{"adiSettings":')[0]));
+                let other = allData.split(',{"adiSettings":')[1];
+
+                let adi = JSON.parse(other.split('},{"kithSettings":')[0]);
+
+                other = other.split('},{"kithSettings":')[1];
+
+                let ki = JSON.parse(other.split('},{"shopifySettings')[0]);
+
+                other = other.split('},{"shopifySettings":')[1];
+
+                let sh = other;
+                sh = sh.substring(0, sh.length - 1);
+
+                let prUpdate = new Array();
+                for (var i = 0; i < pr.profiles.length; i++) {
+                    prUpdate.push(pr.profiles[i]);
+                }
+                
+                chrome.storage.local.set({ 'profiles': prUpdate });
+                chrome.storage.local.set({ 'adiSettings': adi });
+                chrome.storage.local.set({ 'kithSettings': ki });
+                chrome.storage.local.set({ 'shopifySettings': sh });
+            }
+
+            reader.readAsText(input.files[0]);
+        });
+    });
+
+    $('#expEverytingBtn').on('click', function () {
+        chrome.storage.local.get("profiles", function (obj) {
+            chrome.storage.local.get('adiSettings', function (aS) {
+                chrome.storage.local.get('kithSettings', function (kS) {
+                    chrome.storage.local.get('shopifySettings', function (sS) {
+                        let arr = new Array();
+                        arr.push(obj);
+                        arr.push(aS);
+                        arr.push(kS);
+                        arr.push(sS);
+                        download("shelterPlusExtension.txt", JSON.stringify(arr));
+                    });
+                });
+            });
+        });
     });
 
     $('#exitAppBtn').on('click', function () {
@@ -70,3 +127,14 @@ $(function () {
         });
     });
 });
+
+
+function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+}
