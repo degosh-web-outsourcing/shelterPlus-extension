@@ -70,36 +70,35 @@ $(document).ready(function () {
         });
     });
 
-    //для выхода из расширения
     var exitAppModal = document.getElementById("exitAppModal");
     $("#exitAppBtn").on("click", function () {
         exitAppModal.style.display = "block";
     });
-    //убрать по нажатию на крестик 
+
     $("#modalExitAppSpan").on("click", function () {
         exitAppModal.style.display = "none";
     });
-    //убратьФпо нажатию на нет
+
     $("#exitAppNoBtn").on("click", function () {
         exitAppModal.style.display = "none";
     });
-    //убрать по нажатию вне него
+
     window.onclick = function (event) {
         if (event.target == exitAppModal) {
             exitAppModal.style.display = "none";
         }
     }
 
-    //модал удаления всего
+
     var resetAllModal = document.getElementById("resetAllModal");
     $("#resetAllBtn").on("click", function () {
         resetAllModal.style.display = "block";
     });
-    //убрать по нажатию на крестик 
+
     $("#modalResetAllSpan").on("click", function () {
         resetAllModal.style.display = "none";
     });
-    //убрать по нажатию на нет
+
     $("#resetAllNoBtn").on("click", function () {
         resetAllModal.style.display = "none";
     });
@@ -107,30 +106,31 @@ $(document).ready(function () {
     $("#resetAllYesBtn").on("click", function () {
         resetAllModal.style.display = "none";
     });
-    //убрать по нажатию вне него
+
     window.onclick = function (event) {
         if (event.target == resetAllModal) {
             resetAllModal.style.display = "none";
         }
     }
 
-    //модал удаления профилей
+
     var resetPfofilesModal = document.getElementById("resetProfilesModal");
     $("#resetProfilesBtn").on("click", function () {
         resetPfofilesModal.style.display = "block";
     });
-    //убрать по нажатию на крестик 
+
     $("#modalResetProfilesSpan").on("click", function () {
         resetPfofilesModal.style.display = "none";
     });
-    //убрать по нажатию на нет
+
     $("#resetProfilesNoBtn").on("click", function () {
         resetPfofilesModal.style.display = "none";
     });
+
     $("#resetProfilesYesBtn").on("click", function () {
         resetPfofilesModal.style.display = "none";
     });
-    //убрать по нажатию вне него
+
     window.onclick = function (event) {
         if (event.target == resetPfofilesModal) {
             resetPfofilesModal.style.display = "none";
