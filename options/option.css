@@ -1,6 +1,10 @@
 /*BASIC CSS FONTS AND STUFF*/
 label, h1, h2, h3, h4, h5, a, p, button {
-    font-family: Roboto;
+/*    font-family: Roboto; */
+    font-family: -apple-system, BlinkMacSystemFont,  
+    "Segoe UI", "Roboto", "Oxygen",  
+    "Ubuntu", "Cantarell", "Fira Sans",  
+    "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 html, body {

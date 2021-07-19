@@ -342,8 +342,6 @@
 
 .actionBtnOff {
     font-size: 15px;
-    font-weight: bold;
-    font-style: italic;
     width: 70%;
     padding: 10px;
     padding-left: 10%;
@@ -363,8 +361,6 @@
 
 .actionBtnOn {
     font-size: 15px;
-    font-weight: bold;
-    font-style: italic;
     width: 70%;
     padding: 10px;
     padding-left: 10%;
