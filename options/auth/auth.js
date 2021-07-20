@@ -17,6 +17,7 @@ chrome.storage.local.get('license', function (key) {
     }
 });
 
+
 $(document).ready(function () {
     $('#img').on('click', function () {
         syncLicense();

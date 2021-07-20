@@ -156,12 +156,16 @@ $(function () {
         }
     });
 
+    document.getElementById('phone').addEventListener('input', function (e) {
+        e.target.value = e.target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1').trim();
+    });
+
     document.getElementById('cardNumber').addEventListener('input', function (e) {
         e.target.value = e.target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
     });
 
     document.getElementById('expdate').addEventListener('input', function (e) {
-        e.target.value = e.target.value.replace(/[^\dA-Z]/g, '').trim();
+        e.target.value = e.target.value.replace(/^(\d\d)(\d)$/g,'$1/$2').replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2').replace(/[^\d\/]/g,'').trim();
     });
 
     document.getElementById('cvv').addEventListener('input', function (e) {
