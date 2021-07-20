@@ -2,12 +2,14 @@ const changeValue = (element, value) => {
     var event = new Event('change', { bubbles: true });
     var evnt = new Event('focus');
     var evt = new Event('blur');
-    element.value = value;
-    element.dispatchEvent(event);
-    element.focus();
-    element.dispatchEvent(evnt);
-    element.blur();
-    element.dispatchEvent(evt);
+    if (element.value != undefined) {
+        element.value = value;
+        element.dispatchEvent(event);
+        element.focus();
+        element.dispatchEvent(evnt);
+        element.blur();
+        element.dispatchEvent(evt);
+    }
 }
 
 
