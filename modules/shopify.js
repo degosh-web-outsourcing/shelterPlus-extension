@@ -37,9 +37,10 @@ chrome.storage.local.get('profiles', function (list) {
                 fillField('#checkout_shipping_address_country', profile.country, true);
                 fillField('#checkout_billing_address_country', profile.country, true);
 
-                if (profile.state == "Moscow") {
-                    profile.state = "MOW";
+                if ($(`option:contains("${profile.state}")`).length) {
+                    profile.state = $(`option:contains("${profile.state}")`).val();
                 }
+
                 fillField('#checkout_shipping_address_province', profile.state, true);
                 fillField('#checkout_billing_address_province', profile.state, true);
 
