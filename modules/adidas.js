@@ -164,6 +164,55 @@ chrome.storage.local.get('adiSettings', function (aS) {
     }
 });
 
+if (window.location.origin.includes("yoomoney")) {
+    //берем из хранилища profiles и засовываем в list
+    chrome.storage.local.get('profiles', function (list) {
+        //проверяем какой из профилей выбран
+        for (var i = 0; i < list.profiles.length; i++) {
+            if (list.profiles[i].selected == true) {
+                //засовываем выбраный в profile
+                var profile = list.profiles[i];
+            }
+        }
+
+        //берем adiSettings из хранилища и засовываем в aS
+        chrome.storage.local.get('adiSettings', function (aS) {
+            //??? зачем тут тоже функция-интервал
+            let checkExist = setInterval(function () {
+                //??? что делают последующие 2 строчки
+                if ($('input[name="card-number"]').length) {
+                    clearInterval(checkExist);
+
+                    //react - валидация формы при блюре
+                    // расшир, которое показывает какие wappalyzer
+                    const changeValue = (element, value) => {
+                        const event = new Event('input', { bubbles: true })
+                        element.value = value
+                        element.dispatchEvent(event)
+                    }
+
+                    //если выбран автофил, то заполняем данные карты
+                    if (aS.adiSettings['autofill'] == "settingOn") {
+                        changeValue(document.getElementsByName("card-number")[0], profile.cardNumber);
+                        changeValue(document.getElementsByName("expiry-month")[0], profile.expdate[0] + profile.expdate[1]);
+                        changeValue(document.getElementsByName("expiry-year")[0], profile.expdate[3] + profile.expdate[4]);
+                        changeValue(document.getElementsByName("security-code")[0], profile.cvv);
+                    }
+
+                    //если выбран авточекаут, то нажимаем чекаут
+                    if (aS.adiSettings['autocheckout'] == "settingOn") {
+                        setTimeout(function () {
+                            $('span[class="MuiButton-label"]').click();
+                        }, 1000);
+                    }
+                }
+            }, 100);
+        });
+
+
+    });
+}
+
 function clickSize(array) {
     var size = array[Math.floor(Math.random() * array.length)];
     if ($(`li:contains(" ${size} UK")`).length) {
