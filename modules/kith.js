@@ -80,7 +80,7 @@ chrome.storage.local.get('kithSettings', function (kS) {
                     }
 
                     fillField('#cardExpiryMonth', parseInt(month), true);
-                    fillField('#cardExpiryYear', parseInt("20" + profile.expdate[2] + profile.expdate[3]), true);
+                    fillField('#cardExpiryYear', parseInt("20" + profile.expdate[3] + profile.expdate[4]), true);
 
                     Object.keys(fields1).forEach(id => {
                         fillField(id, fields1[id]);
