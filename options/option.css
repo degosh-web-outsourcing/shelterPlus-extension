@@ -1,10 +1,9 @@
 /*BASIC CSS FONTS AND STUFF*/
-label, h1, h2, h3, h4, h5, a, p, button {
-/*    font-family: Roboto; */
+label, h1, h2, h3, h4, h5, a, p, button, input, select, option {
     font-family: -apple-system, BlinkMacSystemFont,  
     "Segoe UI", "Roboto", "Oxygen",  
     "Ubuntu", "Cantarell", "Fira Sans",  
-    "Droid Sans", "Helvetica Neue", sans-serif;
+    "Droid Sans", "Helvetica Neue", sans-serif !important;
 }
 
 html, body {
@@ -18,7 +17,6 @@ html, body {
     height: 92.5%;
     position: relative;
     display: flex;
-    /*gap: .2%;*/
     flex-direction: row;
 }
 
@@ -32,7 +30,7 @@ input::selection {
 
 select, input {
     width: 95%;
-    font-size: 30px;
+    font-size: 25px;
     color: white;
     border: none;
     border-bottom: 2px solid white;
