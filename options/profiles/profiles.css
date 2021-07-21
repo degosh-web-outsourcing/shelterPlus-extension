@@ -43,7 +43,7 @@
     align-items: center;
     border-radius: 5px;
     display: flex;
-    background-color: white;
+    background-color: rgb(17, 17, 17);
     font-size: 25px;
     font-weight: 200;
     width: 100%;
@@ -51,6 +51,7 @@
 }
 
 .profilesPlaceholder {
+    color: white;
     margin-bottom: .25%;
     font-weight: bold !important;
 }
@@ -109,7 +110,8 @@
     position: relative;
     border-radius: 5px;
     width: 100%;
-    background-color: white;
+    background-color: rgb(17, 17, 17);
+    color: white;
     height: 5%;
     font-size: 25px;
 }
@@ -247,4 +249,8 @@
 	border-radius: 5px;
 	background-color: #0A0A0A;
 	color: white;
+}
+
+#go:hover {
+    border-color: white;
 }

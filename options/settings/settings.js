@@ -49,7 +49,7 @@ $(document).ready(function () {
                         arr.push(aS);
                         arr.push(kS);
                         arr.push(sS);
-                        download("shelterPlusExtension.txt", JSON.stringify(arr));
+                        download("allData.shelter", JSON.stringify(arr));
                     });
                 });
             });
