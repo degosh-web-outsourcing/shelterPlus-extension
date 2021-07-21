@@ -75,7 +75,7 @@ $(function () {
 	chrome.storage.local.get('profiles', function (list) {
 		list.profiles.forEach(function (profile) {
 			profilesList.insertAdjacentHTML('beforeend',
-				`<option value=${profile.profileName}>${profile.profileName}</option>`
+				`<option value="${profile.profileName}">${profile.profileName}</option>`
 			);
 			if (profile.selected) {
 				$('#MSprofileSelect').val(profile.profileName);
