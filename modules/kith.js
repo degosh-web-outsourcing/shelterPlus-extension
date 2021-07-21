@@ -11,7 +11,8 @@ chrome.storage.local.get('kithSettings', function (kS) {
     let checkout1 = setInterval(function () {
         if ($('[aria-label="Checkout"]').length) {
             clearInterval(checkout1);
-            $('[aria-label="Checkout"]').click();
+            //$('[aria-label="Checkout"]').click();
+            window.location.href = "https://eu.kith.com/pages/international-checkout#Global-e_International_Checkout";
         }
     }, 100);
 
