@@ -34,7 +34,6 @@
     </div>
 
     <div class="content">
-        <!--profiles on the left-->
         <div id="profilesList">
             <div class="profilesPlaceholder">
                 <a id="phName">Профиль</a>
@@ -45,9 +44,7 @@
             <div id=profilesListPlace></div>
         </div>
 
-        <!--constructor on the right-->
         <div class="constructor">
-            <!--белый бар над понструкором-->
             <div class="main">
             <div class="constructorControl">
                 <div id="leftSide">
@@ -60,7 +57,6 @@
                 </div>
             </div>
 
-            <!--конструктор справа-->
                 <div id="inputs">
                     <div class="row small">
                         <input tabindex=1 id="profileName" type="text" placeholder="Название профиля">
@@ -74,7 +70,7 @@
                         <input tabindex=5 id="email" type="text" placeholder="Email">
                     </div>
                     <div class="row extra">
-                        <input list="countryList" type="text" id="country" placeholder="Страна">
+                        <input list="countryList" type="text" id="country" placeholder="Страна" autocomplete="off">
                         <datalist id="countryList">
                         </datalist>
                         <input id="state" type="text" placeholder="Область / Штат">
