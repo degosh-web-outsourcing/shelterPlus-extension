@@ -189,7 +189,7 @@ function pushProfile(newProfile) {
     let shortcutProfileName = profileName;
 
     if (profileName.length >= 12) {
-        shortcutProfileName = 0;
+        shortcutProfileName = new String;
         for (let i = 0; i < 12; i++) {
             if (profileName[i]) {
                 shortcutProfileName += profileName[i];

@@ -21,7 +21,6 @@
 
 /*left div*/
 #profilesList,  #profilesListPlace{
-    background: rgba(14, 22, 12, .65);
     height: 94.5%;
     border-radius: 5px;
     flex: 1;
@@ -29,11 +28,13 @@
 }
 
 #profilesList {
+    background: rgb(17, 17, 17, .65);
     margin-left: 1%;
 }
 
 #profilesListPlace {
-    height: 93%;
+    height: 95%;
+    width: 100%;
     overflow-y: auto;
 }
 
@@ -56,6 +57,8 @@
 
 .profile {
     margin-top: .5%;
+    height: 6% !important;
+    width: 100% !important;
     color: white;
     background-color: #0A0A0A;
 }
@@ -79,15 +82,21 @@
 }
 
 .trash {
+    position: absolute;
+    right: 50%;
+    display: none;
     margin-right: 1%;
     color: white;
+}
+
+.profile:hover .trash {
+    display: inline;
 }
 
 /*right div*/
 .constructor {
     display: flex;
     flex-direction: column;
-    background: rgba(14, 22, 12, .25);
     height: 94.5%;
     flex: 1;
     margin-left: .25%;
@@ -128,7 +137,7 @@
 
 /*правый основной блок с инпутами*/
 .main {
-    background: rgba(14, 22, 12, .65);
+    background: rgb(17, 17, 17, .65);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -229,13 +238,13 @@
 
 #go {
     margin-top: 2%;
-    flex: 0;
-    font-size: 25px;
-    font-weight: 300;
-    border-radius: 5px;
-    border-color: white;
-    font-weight: 600;
-    position: relative;
-    height: 5%;
-    width: 100%;
+    font-size: 15px;
+	width: 100%;
+	padding: 10px;
+	padding-left: 10%;
+	padding-right: 10%;
+	border: 2px solid #5A5858;
+	border-radius: 5px;
+	background-color: #0A0A0A;
+	color: white;
 }

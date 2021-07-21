@@ -20,7 +20,7 @@
 	margin: auto;
 	left: 0;
 	right: 0;
-	background: rgba(14, 22, 12, .65);
+	background: rgb(17, 17, 17, .65);
 	border-radius: 5px;
 	display: flex;
 	flex-direction: column;
@@ -100,8 +100,6 @@
 	margin-right: 15%;
 }
 
-
-
 #impExpBtnsDiv {
 	flex: 1;
 }
@@ -167,7 +165,7 @@
 	top: 0;
 	width: 100%; /* Full width */
 	height: 100%; /* Full height */
-	background: rgba(14, 22, 12, .65);
+	background: rgb(17, 17, 17, .65);
 	border-radius: 10px;
 }
 

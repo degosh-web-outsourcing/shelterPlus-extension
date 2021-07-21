@@ -65,6 +65,8 @@ a {
 body {
     position: relative;
     background-color: #0A0A0A;
+    background-image: url(../imgs/backgroundSite.png);
+    background-size: cover;
 }
 
 /*NAVIGATION STUFF*/
