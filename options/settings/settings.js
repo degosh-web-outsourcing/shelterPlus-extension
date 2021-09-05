@@ -1,3 +1,5 @@
+const list = ["profiles", "adiSettings", "kithSettings", "shopifySettings", "proxy"];
+
 $(document).ready(function () {
     $('#impEverythingBtn').on('click', function () {
         $('#upload').click();
@@ -7,53 +9,35 @@ $(document).ready(function () {
             const reader = new FileReader();
 
             reader.onload = function () {
-                let allData = reader.result.substring(1);
-                allData = allData.substring(0, allData.length - 1);
+                let allData = reader.result;
+                allData= JSON.parse(allData);
 
-                let pr = JSON.parse((allData.split(',{"adiSettings":')[0]));
-                let other = allData.split(',{"adiSettings":')[1];
-
-                let adi = JSON.parse(other.split('},{"kithSettings":')[0]);
-
-                other = other.split('},{"kithSettings":')[1];
-
-                let ki = JSON.parse(other.split('},{"shopifySettings')[0]);
-
-                other = other.split('},{"shopifySettings":')[1];
-
-                let sh = other;
-                sh = sh.substring(0, sh.length - 1);
-
-                let prUpdate = new Array();
-                for (var i = 0; i < pr.profiles.length; i++) {
-                    prUpdate.push(pr.profiles[i]);
-                }
-
-                chrome.storage.local.set({ 'profiles': prUpdate });
-                chrome.storage.local.set({ 'adiSettings': adi });
-                chrome.storage.local.set({ 'kithSettings': ki });
-                chrome.storage.local.set({ 'shopifySettings': sh });
+                chrome.storage.local.set({ 'profiles': allData.profiles });
+                chrome.storage.local.set({ 'proxy': allData.proxy });
+                chrome.storage.local.set({ 'kithSettings': allData.kithSettings });
+                chrome.storage.local.set({ 'adiSettings': allData.adiSettings });
+                chrome.storage.local.set({ 'shopifySettings': allData.shopifySettings });
             }
 
             reader.readAsText(input.files[0]);
+            location.reload();
         });
     });
 
     $('#expEverytingBtn').on('click', function () {
-        chrome.storage.local.get("profiles", function (obj) {
-            chrome.storage.local.get('adiSettings', function (aS) {
-                chrome.storage.local.get('kithSettings', function (kS) {
-                    chrome.storage.local.get('shopifySettings', function (sS) {
-                        let arr = new Array();
-                        arr.push(obj);
-                        arr.push(aS);
-                        arr.push(kS);
-                        arr.push(sS);
-                        download("allData.shelter", JSON.stringify(arr));
-                    });
-                });
+        var exportData = new Object;
+
+
+        for (let i in list) {
+            chrome.storage.local.get(list[i], function (data) {
+                let method = list[i];
+                exportData[method] = data[method];
             });
-        });
+        }
+
+        setTimeout(() => {
+            download("extensionAllData.shelter", JSON.stringify(exportData));
+        }, 650);
     });
 
     var exitAppModal = document.getElementById("exitAppModal");
@@ -99,7 +83,7 @@ $(function () {
         chrome.storage.local.set({ 'kithSettings': null });
         chrome.storage.local.set({ 'kithSettings': null });
         chrome.storage.local.set({ 'shopifySettings': null });
-        chrome.storage.local.set({ 'proxyHttps': null });
+        chrome.storage.local.set({ 'proxy': null });
         location.reload();
     });
 
@@ -108,6 +92,16 @@ $(function () {
         window.location.href = "../auth/auth.html";
     });
 });
+
+function download(filename, text) { 
+    var element = document.createElement('a'); 
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text)); 
+    element.setAttribute('download', filename); 
+    element.style.display = 'none'; 
+    document.body.appendChild(element); 
+    element.click(); 
+    document.body.removeChild(element); 
+}
 
 $(function () {
     chrome.storage.local.get('proxyHttps', function (sw) {
@@ -146,13 +140,3 @@ $(function () {
         });
     });
 });
-
-function download(filename, text) { 
-    var element = document.createElement('a'); 
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text)); 
-    element.setAttribute('download', filename); 
-    element.style.display = 'none'; 
-    document.body.appendChild(element); 
-    element.click(); 
-    document.body.removeChild(element); 
-}
