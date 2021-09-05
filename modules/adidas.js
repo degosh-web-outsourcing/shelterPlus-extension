@@ -2,22 +2,24 @@ const changeValue = (element, value) => {
     var event = new Event('change', { bubbles: true });
     var evnt = new Event('focus');
     var evt = new Event('blur');
-    if (element.value != undefined) {
-        element.value = value;
-        element.dispatchEvent(event);
-        element.focus();
-        element.dispatchEvent(evnt);
-        element.blur();
-        element.dispatchEvent(evt);
+    if (element) {
+        if (element.value != undefined) {
+            element.value = value;
+            element.dispatchEvent(event);
+            element.focus();
+            element.dispatchEvent(evnt);
+            element.blur();
+            element.dispatchEvent(evt);
+        }
     }
 }
-
 
 chrome.storage.local.get('profiles', function (list) {
     for (var i = 0; i < list.profiles.length; i++) {
         if (list.profiles[i].selected == true) {
             var profile = list.profiles[i];
             chrome.storage.local.get('adiSettings', function (aS) {
+
                 let checkExist = setInterval(function () {
                     if ($('[data-qa-payment-option-preview-type="anyCard"]').length) {
                         $('[data-qa-payment-option-preview-type="anyCard"]').click();
@@ -47,48 +49,52 @@ chrome.storage.local.get('profiles', function (list) {
             if (list.profiles[i].selected == true) {
                 var profile = list.profiles[i];
 
-                if (profile.phone[1] == "7" || profile.phone[2] == "7") {
+                if (profile.phone[1] == "7") {
                     profile.phone = profile.phone[0] + profile.phone[1] + "7" + profile.phone[2] + profile.phone[3] + profile.phone[4] + profile.phone[5] + profile.phone[6] + profile.phone[7] + profile.phone[8] + profile.phone[9];
                 }
+                setTimeout(() => {
 
-                let checkExist = setInterval(function () {
-                    if (aS.adiSettings['adiAutofill'] == "actionBtnOn") {
-                        if ($('input[name="firstName"]').length) {
-                            changeValue(document.getElementsByName("firstName")[0], profile.fname);
-                            changeValue(document.getElementsByName("lastName")[0], profile.sname);
-                            changeValue(document.getElementsByName("city")[0], profile.city);
-                            changeValue(document.getElementsByName("zipcode")[0], profile.zip);
-                            changeValue(document.getElementsByName("address1")[0], profile.address1);
-                            changeValue(document.getElementsByName("houseNumber")[0], parseInt(profile.address1.match(/\d+/)));
-                            changeValue(document.getElementsByName("apartmentNumber")[0], parseInt(profile.apt));
-                            changeValue(document.getElementsByName("emailAddress")[0], profile.email);
-                            changeValue(document.getElementsByName("phoneNumber")[0], profile.phone);
+                    let checkExist = setInterval(function () {
+                        if (aS.adiSettings['adiAutofill'] == "actionBtnOn") {
+                            if ($('input[name="firstName"]').length) {
+                                changeValue(document.getElementsByName("firstName")[0], profile.fname);
+                                changeValue(document.getElementsByName("lastName")[0], profile.sname);
+                                changeValue(document.getElementsByName("city")[0], profile.city);
+                                changeValue(document.getElementsByName("zipcode")[0], profile.zip);
+                                changeValue(document.getElementsByName("address1")[0], profile.address1);
+                                changeValue(document.getElementsByName("houseNumber")[0], parseInt(profile.address1.match(/\d+/)));
+                                changeValue(document.getElementsByName("apartmentNumber")[0], parseInt(profile.apt));
+                                changeValue(document.getElementsByName("emailAddress")[0], profile.email);
+                                changeValue(document.getElementsByName("phoneNumber")[0], profile.phone);
+                                clearInterval(checkExist);
+                            }
+
+                            if ($('input[name="shippingAddress.firstName"]').length) {
+                                changeValue(document.getElementsByName("shippingAddress.firstName")[0], profile.fname);
+                                changeValue(document.getElementsByName("shippingAddress.lastName")[0], profile.sname);
+                                changeValue(document.getElementsByName("shippingAddress.city")[0], profile.city);
+                                changeValue(document.getElementsByName("shippingAddress.zipcode")[0], profile.zip);
+                                changeValue(document.getElementsByName("shippingAddress.address1")[0], profile.address1);
+                                changeValue(document.getElementsByName("shippingAddress.houseNumber")[0], parseInt(profile.address1.match(/\d+/)));
+                                changeValue(document.getElementsByName("shippingAddress.apartmentNumber")[0], parseInt(profile.apt));
+                                changeValue(document.getElementsByName("shippingAddress.emailAddress")[0], profile.email);
+                                changeValue(document.getElementsByName("shippingAddress.phoneNumber")[0], profile.phone);
+                                clearInterval(checkExist);
+                            }
+
+                            if ($('[data-auto-id="explicit-consent-checkbox"]:checked').length == 0 && window.location.href.includes("delivery")) {
+                                $('[type="checkbox"]')[1].click();
+                            }
+
+
+                            if (aS.adiSettings['adiAutocheckout'] == "actionBtnOn") {
+                                setTimeout(function () {
+                                    $('[data-auto-id="review-and-pay-button"]').click();
+                                }, 600);
+                            }
                         }
-
-                        if ($('input[name="shippingAddress.firstName"]').length) {
-                            changeValue(document.getElementsByName("shippingAddress.firstName")[0], profile.fname);
-                            changeValue(document.getElementsByName("shippingAddress.lastName")[0], profile.sname);
-                            changeValue(document.getElementsByName("shippingAddress.city")[0], profile.city);
-                            changeValue(document.getElementsByName("shippingAddress.zipcode")[0], profile.zip);
-                            changeValue(document.getElementsByName("shippingAddress.address1")[0], profile.address1);
-                            changeValue(document.getElementsByName("shippingAddress.houseNumber")[0], parseInt(profile.address1.match(/\d+/)));
-                            changeValue(document.getElementsByName("shippingAddress.apartmentNumber")[0], parseInt(profile.apt));
-                            changeValue(document.getElementsByName("shippingAddress.emailAddress")[0], profile.email);
-                            changeValue(document.getElementsByName("shippingAddress.phoneNumber")[0], profile.phone);
-                        }
-
-                        if ($('[data-auto-id="explicit-consent-checkbox"]:checked').length == 0 && window.location.href.includes("delivery")) {
-                            $('[type="checkbox"]')[1].click();
-                        }
-
-
-                        if (aS.adiSettings['adiAutocheckout'] == "actionBtnOn") {
-                            setTimeout(function () {
-                                $('[data-auto-id="review-and-pay-button"]').click();
-                            }, 600);
-                        }
-                    }
-                }, 1000);
+                    }, 1000);
+                }, 150);
             }
         }
     });
