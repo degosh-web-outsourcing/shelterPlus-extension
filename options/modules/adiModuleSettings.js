@@ -1,14 +1,16 @@
 $(function () {
     chrome.storage.local.get('adiSettings', function (aS) {
-        Object.keys(aS.adiSettings).forEach(id => {
-            if (aS.adiSettings[id] == "sizeOn") {
-                $(`#adidas${id}`).attr('class', 'sizeOn');
-            }
-        });
-
-        $(`#MSLRbtnsAdiAutofillBtn`).attr('class', aS.adiSettings['adiAutofill']);
-        $(`#MSLRbtnsAdiAutocheckoutBtn`).attr('class', aS.adiSettings['adiAutocheckout']);
-        $(`#MSLRbtnsAdiWaitAvailabilityBtn `).attr('class', aS.adiSettings['adiWaitForAvailability']);
+        if (aS.adiSettings != undefined) {
+            Object.keys(aS.adiSettings).forEach(id => {
+                if (aS.adiSettings[id] == "sizeOn") {
+                    $(`#adidas${id}`).attr('class', 'sizeOn');
+                }
+            });
+            
+            $(`#MSLRbtnsAdiAutofillBtn`).attr('class', aS.adiSettings['adiAutofill']);
+            $(`#MSLRbtnsAdiAutocheckoutBtn`).attr('class', aS.adiSettings['adiAutocheckout']);
+            $(`#MSLRbtnsAdiWaitAvailabilityBtn `).attr('class', aS.adiSettings['adiWaitForAvailability']);
+        }
     });
 });
 
@@ -91,6 +93,7 @@ function getSettings() {
 
 function getModuleStatus() {
     chrome.storage.local.get('adiSettings', function (aS) {
+        if (aS.adiSettings != undefined) {
         let activated = 0;
         Object.keys(aS.adiSettings).forEach(id => {
             if (aS.adiSettings[id] == "sizeOn" || aS.adiSettings[id] == "actionBtnOn") {
@@ -105,5 +108,6 @@ function getModuleStatus() {
 				$(`#adiModuleBtnDiv`).attr('class', 'moduleBtnOn');
 			}
 		}, 100);
+        }
     });
 }

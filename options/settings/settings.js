@@ -104,6 +104,7 @@ function download(filename, text) {
 }
 
 $(function () {
+    /*
     chrome.storage.local.get('proxyHttps', function (sw) {
         if (sw.proxyHttps) {
             $('#proxyInput').val(sw.proxyHttps.proxyD);
@@ -139,4 +140,5 @@ $(function () {
             }
         });
     });
+    */
 });

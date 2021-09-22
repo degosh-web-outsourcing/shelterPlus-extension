@@ -1,3 +1,4 @@
+/*
 chrome.storage.local.get('proxyHttps', function (sw) {
     chrome.tabs.create({ url: "../options/profiles/profiles.html" });
 
@@ -54,3 +55,4 @@ chrome.storage.local.get('proxyHttps', function (sw) {
         }
     }
 });
+*/

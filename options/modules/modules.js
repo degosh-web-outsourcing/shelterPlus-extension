@@ -1,28 +1,34 @@
 checkKey();
 
 setInterval(() => {
-    checkKey();
+	checkKey();
 }, 30000);
 
 
 chrome.storage.local.get('kithSettings', function (kS) {
-	Object.keys(kS.kithSettings).forEach(id => {
-		if (kS.kithSettings[id] == "actionBtnOn") {
-			$(`#kithModuleBtnDiv`).attr('class', 'moduleBtnOn');
-		}
-	});
+	if (kS.kithSettings != undefined) {
+		Object.keys(kS.kithSettings).forEach(id => {
+			if (kS.kithSettings[id] == "actionBtnOn") {
+				$(`#kithModuleBtnDiv`).attr('class', 'moduleBtnOn');
+			}
+		});
+	}
 });
 
 chrome.storage.local.get('adiSettings', function (aS) {
-	Object.keys(aS.adiSettings).forEach(id => {
-		if (aS.adiSettings[id] == "sizeOn" || aS.adiSettings[id] == "actionBtnOn") {
-			$(`#adiModuleBtnDiv`).attr('class', 'moduleBtnOn');
-		}
-	});
+	if (aS.adiSettings != undefined) {
+		Object.keys(aS.adiSettings).forEach(id => {
+			if (aS.adiSettings[id] == "sizeOn" || aS.adiSettings[id] == "actionBtnOn") {
+				$(`#adiModuleBtnDiv`).attr('class', 'moduleBtnOn');
+			}
+		});
+	}
 });
 
 chrome.storage.local.get('shopifySettings', function (sS) {
-	$(`#shopifyModuleBtnDiv`).attr('class', sS.shopifySettings['shopifyModuleBtnStatus']);
+	if (sS.shopifySettings != undefined) {
+		$(`#shopifyModuleBtnDiv`).attr('class', sS.shopifySettings['shopifyModuleBtnStatus']);
+	}
 });
 
 $(function () {
@@ -92,21 +98,21 @@ $(function () {
 });
 
 function checkKey() {
-    chrome.storage.local.get('license', function (key) {
-        fetch('https://dashboard.degosh.com/shelter/enter', {
-            method: 'POST',
-            body: new URLSearchParams({
-                key: key.license.replace(/\s/g, '')
-            }),
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
-        })
-            .then(res => res.json())
-            .then((json) => {
-                if (json.giveAccess == "Wrong IP" || json.giveAccess == "No key") {
-                    window.location.href = "../auth/auth.html";
-                }
-            }).catch(function (err) {
-                window.location.href = "../auth/auth.html";
-            });
-    });
+	chrome.storage.local.get('license', function (key) {
+		fetch('https://dashboard.degosh.com/shelter/enter', {
+			method: 'POST',
+			body: new URLSearchParams({
+				key: key.license.replace(/\s/g, '')
+			}),
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
+		})
+			.then(res => res.json())
+			.then((json) => {
+				if (json.giveAccess == "Wrong IP" || json.giveAccess == "No key") {
+					window.location.href = "../auth/auth.html";
+				}
+			}).catch(function (err) {
+				window.location.href = "../auth/auth.html";
+			});
+	});
 }

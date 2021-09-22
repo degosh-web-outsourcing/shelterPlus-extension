@@ -1,9 +1,10 @@
 $(function () {
     chrome.storage.local.get('kithSettings', function (kS) {
-        $(`#MSLRbtnsKithAutofillBtn`).attr('class', kS.kithSettings['autofill']);
-        $(`#MSLRbtnsKithAutocheckoutBtn`).attr('class', kS.kithSettings['autocheckout']);
-        $(`#MSLRsizeSelect`).val(kS.kithSettings['size']);
-        console.log(kS.kithSettings['size'])
+        if (kS.kithSettings != undefined) {
+            $(`#MSLRbtnsKithAutofillBtn`).attr('class', kS.kithSettings['autofill']);
+            $(`#MSLRbtnsKithAutocheckoutBtn`).attr('class', kS.kithSettings['autocheckout']);
+            $(`#MSLRsizeSelect`).val(kS.kithSettings['size']);
+        }
     });
 });
 
@@ -38,19 +39,21 @@ function getSettings() {
 
 function getModuleStatus() {
     chrome.storage.local.get('kithSettings', function (kS) {
-        let activated = 0;
-        Object.keys(kS.kithSettings).forEach(id => {
-            if (kS.kithSettings[id] == "sizeOn" || kS.kithSettings[id] == "actionBtnOn") {
-                activated += 1;
-            }
-        });
+        if (kS.kithSettings != undefined) {
+            let activated = 0;
+            Object.keys(kS.kithSettings).forEach(id => {
+                if (kS.kithSettings[id] == "sizeOn" || kS.kithSettings[id] == "actionBtnOn") {
+                    activated += 1;
+                }
+            });
 
-        setTimeout(function () {
-			if (activated == 0) {
-				$(`#kithModuleBtnDiv`).attr('class', 'moduleBtnOff');
-			} else {
-				$(`#kithModuleBtnDiv`).attr('class', 'moduleBtnOn');
-			}
-		}, 100);
+            setTimeout(function () {
+                if (activated == 0) {
+                    $(`#kithModuleBtnDiv`).attr('class', 'moduleBtnOff');
+                } else {
+                    $(`#kithModuleBtnDiv`).attr('class', 'moduleBtnOn');
+                }
+            }, 100);
+        }
     });
 }
