@@ -49,10 +49,9 @@
 		}
 	],
 	"background": {
-		"scripts": [
-			"background/background.js"
-		]
-	},
+		"scripts": ["background.js"],
+		"persistent": true
+	  },
 	"permissions": [
 		"proxy",
 		"storage",
