@@ -1,3 +1,10 @@
+checkKey();
+
+setInterval(() => {
+    checkKey();
+}, 30000);
+
+
 chrome.storage.local.get('kithSettings', function (kS) {
 	Object.keys(kS.kithSettings).forEach(id => {
 		if (kS.kithSettings[id] == "actionBtnOn") {
@@ -84,3 +91,22 @@ $(function () {
 	});
 });
 
+function checkKey() {
+    chrome.storage.local.get('license', function (key) {
+        fetch('https://dashboard.degosh.com/shelter/enter', {
+            method: 'POST',
+            body: new URLSearchParams({
+                key: key.license.replace(/\s/g, '')
+            }),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
+        })
+            .then(res => res.json())
+            .then((json) => {
+                if (json.giveAccess == "Wrong IP" || json.giveAccess == "No key") {
+                    window.location.href = "../auth/auth.html";
+                }
+            }).catch(function (err) {
+                window.location.href = "../auth/auth.html";
+            });
+    });
+}

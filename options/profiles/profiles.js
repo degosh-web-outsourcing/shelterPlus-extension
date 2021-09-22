@@ -2,20 +2,13 @@ const countries = chrome.runtime.getURL('../../additional/countries.json');
 const testProfile = { 'fname': "Игорь", 'sname': "Павлов", 'email': "test@example.com", 'phone': "9155553322", 'country': "Russia", 'state': "Moscow", 'city': "Москва", 'zip': "125310", 'address1': "Ул. Полянка, 25", 'address2': "подъезд 2", 'apt': "75", 'cardNumber': "4242 4242 4242 4242", 'expdate': "02/30", 'cvv': "123", 'bname': "Игорь Павлов", 'profileName': "Test", 'selected': false };
 var profile = { 'fname': null, 'sname': null, 'email': null, 'phone': null, 'country': null, 'state': null, 'city': null, 'zip': null, 'address1': null, 'address2': null, 'apt': null, 'cardNumber': null, 'expdate': null, 'cvv': null, 'bname': null, 'profileName': null, 'selected': null };
 
-chrome.storage.local.get('license', function (key) {
-    fetch(`https://degosh.com/shelterPlus-extension/${key.license}/`).then(function (response) {
-        return response.text();
-    }).then(function (html) {
-        if (html !== "OK") {
-            window.location.href = "../auth/auth.html";
-        } else {
-            $('#status').text("Ошибка");
-        }
-    }).catch(function (err) {
-        console.log('Something went wrong', err);
-        window.location.href = "../auth/auth.html";
-    });
-});
+checkKey();
+
+setInterval(() => {
+    checkKey();
+}, 30000);
+
+
 
 $(function () {
     chrome.storage.local.get('profiles', function (list) {
@@ -166,7 +159,7 @@ $(function () {
     });
 
     document.getElementById('expdate').addEventListener('input', function (e) {
-        e.target.value = e.target.value.replace(/^(\d\d)(\d)$/g,'$1/$2').replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2').replace(/[^\d\/]/g,'').trim();
+        e.target.value = e.target.value.replace(/^(\d\d)(\d)$/g, '$1/$2').replace(/^(\d\d\/\d\d)(\d+)$/g, '$1/$2').replace(/[^\d\/]/g, '').trim();
     });
 
     document.getElementById('cvv').addEventListener('input', function (e) {
@@ -265,5 +258,25 @@ function rewriteProfile(profile) {
                 chrome.storage.local.set({ 'profiles': list.profiles });
             }
         }
+    });
+}
+
+function checkKey() {
+    chrome.storage.local.get('license', function (key) {
+        fetch('https://dashboard.degosh.com/shelter/enter', {
+            method: 'POST',
+            body: new URLSearchParams({
+                key: key.license.replace(/\s/g, '')
+            }),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
+        })
+            .then(res => res.json())
+            .then((json) => {
+                if (json.giveAccess == "Wrong IP" || json.giveAccess == "No key") {
+                    window.location.href = "../auth/auth.html";
+                }
+            }).catch(function (err) {
+                window.location.href = "../auth/auth.html";
+            });
     });
 }
