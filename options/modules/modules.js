@@ -99,20 +99,24 @@ $(function () {
 
 function checkKey() {
 	chrome.storage.local.get('license', function (key) {
-		fetch('https://dashboard.degosh.com/shelter/enter', {
-			method: 'POST',
-			body: new URLSearchParams({
-				key: key.license.replace(/\s/g, '')
-			}),
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
-		})
-			.then(res => res.json())
-			.then((json) => {
-				if (json.giveAccess == "Wrong IP" || json.giveAccess == "No key") {
+		if (key.license == undefined) {
+			window.location.href = "../auth/auth.html";
+		} else {
+			fetch('https://dashboard.degosh.com/shelter/enter', {
+				method: 'POST',
+				body: new URLSearchParams({
+					key: key.license.replace(/\s/g, '')
+				}),
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
+			})
+				.then(res => res.json())
+				.then((json) => {
+					if (json.giveAccess == "Wrong IP" || json.giveAccess == "No key") {
+						window.location.href = "../auth/auth.html";
+					}
+				}).catch(function (err) {
 					window.location.href = "../auth/auth.html";
-				}
-			}).catch(function (err) {
-				window.location.href = "../auth/auth.html";
-			});
+				});
+		}
 	});
 }
