@@ -91,6 +91,19 @@
     height: auto;
 }
 
+#solseaModuleLogoImg {
+    /*relative to the .moduleBtnOn / .moduleBtnOff*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 70%;
+    /* you can use % */
+    height: auto;
+}
+
 /*RIGHT MODULE SETTINGS TAB*/
 
 .moduleSettingsDiv {

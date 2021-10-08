@@ -25,6 +25,16 @@ chrome.storage.local.get('adiSettings', function (aS) {
 	}
 });
 
+chrome.storage.local.get('solseaSettings', function (solS) {
+	if (solS.solseaSettings != undefined) {
+		Object.keys(solS.solseaSettings).forEach(id => {
+			if (solS.solseaSettings[id] == "sizeOn" || solS.solseaSettings[id] == "actionBtnOn") {
+				$(`#solseaModuleBtnDiv`).attr('class', 'moduleBtnOn');
+			}
+		});
+	}
+});
+
 chrome.storage.local.get('shopifySettings', function (sS) {
 	if (sS.shopifySettings != undefined) {
 		$(`#shopifyModuleBtnDiv`).attr('class', sS.shopifySettings['shopifyModuleBtnStatus']);
@@ -80,6 +90,12 @@ $(function () {
 			}
 
 			chrome.storage.local.set({ 'shopifySettings': settings });
+		}
+	});
+
+	$('#solseaModuleBtnDiv').on('click', function () {
+		if (window.location.pathname != "/options/modules/solseaModuleSettings.html") {
+			window.location.href = "/options/modules/solseaModuleSettings.html";
 		}
 	});
 

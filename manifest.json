@@ -1,72 +1,64 @@
 {
-	"manifest_version": 2,
-	"name": "Shelter+",
-	"description": "Shelter",
-	"version": "1.0.2",
-	"options_page": "options/auth/auth.html",
-	"browser_action": {
-		"default_popup": "redirect/redirect.html"
-	},
-	"icons": {
-		"64": "imgs/logo/web-black-icon.png"	
-	},
-	"content_scripts": [
-		{
-			"all_frames": true,
-			"matches": [
-				"<all_urls>",
-				"https://*/*",
-				"http://*/*"
-			],
-			"js": [
-				"additional/jquery-3.6.0.min.js",
-				"modules/adidas.js"
-			]
-		},
-		{
-			"all_frames": true,
-			"matches": [
-				"<all_urls>",
-				"https://*/*",
-				"http://*/*"
-			],
-			"js": [
-				"additional/jquery-3.6.0.min.js",
-				"modules/kith.js"
-			]
-		},
-		{
-			"all_frames": true,
-			"matches": [
-				"<all_urls>",
-				"https://*/*",
-				"http://*/*"
-			],
-			"js": [
-				"additional/jquery-3.6.0.min.js",
-				"modules/shopify.js"
-			]
-		}
-	],
-	"background": {
-		"scripts": ["background.js"],
-		"persistent": true
-	  },
-	"permissions": [
-		"proxy",
-		"storage",
-		"cookies",
-		"activeTab",
-		"*://*/*",
-		"tabs",
-		"webRequest",
-		"webRequestBlocking",
-		"webNavigation",
-		"unlimitedStorage",
-		"<all_urls>"
-	],
-	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
-	"web_accessible_resources": [
-		"*.json"
-	]
+  "manifest_version": 2,
+  "name": "Shelter+",
+  "description": "https://sheltercook.plus/",
+  "version": "1.0.4",
+  "options_page": "options/auth/auth.html",
+  "browser_action": {
+    "default_popup": "redirect/redirect.html"
+  },
+  "icons": {
+    "64": "imgs/logo/web-black-icon.png"
+  },
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": ["<all_urls>", "https://*/*", "http://*/*"],
+      "js": ["additional/jquery-3.6.0.min.js", "modules/adidas.js"]
+    },
+    {
+      "all_frames": true,
+      "matches": ["<all_urls>", "https://*/*", "http://*/*"],
+      "js": ["additional/jquery-3.6.0.min.js", "modules/kith.js"]
+    },
+    {
+      "all_frames": true,
+      "matches": ["<all_urls>", "https://*/*", "http://*/*"],
+      "js": ["additional/jquery-3.6.0.min.js", "modules/shopify.js"]
+    },
+    {
+      "all_frames": true,
+      "matches": ["<all_urls>", "https://*/*", "http://*/*"],
+      "css": ["additional/iziToast.min.css"],
+      "js": ["additional/jquery-3.6.0.min.js", "additional/iziToast.min.js","modules/solsea.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "commands": {
+    "dublicate": {
+      "suggested_key": {
+        "default": "Alt+0"
+      },
+      "description": "Дублировать вкладку",
+      "global": false
+    }
+  },
+  "permissions": [
+    "proxy",
+    "storage",
+    "cookies",
+    "activeTab",
+    "*://*/*",
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "webNavigation",
+    "unlimitedStorage",
+    "<all_urls>"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
+  "web_accessible_resources": ["*.json"]
 }

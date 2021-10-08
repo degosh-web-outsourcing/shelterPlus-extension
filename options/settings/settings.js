@@ -1,4 +1,4 @@
-const list = ["profiles", "adiSettings", "kithSettings", "shopifySettings", "proxy"];
+const list = ["profiles", "adiSettings", "kithSettings", "shopifySettings", "proxy", "solseaSettings"];
 
 $(document).ready(function () {
     $('#impEverythingBtn').on('click', function () {
@@ -17,6 +17,7 @@ $(document).ready(function () {
                 chrome.storage.local.set({ 'kithSettings': allData.kithSettings });
                 chrome.storage.local.set({ 'adiSettings': allData.adiSettings });
                 chrome.storage.local.set({ 'shopifySettings': allData.shopifySettings });
+                chrome.storage.local.set({ 'solseaSettings': allData.solseaSettings });
             }
 
             reader.readAsText(input.files[0]);
